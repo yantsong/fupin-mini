@@ -1,0 +1,21 @@
+<view class='back'>
+  <view class='tishikuang'>
+    <image class='tishi-logo' src='../../img/success-logo.png'></image>
+    <view class='tishi-text'>付款成功</view>
+    <view class='tishi-text'>请等待接单</view>
+  </view>
+  <view class='fukuan-text'>
+    付款详情
+    <view class='xianhuaxian'></view>
+  </view>
+  <view class='fukuan-qu'>
+    <view class='zhifu-qu'>
+      <view class='zhifu-btn'></view>
+      <view class='zhifu-text' style='line-height:30rpx;'>微信支付</view>
+      <view class='zhifu-price'> <text style='font-size:20rpx'>￥</text>{{allprice}}.<text style='font-size:20rpx'>0</text></view>
+      <view class='zhifu-tishi'>商品将额外优惠哦</view>
+    </view>
+      <view class='zongji-price' bindtap='wancheng' >完成</view>
+    
+  </view>
+</view>

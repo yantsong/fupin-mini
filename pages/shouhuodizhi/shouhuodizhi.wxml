@@ -1,0 +1,28 @@
+<view class='back'> 
+  <view class='dizhiliebiao'>
+    <view class='dizhi-text1'>
+      地址列表
+      <view class='xiahuaxian'></view>
+    </view>
+    <view class='dizhi-text2' bindtap='adddizhi'>新增收货地址</view>
+  </view>
+  <view class='every-dizhi' wx:if="{{dizhilist.length}}" wx:for='{{dizhilist}}' data-name='{{item.name}}' data-phone='{{item.telephone}}' data-id='{{item.addressId}}' data-remarks='{{item.remarks}}' data-floor='{{item.floorNum}}' data-orgName='{{item.orgName}}' bindtap='godetail'>
+    <text class='dizhi-logo'>{{item.name[0]}}</text>
+    <view class='dizhi-xinxi'>
+      <view class='user-xinxi'>
+        <view class='user-name'>{{item.name}}</view>
+        <view class='user-phone'>{{item.telephone}}</view>
+      </view>
+      <view class='moren-dizhi {{item.ifMr == 1 ? "display":"none-display"}}'>
+        <view class='moren-text '>默认</view>
+        <view class='moren-text1'>{{item.orgName}} </view>
+      </view>
+      <view class='dizhi-text'>{{item.floorNum}} {{item.remarks}}</view>
+    </view>
+    <view class='dizhi-bianji' data-id='{{item.addressId}}' catchtap='bianjidizhi' data-name='{{item.name}}' data-phone='{{item.telephone}}' data-remarks='{{item.remarks}}' data-ifMr='{{item.ifMr}}'  data-floor='{{item.floorNum}}'>编辑</view>
+  </view>
+  <view  class="no-address" wx:if="{{!dizhilist.length}}">
+     <text>暂无收货地址 </text>
+     <text class="add-address" bindtap='adddizhi'> 马上新增</text>
+  </view>
+</view>

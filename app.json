@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/dingweischool/dingweischool",
+    "pages/userfankui/userfankui",
+    "pages/gerencenter/gerencenter",
+    "pages/orderlist/order",
+    "pages/share/share",
+    "pages/frdPay/frdPay",
+    "pages/orderlist/orderlist",
+    "pages/dianpuneiye/dianpuneiye",
+    "pages/orderxq/orderxq",
+    "pages/addorder/addorder",
+    "pages/gouwuche/gouwuche",
+    "pages/dingweicity/dingweicity",
+    "pages/baoming/baoming",
+    "pages/wanshanxinxi/wanshanxinxi",
+    "pages/failzhifu/failzhifu",
+    "pages/successzhifu/successzhifu",
+    "pages/confirmorder/confirm",
+    "pages/tuijian/tuijian",
+    "pages/shouhuodizhi/shouhuodizhi",
+    "pages/adddizhi/adddizhi",
+    "pages/bianjidizhi/bianjidizhi",
+    "pages/dingweilou/dingweilou"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#ffe018",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/index-home.png",
+        "selectedIconPath": "img/index-home-a.png"
+      },
+      {
+        "pagePath": "pages/tuijian/tuijian",
+        "text": "推荐",
+        "iconPath": "img/tuijian-logo.png",
+        "selectedIconPath": "img/tuijian-logo1.png"
+      },
+      {
+        "pagePath": "pages/gouwuche/gouwuche",
+        "text": "购物车",
+        "iconPath": "img/gouwuche-logos.png",
+        "selectedIconPath": "img/gouwuche-logos1.png"
+      },
+      {
+        "pagePath": "pages/gerencenter/gerencenter",
+        "text": "个人中心",
+        "iconPath": "img/gerenzhongxin-logo.png",
+        "selectedIconPath": "img/gerencenter-logo1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

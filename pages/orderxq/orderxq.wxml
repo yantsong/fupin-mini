@@ -1,0 +1,102 @@
+<wxs module="cpt">
+	var fixed1 = function(num){
+	return Number(num.toFixed(2))
+	}
+	module.exports.fixed1 = fixed1;
+</wxs>
+<view class='back'>
+	<view style='height:20rpx;' />
+	<view class='user-xinxi' wx:for='{{people}}'>
+		<view class='users-xinxi'>
+			<image class='user-logo' src='../../img/user-icon.png' />
+			<view class='user-name'>收件人：{{item.addressName}}</view>
+			<view class='user-phone'>{{item.addressTel}}</view>
+		</view>
+		<view class='user-dizhi'>
+			<image class='user-dizhi-logo' src='../../img/dingwei-icon1.png' />
+			<view class='user-dizhi-text'>{{item.addressDetail}}</view>
+		</view>
+		<view class='shezhi'>
+			<image class='shezhi-logo' src='../../img/gouwushezhi.png' />
+		</view>
+	</view>
+
+	<view class='dianqu' wx:for='{{people}}'>
+		<image class='dian-logo' src='{{imgUrl}}{{item.shopLogo}}' />
+		<!-- <view style='height:30rpx;'> -->
+		<view class='dian-namequ'>
+			<view class='dian-name'>
+				{{item.shopName}}
+				<view class='xiahuaxianqu'>
+					<view class='xiahuaxian' />
+				</view>
+
+			</view>
+		</view>
+
+		<!-- </view> -->
+		<view class='every-order' wx:for='{{item.csList}}' wx:for-item='i'>
+			<image class='order-img' src='{{imgUrl}}{{i.picUrl}}' />
+			<view class='order-name'>{{i.proName}}</view>
+			<view class='xiaoliangqu'>
+				<!-- <image class='xiaoliang-logo' src='../../img/dianpu-logo.png'></image> -->
+				<view class='xiaoliang-text'>¥ {{i.price}}</view>
+			</view>
+			<view class='xiaoliang-num'>*{{i.proNum}}</view>
+		</view>
+		<view class="phone" wx:if="{{item.orderPersonTel}}">
+			<text>派单员电话: {{item.orderPersonTel}}</text>
+			<image
+			 src="../../img/phone-logo.png"
+			 alt=""
+			 catchtap='call'
+			 data-phone='{{item.orderPersonTel}}'
+			/>
+		</view>
+	</view>
+	<view class='fukuan-text'>
+		付款详情
+		<view class='xianhuaxian' />
+	</view>
+	<view class='fukuan-qu'>
+		<view class='zhifu-qu'>
+			<image class='zhifu-btn' src='../../img/duigou.png' />
+			<view class='zhifu-text'>微信支付</view>
+			<view class='zhifu-price'>
+				<text style='font-size:20rpx'>-￥</text>
+				{{cpt.fixed1(people[0].orderPrice)}}
+				<text style='font-size:20rpx'/>
+
+</view>
+			<view class='zhifu-tishi'>商品将额外优惠哦</view>
+		</view>
+		<view class='zongji-price' bindtap='zhifu' wx:if="{{people[0].orderState == 1}}">总计 ¥ {{cpt.fixed1(people[0].orderPrice)}} 确认付款</view>
+		<view class='shop-qu'>
+			<view class='shop-name'>{{people[0].csList[0].proName}}*{{people[0].csList[0].proNum}}</view>
+			<view class='shop-price'>￥{{cpt.fixed1(people[0].csList[0].price)}}
+				<text style='font-size:20rpx'/>
+</view>
+		</view>
+		<!-- <view class='shop-qu'>
+      <view class='shop-name'>到店自取</view>
+      <view class='shop-price'>-￥10.<text style='font-size:20rpx'>0
+</text>
+			</view>
+		</view>
+		-->
+		<view class='shop-qu' style='color:#000;'>
+			<view class='shop-name'>商品总计</view>
+			<view class='shop-price'>￥{{cpt.fixed1(people[0].orderPrice)}}
+				<text style='font-size:20rpx'/>
+
+</view>
+		</view>
+	</view>
+	<view class="code">
+		<view class="code-text">
+			取货码:{{people[0].idenCode}}
+		</view>
+	</view>
+	<view class='clear' />
+</view>
+

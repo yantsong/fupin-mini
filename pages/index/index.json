@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "宿达",
+  "usingComponents": {
+    "img-load": "../../components/img-load/index"
+  }
+}

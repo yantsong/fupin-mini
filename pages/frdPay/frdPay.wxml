@@ -1,0 +1,68 @@
+<!--logs.wxml-->
+<wxs module="cpt">
+  var cptMoney = function (money){
+    console.log(money,'cpt')
+    return Number(money / 100).toFixed(2)
+  };
+  var fixed2 = function (m){
+    return m.toFixed(2)
+  }
+   module.exports.cptMoney = cptMoney;
+   module.exports.fixed2 = fixed2;
+</wxs>
+
+<view class="frdpay">
+<view class="frdpay-title">
+我在宿达挑好了商品，是时候该你慷慨解囊啦！快帮我付个
+款吧~</view>
+  <view class="frdpay-content">
+    <view class="frdpay-content-imgwrap">
+      <image src="../../img/daifu.png" alt=""></image>
+      <view class="frdpay-content-money" wx:if="{{money}}">{{ cpt.cptMoney(money) }}</view>
+    </view>
+    <view  class="frdpay-content-who">
+      收货人:{{orderList[0].addName}}
+    </view>
+    <view class="frdpay-content-text">
+      剩余支付时间
+      <text class="time">00</text>:
+      <text class="time">{{min}}</text>:
+      <text class="time">{{second}}</text>
+    </view>
+    <view class="frdpay-content-btn" bind:tap="pay" wx:if="{{!timeEnd}}">
+      豪爽支付
+    </view>
+    <view class="frdpay-content-btn gray" wx:else>
+      支付超时
+    </view>
+    <view class="desc">
+      说明:
+    </view>
+    <view class="desc-content">
+      1、付款前务必和好友再次确认，避免是诈骗行为；
+    </view>
+    <view class="desc-content">
+      2、如果发生退款，钱将回到你的微信账户里。
+    </view>
+  </view>
+  <view class="frdpay-foods">
+    <view class="frdpay-foods-title">
+      <text>代付订单信息</text>
+    </view>
+    <view class="frdpay-foods-list">
+      <view class="frdpay-foods-list-item" wx:for="{{orderList}}">
+        <image class="frd-foods-list-item-foodpic" src="{{url}}{{item.children.proUrl}}"></image>
+        <view class="frdpay-foods-list-item-info">
+          <view class="frdpay-foods-list-item-name">{{item.children.goodsName}}</view>
+          <view class="frdpay-foods-list-item-desc">
+            <image src="../../img/gouwuche-logo.png"></image>月销量2000件
+          </view>
+        </view>
+        <view class="frdpay-foods-list-item-price">
+          <text>{{cpt.fixed2(item.children.price)}} x </text>
+          <text>{{item.children.num}} </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

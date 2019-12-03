@@ -1,0 +1,151 @@
+<view>
+<view class='back' wx:if="{{list.length}}">
+  <view class='guanliqu {{guanliqu}}' bindtap='guanli1'>
+    <view class='guanli-text'>管理</view> 
+    <image class='guanli-logo' src='../../img/gouwushezhi.png'></image> 
+  </view> 
+  <view class='guanli-btnqu {{guanli_btnqu}}'>
+    <view class='guanlis-btn'>
+      <view class='guanli-btn' bindtap='deleteshop'>删除</view>
+      <view class='guanli-btn1' bindtap='guanli_quxiao'>取消</view>
+    </view>
+  </view>
+  <view class='every-dian' wx:for='{{list}}'>
+    <view class='dian-namequ'> 
+      <block wx-if='{{!item.flag}}'>
+      <image class='gouxuan1' bindtap='dianpu' data-shop='{{item.shopId}}'></image>
+      </block>
+      <block wx-if='{{item.flag}}'>
+      <image class='gouxuan2' src='../../img/duigou.png' bindtap='dianpu1' data-shop='{{item.shopId}}'></image>
+      </block>
+      <image class='dian-logo' src='{{imgUrl}}{{item.shopLogo}}'></image>
+      <view class='dian-name'>{{item.shopName}}</view>
+      <image class='dian-more' src='../../img/fuwu-more.png'></image>
+    </view>
+    <view class='dian-shopin' wx:for='{{item.children}}' wx:for-item='i' data-gouwu='{{i.shoppingCartId}}'>
+      <block wx-if='{{!i.flag}}'>
+      <image class='gouxuan1 gouxuan3' catchtap='shopin' data-chilId='{{i.goodsId}}'></image>
+      </block>
+      <block wx-if='{{i.flag}}'>
+      <image class='gouxuan2 gouxuan3' src='../../img/duigou.png' catchtap='shopin1' data-chilId='{{i.goodsId}}'></image>
+      </block>
+      <image class='shopin-img' src='{{imgUrl}}{{i.picUrl}}'></image>
+      <view class='shop-xinxiqu'>
+        <view class='shop-namequ'>
+          <view class='shop-name'>{{i.goodsName}}</view>
+          <view class='shop-beizhu {{i.specifiName?"display":"none-display"}}'>{{i.specifiName}}</view>
+        </view>
+        <view class='shop-numqu'>
+          <view class='shop-price'><text style='font-size:16rpx;'>￥</text>{{i.price}}<text style='font-size:16rpx;'></text></view>
+          <view class='shop-nums'>
+            <image class='shop-num-jia' src='../../img/gouwujia.png' catchtap='jiashop' data-price='{{i.price}}' data-goods='{{i.goodsId}}' data-num='{{i.num}}' data-gouwu='{{i.shoppingCartId}}'></image>
+            <view class='shop-num'>{{i.num}}</view>
+            <image class='shop-num-jian' src='../../img/gouwujian.png' catchtap='jianshop' data-price='{{i.price}}' data-goods='{{i.goodsId}}' data-num='{{i.num}}' data-gouwu='{{i.shoppingCartId}}'></image>
+          </view>
+        </view>
+      </view>
+      <view class='hengxian'></view>
+    </view>
+  </view>
+  <view style='height:100rpx'></view>
+  <!-- <view class='every-dian'>
+    <view class='dian-namequ'>
+      <image class='gouxuan1'></image>
+      <image class='gouxuan2 none-display' src='../../img/duigou.png'></image>
+      <image class='dian-logo' src=''></image>
+      <view class='dian-name'>店铺名称</view>
+      <image class='dian-more' src='../../img/fuwu-more.png'></image>
+    </view>
+    <view class='dian-shopin'>
+      <image class='gouxuan1 gouxuan3'></image>
+      <image class='gouxuan2 none-display gouxuan3' src='../../img/duigou.png'></image>
+      <image class='shopin-img' src=''></image>
+      <view class='shop-xinxiqu'>
+        <view class='shop-namequ'>
+          <view class='shop-name'>商品名称</view>
+          <view class='shop-beizhu'>特辣</view>
+        </view>
+        <view class='shop-numqu'>
+          <view class='shop-price'><text style='font-size:16rpx;'>￥</text>50.<text style='font-size:16rpx;'>0</text></view>
+          <view class='shop-nums'>
+            <image class='shop-num-jia' src=''></image>
+            <view class='shop-num'>1</view>
+            <image class='shop-num-jian' src=''></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='dian-shopin'>
+      <image class='gouxuan1 gouxuan3'></image>
+      <image class='gouxuan2 none-display gouxuan3' src='../../img/duigou.png'></image>
+      <image class='shopin-img' src=''></image>
+      <view class='shop-xinxiqu'>
+        <view class='shop-namequ'>
+          <view class='shop-name'>商品名称</view>
+          <view class='shop-beizhu'>特辣</view>
+        </view>
+        <view class='shop-numqu'>
+          <view class='shop-price'><text style='font-size:16rpx;'>￥</text>50.<text style='font-size:16rpx;'>0</text></view>
+          <view class='shop-nums'>
+            <image class='shop-num-jia' src=''></image>
+            <view class='shop-num'>1</view>
+            <image class='shop-num-jian' src=''></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='every-dian'>
+    <view class='dian-namequ'>
+      <image class='gouxuan1'></image>
+      <image class='gouxuan2 none-display' src='../../img/duigou.png'></image>
+      <image class='dian-logo' src=''></image>
+      <view class='dian-name'>店铺名称</view>
+      <image class='dian-more' src='../../img/fuwu-more.png'></image>
+    </view>
+    <view class='dian-shopin'>
+      <image class='gouxuan1 gouxuan3'></image>
+      <image class='gouxuan2 none-display gouxuan3' src='../../img/duigou.png'></image>
+      <image class='shopin-img' src=''></image>
+      <view class='shop-xinxiqu'>
+        <view class='shop-namequ'>
+          <view class='shop-name'>商品名称</view>
+          <view class='shop-beizhu'>特辣</view>
+        </view>
+        <view class='shop-numqu'>
+          <view class='shop-price'><text style='font-size:16rpx;'>￥</text>50.<text style='font-size:16rpx;'>0</text></view>
+          <view class='shop-nums'>
+            <image class='shop-num-jia' src=''></image>
+            <view class='shop-num'>1</view>
+            <image class='shop-num-jian' src=''></image>
+          </view>
+        </view>
+      </view>
+      <view class='hengxian'></view>
+    </view>
+  </view> -->
+
+  <view class='jiesuanqu'>
+    <image class='quanbuxuan {{quanxuan}}' src='' bindtap='quanxuan'></image>
+    <image class='quanxuan none-display {{quanbuxuan}}' src='../../img/duigou.png' bindtap='quanbuxuan'></image>
+    <view class='quanxuan-text'>全选</view>
+    <view class='jiesuan-img1 {{jiesuanbtn}}' bindtap='gojiesuan'>去结算</view> 
+    <!-- <image class='jiesuan-img2 none-display' src=''></image> -->
+    <view class='zongjia'>
+      <view class='zongjia-price'>
+        <text style='font-size:16rpx'>￥</text>
+        {{allprice}}
+        <!-- <text style='font-size:16rpx'>0</text> -->
+      </view>
+      <view class='zongjia-text'>总价</view>
+    </view>
+    <!-- <view class='deletequ none-display {{deletequ}}'>删除</view> -->
+  </view>
+</view>
+<view wx:else class="nogoods">
+  <text>购物车里空空如也,去</text>
+  <text bind:tap="toIndex" class="to-index">选购商品</text>
+  <text>吧</text>
+</view>
+</view>

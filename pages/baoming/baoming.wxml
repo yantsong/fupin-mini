@@ -1,0 +1,24 @@
+<import src="../wxparse/wxparse.wxml"/> 
+<view class='back'>
+  <view class='baoming-title'>{{body.title}}</view>
+  <view class='baoming-xinxi'></view>
+  <view class='info'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+
+
+  <!-- <image class='jiaxiao-img' src=''></image> -->
+  <view class='baoming-date'>{{body.time}}</view> 
+  <form class='form' wx:if="{{body.show}}">
+    <view class='form-title'>我要报名</view>
+    <view class='form-every'>
+      <view class='form-text'>姓名</view>
+      <input class='form-input' value='{{body.name}}' bindinput='name'></input>
+    </view>
+    <view class='form-every'>
+      <view class='form-text'>电话</view>
+      <input class='form-input' value='{{body.telphone}}' bindinput='telphone'></input>
+    </view>
+    <button class='submit' form-type='submit' bindtap='submit'>提交</button>
+  </form>
+</view>

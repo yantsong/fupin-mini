@@ -1,0 +1,139 @@
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+.dizhiliebiao{
+  width: 100%;
+  height: auto;
+  padding: 0 40rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+.dizhi-text1{
+  width: auto;
+  float: left;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.xiahuaxian{
+  height: 5rpx;
+  background-color: #ffe018;
+  margin-top: -5rpx;
+}
+.dizhi-text2{
+  font-size: 25rpx;
+  color: #999;
+  line-height: 35rpx;
+  float: right;
+}
+.every-dizhi{
+  width: 670rpx;
+  height: 165rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  padding: 30rpx 25rpx 30rpx 15rpx;
+  box-sizing: border-box;
+}
+.dizhi-logo{
+  width: 58rpx;
+  height: 58rpx;
+  font-size: 46rpx;
+  line-height: 58rpx;
+  text-align: center;
+  border-radius: 50%;
+  color:#edeef3;
+  overflow: hidden;
+  margin-top: 21rpx;
+  background-color: rgb(209, 209, 208);
+  display: block;
+  margin-right: 20rpx;
+  float: left;
+}
+.dizhi-xinxi{
+  width: 485rpx;
+  height: 100%;
+  float: left;
+  border-right: 1rpx solid #f6f6f6;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.user-xinxi{
+  width: 100%;
+  height: 30rpx;
+  overflow: hidden;
+}
+.user-name{
+  width: auto;
+  float: left;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.user-phone{
+  width: auto;
+  float: left;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  color: #999;
+  margin-left: 15rpx;
+}
+.moren-dizhi{
+  width: 100%;
+  height: 28rpx;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.moren-text{
+  width: 62rpx;
+  height: 28rpx;
+  border-radius: 5rpx;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 28rpx;
+  background-color: #ffe018;
+  float: left;
+}
+.moren-text1{
+  width: 380rpx;
+  float: left;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #333;
+  margin-left: 20rpx;
+}
+.dizhi-text{
+  font-size: 28rpx;
+  line-height: 28rpx;
+  margin-top: 10rpx;
+  color: #333;
+}
+.dizhi-bianji{
+  font-size: 25rpx;
+  line-height: 105rpx;
+  float: left;
+  color: #999;
+  margin-left: 20rpx;
+}
+.user-xinxi1{
+  margin-top: 20rpx;
+}
+.no-address{
+  text-align: center;
+  font-size: 30rpx;
+}
+.add-address{
+  color:  #ffe018;
+  text-decoration: underline;
+}
+
+
+.none-display{
+  display: none;
+}
+.display{
+  display: block;
+}

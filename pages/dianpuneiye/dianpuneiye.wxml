@@ -1,0 +1,429 @@
+<wxs module="cpt">
+	var total = function(arr){
+	var result = 0
+	arr.forEach(
+	function(a){
+	result += Number(a.price * a.num)
+	}
+	)
+	return result.toFixed(2)
+	}
+	var num = function(arr){
+	var result = 0
+	arr.forEach(
+	function(a){
+	result += Number(a.num)
+	}
+	)
+	return result
+	}
+	var foodsNum = function(arr,id){
+	var num
+	arr.forEach(
+	function(a){
+	if (a.goodsId == id){
+	num = a.num
+	}
+	}
+	)
+	return num
+	}
+	var addButton = function(arr,item){
+	var num
+	var id = item.children[0].goodsId
+	arr.forEach(
+	function(a){
+	if (a.goodsId == id){
+	num = a.num
+	}})
+	return !!!num && item.children.length == 1
+	}
+	var cptArea = function(arr,item){
+	var num
+	var id = item.children[0].goodsId
+	arr.forEach(
+	function(a){
+	if (a.goodsId == id){
+	num = a.num
+	}})
+	return num > 0 && item.children.length == 1
+	}
+	var cptCheapestFoodsPrice = function(priceArr){
+	return priceArr.sort(
+	function(a,b){
+	return b.price - a.price
+	}
+	)[0]
+	}
+	var numberIndexOf0 = function (num){
+
+	return num ? num.toString().split('.'): ''
+	}
+	module.exports.total = total;
+	module.exports.num = num;
+	module.exports.foodsNum = foodsNum;
+	module.exports.addButton = addButton;
+	module.exports.cptArea = cptArea;
+	module.exports.cptPrice = cptCheapestFoodsPrice;
+	module.exports.toAdd0 = numberIndexOf0;
+</wxs>
+
+<view class='back'>
+
+	<view class='dianpu-xinxi' wx:for='{{lsshop}}'>
+		<image class='dianpu-logo' src='{{imgUrl}}{{item.logo}}' />
+		<view class='dianpu-name'>{{item.shopName}}
+			<view class='xiahuaxian' />
+		</view>
+		<image
+		 class='phone-img'
+		 src='../../img/phone-logo.png'
+		 bindtap='makephone'
+		 data-phone='{{item.shopKeeperTel}}'
+		/>
+		<view class='kaiye-time'>
+			<image class='time-logo' src='../../img/time-logo.png' />
+			<view class='time-text'>{{item.startAm}}{{none1}}{{item.stopAm}} {{item.startPm}}{{none2}}{{item.stopPm}}</view>
+		</view>
+		<view class='kaiye-time'>
+			<image class='time-logo' src='../../img/peisong-logo.png' />
+			<view class='time-text  {{none3}}'>{{item.shopRemark}}</view>
+		</view>
+	</view>
+
+	<view class='shop-tuijian {{none}}'>商家推荐</view>
+	<view class='tuijian-qu {{none}}'>
+		<scroll-view class='scroll-view' scroll-x>
+			<view
+			 class='every-tuijian'
+			 wx:for='{{goods}}'
+			 data-shop='{{item.goodsId}}'
+			 data-item='{{item}}'
+			 data-school='{{item.orgId}}'
+			 bindtap='opengouwu'
+			 data-img='{{item.goodsPic}}'
+			 data-shops='{{item.shopId}}'
+			 data-name='{{item.goodsName}}'
+			 data-children='{{item.children}}'
+			 data-specifiname='{{item.children[0].specifiName}}'
+			 data-specifivalue='{{item.children[0].specifiValue}}'
+			>
+				<image class='tuijian-img' src='{{imgurl}}{{item.goodsPic}}' />
+				<view class='tuijian-name'>{{item.name}}</view>
+				<view class='tuijian-price'>￥{{item.children[0].price}}</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="scroll-wrapper" id="scroll-main">
+
+		<view class='shop-tuijian' style='width:auto;' wx:if="{{fenlei1.length}}">
+			服务分类
+			<view class='xiahuaxian' />
+		</view>
+		<scroll-view/>
+		<scroll-view
+		 class="scroll"
+		 scroll-x
+		 wx:if="{{fenlei1.length}}"
+		 bindscroll='huadong'
+		>
+			<view class='fenlei-ul' style="width:{{count}}">
+				<view
+				 class='fenlei-li {{item.classifyId==indexs?"fenlei-li-active":""}}'
+				 wx:for='{{fenlei1}}'
+				 bindtap='clickfenlei'
+				 data-index='{{item.classifyId}}'
+				>{{item.classifyName}}
+				</view>
+			</view>
+		</scroll-view>
+
+		<view class="none-foods" wx:else>暂无商品</view>
+		<view class='progress' wx:if="{{fenlei1.length>7}}">
+			<view class='progress1' style='width:{{width}};margin-left:{{marginleft}}' />
+		</view>
+	</view>
+	<view class="scroll-wrapper" id="scroll-fiexd" wx:if="{{scrollFixed}}">
+
+		<view class='shop-tuijian' style='width:auto;' wx:if="{{fenlei1.length}}">
+			服务分类
+			<view class='xiahuaxian' />
+		</view>
+		<scroll-view/>
+		<scroll-view
+		 class="scroll"
+		 scroll-x
+		 wx:if="{{fenlei1.length}}"
+		 bindscroll='huadong'
+		>
+			<view class='fenlei-ul' style="width:{{count}}">
+				<view
+				 class='fenlei-li {{item.classifyId==indexs?"fenlei-li-active":""}}'
+				 wx:for='{{fenlei1}}'
+				 bindtap='clickfenlei'
+				 data-index='{{item.classifyId}}'
+				>{{item.classifyName}}
+				</view>
+			</view>
+		</scroll-view>
+
+		<view class="none-foods" wx:else>暂无商品</view>
+		<view class='progress' wx:if="{{fenlei1.length>7}}">
+			<view class='progress1' style='width:{{width}};margin-left:{{marginleft}}' />
+		</view>
+	</view>
+
+	<view class='every-shop' wx:for='{{fenleishop}}' wx:for-index='index'>
+		<view class='every-xinxi {{item.jiajiannum == true ? "every-xinxi1":""}}'>
+			<image class='every-img' src='{{imgUrl}}{{item.pigUrl}}' />
+			<view class='shop-name'>{{item.name}}</view>
+			<view
+			 class='shop-guige {{item.guige?"display":"none-display"}}'
+			 bindtap='xuanguige'
+			 data-shop='{{item.shopId}}'
+			 data-price='{{item.price}}'
+			 data-name='{{item.name}}'
+			 data-item='{{item.children[0]}}'
+			 data-goodid='{{item.children[0].goodsId}}'
+			 data-children='{{item.children}}'
+			>选规格
+			</view>
+			<view class='shop-xinxi'>
+				<image class='shop-logo' src='../../img/gouwuche-logo.png' />
+				<text class='shop-num'>月销量 {{item.saleNum}}件</text>
+				<text class='shop-price'>￥{{cpt.cptPrice(item.children).price}}</text>
+				<text class='shop-price shop-price-mark'>￥{{cpt.cptPrice(item.children).markPrice}}</text>
+			</view>
+			<view class="sell-out" wx:if="{{item.children[0].stockNum <= 0}}" />
+		</view>
+		<image
+		 class='add-num '
+		 wx:if="{{cpt.addButton(dianpu_shop,item)}}"
+		 src='../../img/jia-img.png'
+		 bindtap='addshopnum'
+		 data-goodid='{{item.children[0].goodsId}}'
+		 data-price='{{item.children[0].price}}'
+		 data-index='{{index}}'
+		 data-item='{{item.children[0]}}'
+		/>
+		<view class='jiajian-qu' wx:if="{{cpt.cptArea(dianpu_shop,item) && item.children[0].stockNum > 0}}">
+			<image
+			 class='jian-num'
+			 src='../../img/jian-logo.png'
+			 bindtap='jian_num'
+			 data-price='{{item.price}}'
+			 data-goodid='{{item.children[0].goodsId}}'
+			 data-gouwuid='{{item.shoppingCartId}}'
+			 data-num='{{cpt.foodsNum(dianpu_shop,item.children[0].goodsId)}}'
+			/>
+			<view class='input-num' bindinput='shurunum'>{{cpt.foodsNum(dianpu_shop,item.children[0].goodsId)}}</view>
+			<image
+			 class='jia-num'
+			 src='../../img/jia-logo.png'
+			 bindtap='jia_num'
+			 data-price='{{item.price}}'
+			 data-goodid='{{item.children[0].goodsId}}'
+			 data-gouwuid='{{item.shoppingCartId}}'
+			 data-num='{{cpt.foodsNum(dianpu_shop,item.children[0].goodsId)}}'
+			/>
+		</view>
+		<view class='jiajian-qu no-foods' wx:if="{{cpt.cptArea(dianpu_shop,item) && item.children[0].stockNum <= 0}}">
+			已售罄
+		</view>
+	</view>
+
+	<view style='height:100rpx' />
+
+	<view class='fixed'>
+		<image class='zongji-logo' src='../../img/gouwuche-logos1.png' bindtap='clicklogo' />
+		<view class='diannum'>{{cpt.num(dianpu_shop)}}</view>
+		<view class='zongji-text'>总计</view>
+		<view class='zongji-price'>
+			<text style='font-size:20rpx'>￥</text>
+			{{cpt.total(dianpu_shop)}}
+			<text style='font-size:20rpx'/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+		<view class='jiesuan-btn' bindtap='gojiesuan'>去结算</view>
+	</view>
+
+	<view class='zhezhao {{zhezhao}}' bindtap='zhezhao'>
+		<view class='kouwei {{kouwei}}' catchtap='click1'>
+			<view class='kouwei-namequ'>
+				{{name}}
+				<image class='close-kouwei' src='../../img/close-kuang.png' bindtap='close_kouwei' />
+			</view>
+			<view class='kouwei-text'>{{children[0].specifiName}}:</view>
+			<view class='kouwei-ul'>
+				<view
+				 class='kouwei-li {{ind == index ? "kouwei-li1":""}}'
+				 wx:for='{{children}}'
+				 wx:for-index='ind'
+				 data-ind='{{ind}}'
+				 data-goodid='{{item.goodsId}}'
+				 data-price='{{item.price}}'
+				 bindtap='dianguige'
+				 data-item='{{item}}'
+				>{{item.specifiValue}}
+				</view>
+				<view class='kouwei-li' style='background-color:#fff;border:none;' wx:for='{{kongwei}}' />
+			</view>
+			<view class='kouwei-dian' />
+			<view class='kouwei-xian' />
+			<view class='kouwei-price'>
+			<text style='font-size:20rpx;margin-left:15rpx'>￥
+
+
+
+
+
+
+
+
+</text>
+			<text style="font-size:28rpx"> {{cpt.toAdd0(childprice)[0] }}.</text>
+			<text style='font-size:20rpx'>{{cpt.toAdd0(childprice)[1] ? cpt.toAdd0(childprice)[1] : '0'}}</text>
+
+		</view>
+		<view
+		 class='join-gouwu'
+		 catchtap='joingouwu'
+		 data-price='{{childprice}}'
+		 data-item='{{}}'
+		>加入购物车
+		</view>
+	</view>
+	<view class='dianpu-gouwu {{gouwu}}'>
+		<view class='dianpu-gouwu-title'>
+			<view class='dianpu-gouwu-text'>已选商品</view>
+			<view class='dianpu-gouwu-del' bindtap='del_dianpu'>清空</view>
+		</view>
+		<scroll-view scroll-y='true' class='updown-hua'>
+			<view class='dianpu-gouwu-shop' wx:for='{{dianpu_shop}}' wx:if="{{item.num}}">
+				<view class='dianpu-gouwu-name'>{{item.goodsName}}{{item.specifiName ? '(' +item.specifiName + ')' : ''}}</view>
+				<view class='dianpu-gouwu-price'>￥{{item.price}}</view>
+				<view class='dianpu-gouwu-numqu'>
+					<image
+					 class='dianpu-shop-jian'
+					 src='../../img/gouwu-jian.jpg'
+					 data-goodid='{{item.goodsId}}'
+					 catchtap='jian_num'
+					 data-price='{{item.price}}'
+					 data-gouwuid='{{item.shoppingCartId}}'
+					 data-num='{{item.num}}'
+					/>
+					<view class='dianpu-shop-input' value='1'>{{item.num}}</view>
+					<image
+					 class='dianpu-shop-jia'
+					 src='../../img/gouwu-jia.jpg'
+					 data-goodid='{{item.goodsId}}'
+					 catchtap='jia_num'
+					 data-price='{{item.price}}'
+					 data-gouwuid='{{item.shoppingCartId}}'
+					 data-num='{{item.num}}'
+					/>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>
+
+<view class='zhezhao {{zhezhao1}}' bindtap='zhezhao1'>
+	<view class='kouwei' catchtap='click1' wx:if='{{isMulti}}'>
+		<view class='kouwei-namequ'>
+			{{name}}
+			<image class='close-kouwei' src='../../img/close-kuang.png' bindtap='close_kouwei' />
+		</view>
+		<view class='kouwei-text'>{{children[0].specifiName}}:</view>
+		<view class='kouwei-ul'>
+			<view
+			 class='kouwei-li {{ind == index ? "kouwei-li1":""}}'
+			 wx:for='{{children}}'
+			 wx:for-index='ind'
+			 data-ind='{{ind}}'
+			 data-price='{{item.price}}'
+			 data-goodsId='{{item.goodsId}}'
+			 bindtap='dianguige'
+			 data-specifivalue='{{item.specifiValue}}'
+			 data-item='{{item}}'
+			 data-name='{{item.specifiName}}'
+			>{{item.specifiValue}}
+			</view>
+		</view>
+		<view class='kouwei-dian' />
+		<view class='kouwei-xian' />
+		<view class='kouwei-price'>
+			<view class="kouwei-money">
+				<view class='kouwei-price'>
+					<text style='font-size:20rpx;margin-left:15rpx'>￥
+
+</text>
+					<text style="font-size:28rpx"> {{cpt.toAdd0(childprice)[0] }}.</text>
+					<text style='font-size:20rpx'>{{cpt.toAdd0(childprice)[1] ? cpt.toAdd0(childprice)[1] : '0'}}</text>
+				</view>
+			</view>
+		</view>
+		<view class='join-gouwu' catchtap='joingouwu' data-price='{{childprice}}'>加入购物车</view>
+	</view>
+	<view class='gouwu-kuang' wx:else>
+		<image class='gouwu-tu' src='{{imgurl}}{{item.goodsPic}}' />
+		<view class='kouwei-dian' />
+		<view class='kouwei-xian' />
+		<view class='kouwei-price'>
+			<text style='font-size:20rpx;margin-left:15rpx'>￥
+</text>
+			<text style="font-size:28rpx"> {{cpt.toAdd0(childprice)[0] }}.</text>
+			<text style='font-size:20rpx'>{{cpt.toAdd0(childprice)[1] ? cpt.toAdd0(childprice)[1] : '0'}}</text>
+		</view>
+		<view class='join-gouwu' catchtap='_joinOneToCar' data-price='{{childprice}}'>加入购物车</view>
+	</view>
+</view>
+
+</view>
+

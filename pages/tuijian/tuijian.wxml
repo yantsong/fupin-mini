@@ -1,0 +1,117 @@
+<view class='back'>
+  <view class='input-qu'>
+    <input class='sousuo-input' placeholder='输入您要搜索的店铺' bindinput="searchShop"></input>
+    <image class='sousuo-logo' src='../../img/sousuo-logo.png'></image>
+  </view>
+  <view>  
+    <view class='fenlei-title'> 
+      <view class='fenlei-text'>分类</view>
+      <view class='fenlei-xiahuaxian'></view>
+    </view>
+    <view class='quanbu-fenlei'>全部分类</view>
+    <view class='clear'></view>
+  </view>
+  <scroll-view scroll-x class="scroll" bindscroll="huadong">
+  <view class='fenlei-ul' style="width:{{count}}"> 
+    <view class='fenlei-li {{fenlei_li1}}' style='margin-top:{{martop}}' bindtap='allfenlei'>
+      全部
+    </view>
+    <view class='fenlei-li {{fenleili == item.classifyId ?"fenlei-li1":""}}' wx:for='{{fenlei}}' data-id='{{item.classifyId}}' style='margin-top:{{martop}}' bindtap='clickfenlei'>                      
+      {{item.classifyName}}
+    </view>
+  </view>
+  </scroll-view>
+  <view class='progress' wx:if="{{fenlei.length>7}}"> 
+    <view class='progress1' style='width:{{width}};margin-left:{{marginleft}}'></view>
+  </view>
+  <view>
+    <view class='fenlei-title'>
+      <view class='fenlei-text'>店铺</view>
+      <view class='fenlei-xiahuaxian'></view>
+    </view>
+    <!-- <view class='quanbu-fenlei'>全部分类</view> -->
+    <view class='clear'></view>
+  </view>
+  <!-- <view class='every-dianpu' wx:for='{{lsshop}}'>
+    <image class='dianpu-img' src='{{imgUrl}}{{item.shopLogo}}'></image>
+    <view class='dianpu-name'>{{item.shopName}}</view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/dianpu-logo.png'></image>
+      <view class='dianpu-xiaoliang'>月销量 2000件</view>
+    </view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/dingwei-icon1.png'></image>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1'>小店区华宇百花谷c座26层</view>
+    </view>
+    <view class='dianpu-btn' bindtap='godianpu' data-shop='{{item.shopId}}'>
+      点击查看
+      <image class='dianpu-btnlogo' src='../../img/dianpu-btnlogo.png'></image>
+    </view>
+  </view> -->
+  <view class='every-dianpu' wx:for='{{lsshop}}' bindtap='godianpuli' data-shopid='{{item.shopId}}' data-open='{{item.isOpen}}'>
+    <image class='dianpu-img' src='{{imgUrl}}{{item.shopLogo}}'></image>
+    <view class='dianpu-name'>{{item.shopName}}</view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/dianpu-logo.png'></image>
+      <view class='dianpu-xiaoliang'>{{item.shopRemark.trim() ? item.shopRemark : '暂无说明'}}</view>
+    </view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/time-logo.png'></image>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1' wx:if="{{item.isOpen}}">正在营业中</view>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1' wx:else>{{item.startAm}}~{{item.stopAm}}  {{item.startPm}}~{{item.stopPm}}</view>
+    </view>
+    <view class='dianpu-btn {{item.isOpen == 0?"dianpu-btn1":""}}' data-shop='{{item.shopId}}' >
+      点击查看
+      <image class='dianpu-btnlogo' src='../../img/dianpu-btnlogo.png'></image>
+    </view>
+    <view class=' every-dianpu1 {{item.isOpen == 0?"display":"none-display"}}'>
+      <image class='dianpu1-logo' src='../../img/dianpu1-logo.png'></image>
+    </view>
+  </view>
+  <view class='every-dianpu' wx:for='{{wmshop}}' bindtap='godianpuli' data-shopid='{{item.shopId}}'>
+    <image class='dianpu-img' src='{{imgUrl}}{{item.shopLogo}}'></image>
+    <view class='dianpu-name'>{{item.shopName}}</view>
+    <view class='dianpu-jianjie' >
+      <image class='dianpu-logo' src='../../img/dianpu-logo.png'></image>
+       <view class='dianpu-xiaoliang'>
+         <view>
+           {{item.shopRemark}}
+         </view>
+         </view>
+    </view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/time-logo.png'></image>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1' wx:if="{{item.isOpen}}">正在营业中</view>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1' wx:else>{{item.startAm}}~{{item.stopAm}}  {{item.startPm}}~{{item.stopPm}}</view>
+
+    </view>
+    <view class='dianpu-btn {{item.isOpen == 0?"dianpu-btn1":""}}' catchtap='godianpu' data-shop='{{item.shopId}}' data-open='{{item.isOpen}}'>
+      点击查看
+      <image class='dianpu-btnlogo' src='../../img/dianpu-btnlogo.png'></image>
+    </view>
+    <view class=' every-dianpu1 {{item.isOpen == 0?"display":"none-display"}}' catchtap='aaa'>
+      <image class='dianpu1-logo' src='../../img/dianpu1-logo.png'></image>
+    </view>
+  </view>
+  <!-- <view class='every-dianpu'>
+    <image class='dianpu-img' src='../../img/dianpu-img.png'></image>
+    <view class='dianpu-name'>店铺名称</view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/dianpu-logo.png'></image>
+      <view class='dianpu-xiaoliang'>月销量 2000件</view>
+    </view>
+    <view class='dianpu-jianjie'>
+      <image class='dianpu-logo' src='../../img/dingwei-icon1.png'></image>
+      <view class='dianpu-xiaoliang dianpu-xiaoliang1'>小店区华宇百花谷c座26层</view>
+    </view>
+    <view class='dianpu-btn dianpu-btn1'>
+      点击查看
+      <image class='dianpu-btnlogo' src='../../img/dianpu-btnlogo.png'></image>
+    </view>
+    <view class=' every-dianpu1'>
+      <image class='dianpu1-logo' src='../../img/dianpu1-logo.png'></image>
+    </view>
+  </view> -->
+  <view class='clear' ></view>
+<slide-mask wx:if="{{showMaskFlag}}"></slide-mask>
+</view>

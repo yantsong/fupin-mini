@@ -1,0 +1,248 @@
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+.xinxiqu{
+  width: 675rpx;
+  height: 135rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding: 10rpx;
+  margin-bottom: 50rpx;
+}
+.head-img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  box-shadow: 0 20rpx 20rpx #ddd;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+/* open-data{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  box-shadow: 0 20rpx 20rpx #ddd;
+  margin-right: 20rpx;
+} */
+.name-qu{
+  /* width: 50%; */
+  height: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  float: left;
+  margin-top: 20rpx;
+}
+.name-text{
+  width: auto;
+  /* float: left; */
+}
+.xiahuaxian{
+  width: 100%;
+  height: 5rpx;
+  background-color: #ffe018;
+  margin-top: -5rpx;
+}
+.xinxi-qu{
+  width: 80%;
+  height: 30rpx;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  float: left;
+  color: #999;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.xinxi-phone{
+  width: auto;
+  float: left;
+}
+.xinxi-tuichu{
+  float: right;
+  width: auto;
+  overflow: hidden;
+}
+.xinxi-tuichu-text{
+  float: right;
+}
+.xinxi-tuichu-logo{
+  width: 25rpx;
+  height: 25rpx;
+  float: right;
+  margin-right: 10rpx;
+}
+.fenlei-title{
+  width: auto;
+  height: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+.fenlei-xiahuaxian{
+  width: 100%;
+  height: 8rpx;
+  background-color: #ffe018;
+  margin-top: -8rpx;
+}
+.dingdan-ul{
+  width: 670rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.dingdan-li{
+  width: 140rpx;
+  height: 140rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.dingdan-img{
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 20rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 24rpx;
+}
+.dingdan-text{
+  width: 100%;
+  height: auto;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  margin-top: 10rpx;
+  color: #333;
+  text-align: center;
+}
+.fuwu-qu{
+  width: 670rpx;
+  height: 450rpx;
+  border-radius: 30rpx;
+  margin: 0 auto;
+  margin-top: 35rpx;
+  overflow: hidden;
+}
+.every-fuwu{
+  width: 100%;
+  height: 90rpx;
+  margin-bottom: 2rpx;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 23rpx;
+  box-sizing: border-box;
+}
+.fuwu-logo{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  float: left;
+  margin-right: 30rpx;
+  border-radius: 15rpx;
+}
+.shouhuo-dizhi{
+  width: auto;
+  height: auto;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  float: left;
+}
+.fuwu-more{
+  width: 18rpx;
+  height: 30rpx;
+  display: block;
+  float: right;
+  margin-top: 5rpx;
+}
+.fuwu-name{
+  font-size: 30rpx;
+  line-height: 40rpx;
+  float: left;
+}
+.zhezhao{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.tankuang{
+  width: 470rpx;
+  height: 570rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  /* background-color: #fff; */
+  color: #000;
+}
+.zhuanqian-img{
+  width: 100%;
+  height: 100%;
+}
+.close-zhezhao{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -100rpx;
+}
+.zhuanqian-phone{
+  width: 100%;
+  text-align: center;
+  /* height: auto; */
+  font-size: 30rpx;
+  line-height: 80rpx;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%,-50%);
+  color: #000;
+}
+.make-phone{
+  width: 315rpx;
+  height: 70rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 480rpx;
+}
+
+
+
+button::after{
+  border: none;
+  padding: 0;
+}
+button{
+  padding: 0;
+}
+.clear{
+  clear: both;
+}
+.none-display{
+  display: none;
+}
+.display{
+  display: block;
+}

@@ -1,0 +1,37 @@
+@import '../../utils/icon/iconfont.wxss';
+.slide-mask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+}
+.slide{
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.2;
+    top:180rpx;
+    height: 250rpx;
+}
+.slide .icon-zuoyouhuashoushi{
+    display: inline-block;
+    font-size: 130rpx;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+}
+.slide .icon-huadong{
+    display: inline-block;
+    font-size: 130rpx;
+    position: absolute;
+    left: 25%;
+    top:-55%;
+    /* transform: translate(-50%,-50%); */
+    transition: 0.5s;
+    /* opacity: 1;c */
+    color:#fff;
+}

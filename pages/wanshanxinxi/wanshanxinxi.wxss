@@ -1,0 +1,53 @@
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  overflow: hidden;
+}
+.kuang{
+  width: 690rpx;
+  height: 480rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+  box-shadow: 0 20rpx 30rpx 5rpx #eee;
+}
+.every-xinxi{
+  height: 70rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.every-tab{
+  width: auto;
+  height: 100%;
+  float: left;
+  line-height: 60rpx;
+}
+.every-input{
+  width: 60%;
+  float: left;
+  height: 100%;
+  margin-left: 30rpx;
+}
+.submit{
+  width: 670rpx;
+  height: 70rpx;
+  background:linear-gradient(to right , #f8e77c , #ffe01d);
+  margin: 0 auto;
+  margin-top: 100rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 20rpx;
+}
+button::after{
+  border: none;
+}

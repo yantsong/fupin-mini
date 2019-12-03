@@ -1,0 +1,92 @@
+<view class='back'>
+	<view class='xinxiqu'>
+		<view class='head-img'>
+			<open-data type="userAvatarUrl" />
+		</view>
+		<view class='name-qu'>
+			<open-data type="userNickName" class='name-text' />
+			<view class='xiahuaxian' />
+		</view>
+		<view class='xinxi-qu'>
+			<view class='xinxi-phone' />
+			<view class='xinxi-tuichu'>
+				<!-- <view class='xinxi-tuichu-text' bindtap='gowanshan'>完善信息</view>  -->
+				<image class='xinxi-tuichu-logo' src='' />
+			</view>
+		</view>
+	</view>
+	<view>
+		<view class='fenlei-title'>
+			<view class='fenlei-text'>我的订单</view>
+			<view class='fenlei-xiahuaxian' />
+		</view>
+		<view class='clear' />
+	</view>
+	<view class='dingdan-ul'>
+		<view class='dingdan-li' bindtap='goallorder'>
+			<image class='dingdan-img' src='../../img/order-logo.png' />
+			<view class='dingdan-text'>全部订单</view>
+		</view>
+		<view class='dingdan-li' bindtap='godaifu'>
+			<image class='dingdan-img' src='../../img/fukuan-logo.png' />
+			<view class='dingdan-text'>待付款</view>
+		</view>
+		<view class='dingdan-li' bindtap='goweiwan'>
+			<image class='dingdan-img' src='../../img/wancheng-logo.png' />
+			<view class='dingdan-text'>未完成</view>
+		</view>
+		<view class='dingdan-li' bindtap='goyiwan'>
+			<image class='dingdan-img' src='../../img/wancheng1-logo.png' />
+			<view class='dingdan-text'>已完成</view>
+		</view>
+	</view>
+	<view>
+		<view class='fenlei-title'>
+			<view class='fenlei-text'>服务功能</view>
+			<view class='fenlei-xiahuaxian' />
+		</view>
+		<view class='clear' />
+	</view>
+	<view class='fuwu-qu'>
+		<view class='every-fuwu' bindtap='godizhi'>
+			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
+			<view class='fuwu-name'>收货地址</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
+		<view class='every-fuwu' bindtap='zhuanqian'>
+			<image class='fuwu-logo' src='../../img/qianbao-logo.png' />
+			<view class='fuwu-name'>我要赚钱</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
+		<view class='every-fuwu' bindtap='gofankui'>
+			<image class='fuwu-logo' src='../../img/fankui-logo.png' />
+			<view class='fuwu-name'>用户反馈</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
+		<button open-type='share'>
+			<view class='every-fuwu'>
+				<image class='fuwu-logo' src='../../img/fenxiang-logo.png' />
+				<view class='fuwu-name'>我要分享</view>
+				<image class='fuwu-more' src='../../img/fuwu-more.png' />
+			</view>
+		</button>
+		<button bindtap='getphone'>
+			<view class='every-fuwu'>
+				<image class='fuwu-logo' src='../../img/kefu-logo.png' />
+				<view class='fuwu-name'>投诉电话</view>
+				<image class='fuwu-more' src='../../img/fuwu-more.png' />
+			</view>
+		</button>
+	</view>
+
+	<view class='zhezhao {{zhezhao}}'>
+		<view class='tankuang'>
+			<image class='zhuanqian-img' src='../../img/zhuanqian-kuang.png' />
+			<view class='zhuanqian-phone'>电话：{{phones}}</view>
+			<view class='make-phone' bindtap='makephones' />
+			<image class='close-zhezhao' src='../../img/close-icon.png' bindtap='close_zhezhao' />
+		</view>
+	</view>
+
+</view>
+

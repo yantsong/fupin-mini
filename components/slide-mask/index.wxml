@@ -1,0 +1,7 @@
+<view class="slide-mask" bindtouchmove='taped' bind:touchstart="taped" wx:if="{{showFlag}}">
+    <view class="slide">
+        <i class="icon iconfont icon-zuoyouhuashoushi"></i>
+        <i class="icon iconfont icon-huadong"></i>
+    </view>
+    <view class="mask"></view>
+</view>

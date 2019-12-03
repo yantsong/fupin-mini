@@ -1,0 +1,13 @@
+<!-- donghong 2017-12-20  -->
+<view class="container">
+  <view class="rightview">
+    <block wx:for="{{floorList}}" wx:key="{{index}}">
+      <view class="rightview-item" bindtap="clickfloor" data-floor="{{item.floor}}" data-floorid="{{item.floorId}}" data-schoolid="{{item.orgroleId}}">
+        <view class='text'>
+          <text>{{item.floor}}</text></view>
+      <view class='arrow-right'>
+          <!-- <image wx:if="{{item.model==2}}" src='/images/youjiantou.png'></image> -->
+        </view>  </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<view class='back'>
+  <form >
+  <view class='kuang' > 
+    <view class='every-xinxi'>
+      <view class='every-tab'>姓名</view> 
+      <input class='every-input' value='{{user.name}}' bindinput='name'></input>
+    </view>
+    <view class='every-xinxi'>
+      <view class='every-tab'>手机号码</view>
+      <input class='every-input' value='{{user.telphone}}' bindinput='phone'></input>
+    </view>
+    <view class='every-xinxi'>
+      <view class='every-tab'>学校名称</view>
+      <input class='every-input' value='{{user.orgName}}' bindinput='school'></input>
+    </view>
+    <view class='every-xinxi'>
+      <view class='every-tab'>入学时间</view>
+       <picker class='every-input'
+    mode="date"
+    value="{{user.jonDate}}"
+    start="2014-09-01"
+    end="2020-09-01"
+    bindchange="time"
+  >
+  <view class='every-input'>
+       {{user.jonDate || '暂无'}}
+    </view>
+  </picker>
+      <!-- <input class='every-input' value='{{user.jonDate}}' bindinput='time'></input> -->
+    </view>
+    <view class='every-xinxi'>
+      <view class='every-tab'>专业</view>
+      <input class='every-input' value='{{user.major}}' bindinput='zhuanye'></input>
+    </view>
+  </view>
+  <button form-type='submit' class='submit' bindtap='submit'>提交</button>
+  </form>
+</view>

@@ -1,0 +1,28 @@
+<view class='back'>
+  <view class='input-qu'>
+    <input class='inputs' placeholder='{{name}}' bindblur='changeName'></input>
+    <input class='inputs' value='{{dianhua}}' bindblur="changePhone"></input>
+    <input class='inputs' value='{{xuexiao}}' bindblur="changeSchool"></input>
+     <view class='inputs inputs-lou'>
+      <view class='inputs-name'>楼栋选择</view>
+      <!--<input class='inputs-lounum' placeholder='一号公寓' bindinput='louhao'></input> -->
+      <picker-view class='picker-view' bindchange='louchange' >
+        <picker-view-column >
+          <view class='every-lou' wx:for='{{lous}}' data-id='{{item.floorId}}'>{{item.floor}}</view> 
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <input class='inputs' placeholder='详细地址' value='{{remarks}}' style='padding-bottom:40rpx;overflow:auto;' bindinput="changeRemark"></input>
+  </view>
+  <view class='morendizhi'>
+    默认地址
+    <switch class='moren-btn' bindchange='moren'>
+    </switch>
+  </view>
+
+  <view class='baocun-btn' bindtap='baocun'>
+    <view class='baocun-text'>保存</view>
+  </view>
+
+  <view class='delete-dizhi' bindtap='deletedizhi'>删除收货地址</view>
+</view>

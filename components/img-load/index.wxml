@@ -1,0 +1,3 @@
+<image wx:if="{{!finishLoadFlag}}" src='../../img/loading.gif' ></image>
+<image else src="{{originalImage}}" ></image>
+<image class="img-fake" src="{{originalImage}}" bindload='finishLoad'></image>

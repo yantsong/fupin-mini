@@ -1,0 +1,42 @@
+.share{
+  text-align: center;
+}
+.share-content{
+  margin: 0 auto;
+  width: 710rpx;
+	height: 725rpx;
+	background-color: #f8faff;
+	box-shadow: 1rpx 18rpx 29rpx 0rpx 
+		rgba(12, 3, 6, 0.03);
+	border-radius: 8rpx;
+}
+.share-content-btn{
+  margin: 10rpx auto;
+  width: 604rpx;
+  border-radius: 8rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 25rpx;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffe018;
+    opacity: 0.8;
+}
+.share-content-money{
+  font-size: 62rpx;
+  line-height: 62rpx;
+  margin-bottom: 20rpx;
+  font-family: MicrosoftYaHei-Bold;
+	font-weight: normal;
+	font-stretch: normal;
+	color: #000000;
+}
+.share-content-text{
+  margin: 20rpx auto;
+  line-height: 40rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	color: #333333;
+}

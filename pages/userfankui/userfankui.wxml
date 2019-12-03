@@ -1,0 +1,7 @@
+<view class='back'>
+	<textarea class='textarea' placeholder='留下你对平台的意见或者建议（必填）' bindinput='content' />
+	<input class='input-name' placeholder='输入您的姓名(必填)' bindinput='name' />
+	<input class='input-name' placeholder='输入您的电话(必填)' bindinput='telephone' />
+	<view class='btn' bindtap='submit'>提交反馈</view>
+</view>
+

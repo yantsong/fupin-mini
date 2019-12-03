@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "推荐",
+  "usingComponents": { "slide-mask": "/components/slide-mask/index" }
+}

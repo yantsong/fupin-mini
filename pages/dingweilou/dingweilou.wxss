@@ -1,0 +1,53 @@
+/* donghong 2017-12-20  */
+.container{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 0;
+}
+
+.leftview{
+  width: 30%;
+  background-color: #e0e0e0;
+  height: 100vh;
+}
+
+.leftview-item{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #b6b6b6;
+}
+.rightview{
+  flex: 7;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.rightview-item{
+  width: 690rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin:0 30rpx;
+  padding:0 24rpx;
+  border-bottom: 1rpx solid #dadada;
+}
+.rightview image{
+ display: block;
+ height: 36rpx;
+ width: 36rpx;
+}
+.clickview {
+  border-right: none !important;
+  background-color: white;
+  /* color: white; */
+}
+
+text{
+  font-size: 35rpx;
+}

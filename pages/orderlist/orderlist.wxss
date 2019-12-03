@@ -1,0 +1,79 @@
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  overflow: hidden;
+}
+.order-list{
+  width: 700rpx;
+  height: 250rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  padding: 30rpx 15rpx;
+  box-sizing: border-box;
+}
+.list-img{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  display: block;
+  float: left;
+  box-shadow: 0 20rpx 30rpx 5rpx #eee;
+  margin-right: 25rpx;
+}
+.dian-name{
+  width: 50%;
+  height: auto;
+  float: left;
+  margin-top: 10rpx;
+}
+.list-name{
+  width: auto;
+  height: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  float: left;
+}
+.xiahuaxian{
+  height: 5rpx;
+  margin-top: -5rpx;
+  background-color: #ffe018;
+}
+.list-time{
+  width: 70%;
+  height: auto;
+  font-size: 28rpx;
+  color: #999;
+  line-height: 28rpx;
+  margin-top: 30rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+.list-price{
+  width: 50%;
+  margin-top: 50rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 28rpx;
+  color: #999;
+}
+.list-btn{
+  width: 170rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+  float: right;
+  background: linear-gradient(to bottom, #fff79e ,  #ffe12e);
+  box-shadow: 0 10rpx 20rpx 2rpx #fff79e;
+  border-radius: 30rpx;
+}
+.no-order{
+  text-align: center;
+  line-height: 50vh;
+  font-size: 36rpx;
+}

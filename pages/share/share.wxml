@@ -1,0 +1,16 @@
+<!--logs.wxml-->
+<view class="share">
+  <view class="share-content">
+    <image src="../../img/frddaifu.png" alt=""></image>
+    <view class="share-content-text">
+      通过微信将代付请求发送给朋友，即可让他帮你买单！
+    </view>
+    <view class="share-content-money">
+      ¥{{money}}
+    </view>
+    <button class="share-content-btn" open-type="share">
+      发送代付请求
+    </button>
+    <!-- <view bind:tap="test">测试</view> -->
+  </view>
+</view>

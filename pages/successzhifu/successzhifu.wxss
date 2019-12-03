@@ -1,0 +1,132 @@
+.back{
+  background-color: #f6f6f6;
+  height: auto;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.tishikuang{
+  width: 670rpx;
+  height: 460rpx;
+  background-color: #f8faff;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  overflow: hidden;
+}
+.tishi-logo{
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 75rpx;
+}
+.tishi-text{
+  font-size: 30rpx;
+  margin-top: 50rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.fukuan-text{
+  width: auto;
+  height: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  float: left;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+}
+.xianhuaxian{
+  height: 5rpx;
+  margin-top: -5rpx;
+  background-color: #ffde1c;
+}
+.fukuan-qu{
+  width: 670rpx;
+  height: auto;
+  padding: 25rpx 0;
+  background-color: #f8faff;
+  float: left;
+  border-radius: 10rpx;
+  margin-left: 40rpx;
+  margin-top: 25rpx;
+}
+.zhifu-qu{
+  width: 610rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background-color: #fff;
+  padding: 25rpx 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0 10rpx 30rpx 5rpx #eee;
+}
+.zhifu-btn{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  float: left;
+  margin-top:12rpx;
+  margin-right: 40rpx;
+}
+.zhifu-text{
+  font-size: 30rpx;
+  line-height: 70rpx;
+  font-weight: bold;
+  float: left;
+}
+.zhifu-price{
+  width: auto;
+  float: right;
+  font-size: 25rpx;
+  color: #278cff;
+  font-weight: bold;
+  line-height: 90rpx;
+}
+.zhifu-tishi{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  line-height: 30rpx;
+  color: #999;
+  width: 70%;
+  float: left;
+}
+.zongji-price{
+  height: 80rpx;
+  margin-top: 90rpx;
+  background-color: #ffde1c;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  margin-bottom: 70rpx;
+}
+.shop-qu{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  color: #999;
+}
+.shop-name{
+  width: auto;
+  float: left;
+}
+.shop-price{
+  width: auto;
+  float: right;
+}
+.clear{
+  clear: both;
+}
+button::after{
+  border: none;
+}
+form{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+}

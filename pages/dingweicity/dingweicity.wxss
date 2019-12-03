@@ -1,0 +1,95 @@
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+.sousuo-input{
+  width: 555rpx;
+  height: 70rpx;
+  background-color: #fff;
+  border-radius: 35rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 25rpx;
+  color: #efdf08;
+  margin-left: 40rpx;
+  margin-right: 35rpx;
+  border: 1rpx solid #efdf08;
+  float: left;
+}
+.sousuo-logo{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  float: left;
+  margin-top: 15rpx;
+}
+.dangqian-city{
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  padding-left: 50rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  margin-top: 100rpx;
+  margin-bottom: 10rpx;
+}
+.scroll-view{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+.scroll-into-view{
+  width: 100%;
+  height: auto;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.every-city{
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.every-zimu{
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #f6f6f6;
+  font-size: 20rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  margin-left: -5%;
+}
+.city-text{
+  width: 100%;
+  height: 85rpx;
+  padding: 0 10rpx;
+  padding-top: 35rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #aaa;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.fixed{
+  width: 30rpx;
+  height: 900rpx;
+  position: fixed;
+  right: 30rpx;
+  top: 200rpx;
+}
+.every-fixed{
+  width: 100%;
+  height: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #0098fe;
+  padding: 7rpx 0;
+}
+.no-result{
+  text-align: center;
+  font-size: 32rpx;
+}

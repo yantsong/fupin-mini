@@ -1,0 +1,97 @@
+@import "../wxparse/wxparse.wxss";
+ .back{
+   width: 100%;
+   height: auto;
+   min-height: 100vh;
+   background-color: #f6f6f6;
+   overflow: hidden;
+ }
+ .baoming-title{
+   width:auto;
+   height: auto;
+   font-size: 35rpx;
+   line-height: 35rpx;
+   margin-left: 45rpx;
+   margin-top: 50rpx;
+ }
+ .info{
+   box-sizing: border-box;
+   padding: 20rpx 44rpx;
+   width: 100vw;
+   overflow: hidden;
+ }
+ .baoming-xinxi{
+   width: auto;
+   font-size: 30rpx;
+   line-height: 30rpx;
+   margin-left: 70rpx;
+   margin-right: 50rpx;
+   margin-top: 30rpx;
+   height: 30rpx;
+   overflow: hidden;
+ }
+ .jiaxiao-img{
+   width: 640rpx;
+   height: 430rpx;
+   display: block;
+   margin: 0 auto;
+   margin-top: 30rpx;
+   background-color: red;
+ }
+ .baoming-date{
+   font-size: 20rpx;
+   line-height: 20rpx;
+   text-align: right;
+   color: #ccc;
+   padding-right: 25rpx;
+   width: 640rpx;
+   margin: 0 auto;
+   margin-top: 20rpx;
+   box-sizing: border-box;
+ }
+ .form{
+   width: 640rpx;
+   height: auto;
+   display: block;
+   margin: 0 auto;margin-top: 50rpx;
+ }
+ .form-title{
+   font-size: 30rpx;
+   line-height: 30rpx;
+   padding-left: 10rpx;
+ }
+ .form-every{
+   width: 100%;
+   height: 70rpx;
+   margin-top: 30rpx;
+   border: 2rpx solid #333;
+   box-sizing: border-box;
+   border-radius: 15rpx;
+   overflow: hidden;
+   padding: 0 15rpx;
+   font-size: 30rpx;
+   line-height: 70rpx;
+ }
+ .form-text{
+   float: left;
+ }
+ .form-input{
+   width: 60%;
+   float: left;
+   height: 70rpx;
+   margin-left: 10%;
+   overflow: hidden;
+ }
+ .submit{
+   width: 100%;
+   height: 70rpx;
+   border-radius: 20rpx;
+   margin-top: 30rpx;
+   font-size: 30rpx;
+   text-align: center;
+   line-height: 70rpx;
+   background: linear-gradient(to right , #fbe44e , #f7e780);
+ }
+ button::after{
+   border: none;
+ }

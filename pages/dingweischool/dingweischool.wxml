@@ -1,0 +1,19 @@
+<view class='back'>
+	<view style='height:10rpx;padding-top:20rpx' />
+	<input class='sousuo-input' placeholder='搜索学校' bindinput='toSearch' />
+	<image class='sousuo-logo' src='../../img/sousuo-logo1.png' />
+	<!-- <view class='dangqian-city' bindtap='gocity'>当前：{{thiscity}}</view> -->
+	<scroll-view class='scroll-view' scroll-y style='height:{{heights}}rpx;'>
+		<view
+		 class='city-text'
+		 wx:for='{{school}}'
+		 data-schoolname='{{item.orgName}}'
+		 data-school='{{item.orgroleId}}'
+		 data-model='{{item.model}}'
+		 bindtap='clickschool'
+		>{{item.orgName}}
+			<image class='city-more {{item.model == 2?"display":"none-display"}}' src='../../img/fuwu-more.png' />
+		</view>
+	</scroll-view>
+</view>
+

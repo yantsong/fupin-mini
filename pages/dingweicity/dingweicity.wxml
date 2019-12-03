@@ -1,0 +1,16 @@
+<view class='back'>
+  <view style='height:10rpx'></view>
+  <input class='sousuo-input' placeholder='搜索城市' bindinput="search"></input> 
+  <image class='sousuo-logo' src='../../img/sousuo-logo1.png'></image>
+  <view class='dangqian-city'>当前：{{cityname}}</view>
+  <scroll-view class='scroll-view' scroll-y style='height:{{heights}}rpx;' scroll-into-view='{{zimu}}' scroll-with-animation>
+      <view class='every-city' wx:if="{{allcity.length}}" wx:for='{{allcity}}' wx:for-item='i' >
+        <view class='city-text' data-id='{{i.pid}}' data-name='{{i.orgName}}' data-in='{{i.orgroleId}}' bindtap='clickcity'>{{i.orgName}}</view>
+      </view>
+      <view class="no-result" wx:if="{{!allcity.length}}"> 暂无该城市 </view>
+  </scroll-view>
+
+  <!-- <view class='fixed'>
+    <view class='every-fixed' wx:for='{{allcity}}' bindtap='clickzimu' data-zimu='{{item.title}}'>{{item.title}}</view>
+  </view> -->
+</view>

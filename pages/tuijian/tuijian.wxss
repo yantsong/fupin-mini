@@ -1,0 +1,218 @@
+/* miniprogram/pages/tuijian/tuijian.wxss */ 
+.back{
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  padding-top: 1rpx;
+  background-color: #f6f6f6;
+}
+.clear{
+  clear: both;
+}
+.input-qu{
+  width: 670rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin: 30rpx auto;
+  position: relative;
+  overflow: hidden;
+}
+.sousuo-input{
+  width: 85%;
+  height: 25rpx;
+  margin-top: 11rpx;
+  margin-left: 25rpx;
+  font-size: 22rpx;
+  line-height: 22rpx;
+  display: block;
+  float: left;
+}
+.sousuo-logo{
+  width: 25rpx;
+  height: 25rpx;
+  display: block;
+  float: right;
+  margin-top: 22rpx;
+  margin-right: 20rpx;
+}
+.fenlei-title{
+  width: auto;
+  height: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+.fenlei-xiahuaxian{
+  width: 100%;
+  height: 8rpx;
+  background-color: #ffe018;
+  margin-top: -8rpx;
+}
+.quanbu-fenlei{
+  width: auto;
+  float: right;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  color: #999;
+  margin-top: 30rpx;
+  margin-right: 40rpx;
+}
+.scroll{
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.fenlei-ul{
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin-bottom: 30rpx;
+}
+.fenlei-li{
+  width: 18vw;
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 25rpx;
+  margin: 0 2.1vw;
+  margin-top: 40rpx;
+}
+.fenlei-li1{
+  background-color: #ffe018;
+}
+.every-dianpu,.every-dianpu1{
+  width: 590rpx;
+  height: 215rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  border: 1rpx solid #fff;
+  box-sizing: border-box;
+  box-shadow: 0rpx 5rpx 30rpx 1rpx #ddd;
+}
+.dianpu-img{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  left: -44rpx;
+  top: 25rpx;
+  overflow: hidden;
+}
+.dianpu-name{
+  width: 50%;
+  height: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-top: 55rpx;
+  margin-left: 155rpx;
+  overflow: hidden;
+}
+.dianpu-jianjie{
+  width: 60%;
+  /* height: 25rpx; */
+  /* margin-top: 20rpx; */
+  margin-left: 155rpx;
+  overflow: hidden;
+}
+.dianpu-logo{
+  width: 25rpx;
+  height: 25rpx;
+  display:inline-block;
+  margin-right: 10rpx;
+}
+.dianpu-xiaoliang{
+  display: inline-block;
+  width: 90%;
+  height: 100%;
+  font-size: 25rpx;
+  line-height: 25rpx;
+  color: #ffe018;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dianpu-xiaoliang1{
+  color: #999;
+}
+.dianpu-btn{
+  width: 140rpx;
+  height: 56rpx;
+  background-color: #ffe018;
+  border-radius: 28rpx;
+  position: absolute;
+  top: 130rpx;
+  right: -40rpx;
+  box-shadow: 4rpx 4rpx 20rpx 1rpx #fff068;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  font-size: 23rpx;
+  line-height: 56rpx;
+  overflow: hidden;
+}
+.dianpu-btnlogo{
+  width: 20rpx;
+  height: 20rpx;
+  display: block;
+  float: right;
+  margin-top: 20rpx;
+}
+.dianpu-btn1{
+  background-color: #6b6b6b;
+}
+.every-dianpu1{
+  position: absolute;
+  left: 0;
+  top: -1rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3; 
+  margin-top: 0;
+  box-shadow: none;
+  border: 1rpx solid #ccc;
+  height: 220rpx;
+  width: 592rpx;
+}
+.dianpu1-logo{
+  width: 140rpx;
+  height: 120rpx;
+  display: block;
+  position: absolute;
+  top: 40rpx;
+  left: -50rpx;
+}
+.progress{
+  width: 201rpx;
+  height: 8rpx;
+  background-color: #fff;
+  margin: 40rpx auto;
+  border-radius: 4rpx;
+  position: relative;
+  overflow: hidden;
+}
+.progress1{
+  height: 100%;
+  background-color: #ffde1c;
+  border-radius: 2rpx;
+}
+
+
+
+
+
+
+.none-display{
+  display: none;
+}
+.display{
+  display: block;
+}
