@@ -22,7 +22,8 @@
     "pages/shouhuodizhi/shouhuodizhi",
     "pages/adddizhi/adddizhi",
     "pages/bianjidizhi/bianjidizhi",
-    "pages/dingweilou/dingweilou"
+    "pages/dingweilou/dingweilou",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -39,6 +40,12 @@
         "text": "首页",
         "iconPath": "img/index-home.png",
         "selectedIconPath": "img/index-home-a.png"
+      },
+      {
+        "pagePath": "pages/tuijian/tuijian",
+        "text": "认养",
+        "iconPath": "img/tuijian-logo.png",
+        "selectedIconPath": "img/tuijian-logo1.png"
       },
       {
         "pagePath": "pages/tuijian/tuijian",

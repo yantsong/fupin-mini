@@ -41,7 +41,6 @@
 			>
 				<image class='caini-img' src='{{IMGURL}}{{item.goodsPic}}' />
 				<view class='caini-name ellipse'>{{item.goodsName}}</view>
-				<view class='caini-money'>￥{{item.children[0].price}}</view>
 				<view class="caini-realmoney">${{}}</view>
 				<image class='caini-gouwuche' src='../../img/gouwuche-logo.png' />
 			</view>
@@ -140,6 +139,43 @@
 			<!-- <view class='tuijian-title1'>{{item.goodsName}}</view> -->
 		</view>
 	</view>
+	<!-- 公告 -->
+	<view class="fp-notice">
+		<view>
+			<view class='fenlei-title'>
+				<view class='fenlei-text'>公告</view>
+				<view class='fenlei-xiahuaxian' />
+			</view>
+			<view class='clear' />
+		</view>
+		<view class="notice-content">
+			<image
+			 class="notice-content-img"
+			 src="../../image/notice-logo.png"
+			 mode="aspectFit|aspectFill|widthFix"
+			 lazy-load="false"
+			 binderror=""
+			 bindload=""
+			/>
+			<view class="notice-content-text">
+				<view class="notice-content-text-title">公告列表</view>
+				<view class="notice-content-text-detail">
+					<image
+					 class="notice-content-text-detail-icon"
+					 src="../../image/notice-i.png"
+					 mode="aspectFit|aspectFill|widthFix"
+					 lazy-load="false"
+					 binderror=""
+					 bindload=""
+					/>
+					<view class="notice-content-text-detail-text">
+						点击查看公告详情
+					</view>
+				</view>
+			</view>
+			<image class="notice-content-arrow" src="../../image/more.png" />
+		</view>
+	</view>
 	<!-- 优惠专区  -->
 	<view wx:if="{{youhuili.length}}">
 		<view class='{{youhuilist}}' style='{{none}}'>
@@ -187,8 +223,7 @@
 			>
 				<image class='caini-img' src='{{imgUrl}}{{item.goodsPic}}' />
 				<view class='caini-name ellipse'>{{item.goodsName}}</view>
-				<view class='caini-markmoney caini-money'>￥{{item.children[0].markPrice}}</view>
-				<view class='caini-money'>￥{{item.children[0].price}}</view>
+				<view class='caini-money'>￥{{item.goodsPrice}}</view>
 				<image class='caini-gouwuche' src='../../img/gouwuche-logo.png' />
 			</view>
 			<!-- <view class='caini-every caini-every1' wx:for='{{kongnum}}'></view> -->
