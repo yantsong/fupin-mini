@@ -1,0 +1,62 @@
+/* pages/aijia/aijia.wxss */
+
+.picContent {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 19rpx 28rpx;
+}
+
+.picContent .smallImg {
+  width: 340rpx;
+  margin-bottom: 25rpx;
+  box-shadow: 0 0 30rpx #ccc;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.picContent .BigImg {
+  width: 703rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.normalBtn {
+  width: 238rpx;
+  height: 65rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgb(51, 51, 51);
+  background-color: rgb(255, 224, 24);
+  border-radius: 22rpx;
+}
+
+.ProductMsg {
+  position: relative;
+  background:blue;
+}
+
+.ProductMsg .ProductBtn {
+  width: 241rpx;
+  height: 65rpx;
+  font-size: 29rpx;
+  position: absolute;
+  bottom: 32rpx;
+  right: 49rpx;
+}
+
+.BigImg .bigBtn {
+  position: absolute;
+  bottom: 26rpx;
+  right: 14rpx;
+}
+
+.smallImg .smallBtn {
+  position: absolute;
+  bottom: 16rpx;
+  left: 6rpx;
+  width: 168rpx;
+  height: 45rpx;
+  font-size: 18rpx;
+}

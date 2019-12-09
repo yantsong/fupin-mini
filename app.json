@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/renyang/renyang",
     "pages/index/index",
     "pages/dingweischool/dingweischool",
     "pages/userfankui/userfankui",
@@ -45,7 +46,7 @@
         "selectedIconPath": "img/index-home-a.png"
       },
       {
-        "pagePath": "pages/tuijian/tuijian",
+        "pagePath": "pages/renyang/renyang",
         "text": "认养",
         "iconPath": "img/tuijian-logo.png",
         "selectedIconPath": "img/tuijian-logo1.png"

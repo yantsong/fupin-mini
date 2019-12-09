@@ -29,3 +29,9 @@ export const getKindsFoods= classifyId => http.get(
 export const getAddressList= openId => http.get(
   fpUrl+'/toAddressList.action', {openId}
 )
+
+//认养今日推荐商品
+// https://abc.suda60.com/getAdoptMainGoodsList.action
+export const getrenyanList = () => http.get(
+  fpUrl + '/getAdoptMainGoodsList.action'
+)
