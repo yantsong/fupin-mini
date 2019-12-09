@@ -2,17 +2,7 @@
 	<view class='input-qu'>
 		<input class='inputs' placeholder='收货人' bindinput='name' />
 		<input class='inputs' placeholder='手机号码' bindinput='phone' />
-		<input class='inputs' placeholder='省份' bindinput='provice' />
-		<!-- <view class='inputs' >{{school}}</view>  -->
-		<!-- <view class='inputs inputs-lou'> -->
-		<!-- <view class='inputs-name'>楼栋选择</view> -->
-		<!-- <input class='inputs-lounum' placeholder='一号公寓' bindinput='louhao'></input> -->
-		<!-- <picker-view class='picker-view' bindchange='louchange'>
-        <picker-view-column>
-          <view class='every-lou' wx:for='{{lous}}' data-id='{{item.floorId}}'>{{item.floor}}</view> 
-        </picker-view-column>
-      </picker-view> -->
-		<!-- </view> -->
+		<input class='inputs' placeholder='城市' bindinput='city' />
 		<input
 		 class='inputs'
 		 placeholder='详细地址：如小区名 小区楼号 门派号码等'

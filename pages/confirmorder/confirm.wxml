@@ -1,21 +1,21 @@
 <view class='back'>
-  <view style='height:20rpx;'></view>
-  <view class='user-xinxi' wx:for = '{{user}}' bindtap='godizhi'>  
-    <view class='users-xinxi' > 
-      <image class='user-logo' src='../../img/user-icon.png'></image>          
-      <view class='user-name'>收件人：{{yonghu}}</view>          
-      <view class='user-phone'>{{phones}}</view>            
-    </view>
-    <view class='user-dizhi'>
-      <image class='user-dizhi-logo' src='../../img/dingwei-icon1.png'></image>
-      <view class='user-dizhi-text'>{{floornum}}{{remarks}}</view>
-    </view>
-    <view class='shezhi'>
-      <image class='shezhi-logo' src='../../img/gouwushezhi.png'></image>
-    </view>
-  </view>
+	<view style='height:20rpx;' />
+	<view class='user-xinxi' wx:for='{{user}}' bindtap='godizhi'>
+		<view class='users-xinxi'>
+			<image class='user-logo' src='../../img/user-icon.png' />
+			<view class='user-name'>收件人：{{yonghu}}</view>
+			<view class='user-phone'>{{phones}}</view>
+		</view>
+		<view class='user-dizhi'>
+			<image class='user-dizhi-logo' src='../../img/dingwei-icon1.png' />
+			<view class='user-dizhi-text'>{{city}}{{remarks}}</view>
+		</view>
+		<view class='shezhi'>
+			<image class='shezhi-logo' src='../../img/gouwushezhi.png' />
+		</view>
+	</view>
 
-  <!-- <view class='dianqu' style='height:{{diangao}}'>
+	<!-- <view class='dianqu' style='height:{{diangao}}'>
     <view class='dianqu1' style='height:{{dian1gao}}'>
     <image class='dian-logo none-display' src=''></image>
     <view style='height:30rpx;' class='none-display'>
@@ -33,88 +33,75 @@
       <view class='dian-more-num {{shopnum}}'>{{yincangnum}}</view>
     </view>
   </view> -->
-<view class='meige-qu' wx:for='{{shopin}}'>
-  <view class='dian-namequ3'>
-      <image class='dian-logo3' src='{{url}}{{item.children[0].shoplogo}}'></image> 
+	<view class='meige-qu'>
+		<!-- <view class='dian-namequ3'>
       <view class='dian-name3'>{{item.children[0].shopName}}</view>
-      <!-- <image class='dian-more3' src='../../img/fuwu-more.png'></image> -->
-    </view>
-  <view class='every-order' style='width:670rpx;margin:0 auto;' wx:for='{{item.children}}' wx:for-item='i'>
-      <image class='order-img' src='{{url}}{{i.proUrl}}'></image>  
-      <view class='order-name'>{{i.goodsName}}</view>
-      <view class='order-wei {{i.specfiValue?"display":"none-display"}}'>{{i.specifiValue}}</view>
-      <view class='order-price'>￥{{i.price}}</view>
-      <view class='xiaoliang-num'>*{{i.num}}</view>
-    </view>
-  
-  <view class='fukuan-text'>
-    付款详情
-    <view class='xianhuaxian'></view>
-  </view>
-  <view class='fukuan-qu'>
-    <view class='zhifu-qu'>
-      
-      <view style='box-sizing:border-box;overflow:hidden;'>
-      <image class='zhifu-btn' src='../../img/duigou.png' style='margin-top:40rpx'></image>
-      <view class='zhifu-text' style='line-height:120rpx;'>配送费</view>
-      <view class='zhifu-price' style='line-height:120rpx;'> <text style='font-size:20rpx'>￥</text>{{item.ifKd}}<text style='font-size:20rpx'></text></view>
-      </view>
-      <view style='box-sizing:border-box;overflow:hidden;' wx:if="{{item.ifNew}}">
-      <image class='zhifu-btn' src='../../img/duigou.png' style='margin-top:40rpx'></image>
-      <view class='zhifu-text' style='line-height:120rpx;'>优惠</view>
-      <view class='zhifu-price' style='line-height:120rpx;'> <text style='font-size:20rpx'>-￥</text>{{item.ifNew}}<text style='font-size:20rpx'></text></view>
-      </view>
-      <view style='box-sizing:border-box;overflow:hidden;' class='{{item.boxfee?"display":"none-display"}}'>
-      <image class='zhifu-btn' src='../../img/duigou.png' style='margin-top:40rpx'></image>
-      <view class='zhifu-text' style='line-height:120rpx;'>餐盒费</view>
-      <view class='zhifu-price' style='line-height:120rpx;'> <text style='font-size:20rpx'>￥</text>{{item.boxfee}}<text style='font-size:20rpx'></text></view>
-      </view>
-      <view>
-          <image class='zhifu-btn' src='../../img/duigou.png'></image>
-          <view class='zhifu-text' style='line-height:30rpx;'>订单总价</view>
-          <view class='zhifu-price'> <text style='font-size:20rpx'>￥</text>{{item.dianprice+item.ifKd}}<text style='font-size:20rpx'></text></view>
-          <view class='zhifu-tishi'>商品将额外优惠哦</view>
-            <view class='clear'></view>
-      </view>
-        <view class='clear'></view>
-      </view>
-      <!-- 代付区域 -->
-      <view class="zhifu-qu zhifu-qu-frd" bind:tap="goFrdPay">
-            <view>
-                <image class='zhifu-btn' src='../../img/user-icon.png'></image>
-                <view class='zhifu-text-frd zhifu-text' style='line-height:30rpx;'>请朋友代付</view>
-                <view class='zhifu-price'> <text style='font-size:20rpx'>￥</text>{{item.dianprice+item.ifKd}}<text style='font-size:20rpx'></text></view>
-                <view class='zhifu-tishi'>商品将额外优惠哦</view>
-                  <view class='clear'></view>
-            </view>
-      </view>
-    </view>
-    <!-- 代付 -->
+    </view> -->
+		<view class='every-order' style='width:670rpx;margin:0 auto;'>
+			<image class='order-img' src='{{imgUrl}}{{info.goodsPic}}' />
+			<view class='order-name'>{{info.activeRealName}}</view>
+			<view class='order-price'>规格:{{info.activeRealName}}</view>
+			<view class='xiaoliang-num'> X {{info.buyCount}}</view>
+		</view>
 
-    <view class='beizhu-qu'>
-    <text style='font-weight:bold;'>备注:</text>  
-    <textarea class='beizhu-text' bindinput='beizhu2'  data-index='{{index}}'></textarea>
-  </view>
-  </view>
-  
+		<view class='fukuan-text'>
+			付款详情
+			<view class='xianhuaxian' />
+		</view>
+		<view class='fukuan-qu'>
+			<view class='zhifu-qu'>
+
+				<view class="song-pay">
+					<view style="display:flex;align-item:center;">
+						<image class='zhifu-btn' src='../../img/duigou.png' />
+						<view class='zhifu-text' style='line-height:30rpx;'>商品总价</view>
+					</view>
+					<view class='zhifu-price'>
+						<view style='font-size:20rpx'>￥</view>
+						<view style='font-size:20rpx'>
+							{{info.activePrice * info.buyCount}}
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 代付区域 -->
+		</view>
+		<!-- 代付 -->
+
+		<view class='beizhu-qu'>
+			<text style='font-weight:bold;'>备注:
+
+
+
+</text>
+			<textarea class='beizhu-text' bindinput='beizhu2' data-index='{{index}}' />
+			</view>
+	</view>
+
 </view>
-    <!-- <view style='width:670rpx;margin:0 auto;border-radius:10rpx;overflow:hidden;background-color:#fff;margin-bottom:10rpx;padding:0 30rpx;box-sizing:border-box;'>
+<!-- <view style='width:670rpx;margin:0 auto;border-radius:10rpx;overflow:hidden;background-color:#fff;margin-bottom:10rpx;padding:0 30rpx;box-sizing:border-box;'>
       <image class='zhifu-btn' src='../../img/duigou.png' style='margin-top:40rpx'></image>
       <view class='zhifu-text' style='line-height:120rpx;'>优惠</view>
       <view class='zhifu-price' style='line-height:120rpx;'> <text style='font-size:20rpx'>-￥</text>{{ifNew}}<text style='font-size:20rpx'></text></view>
         <view class='clear'></view>
       </view> -->
-    <view style="background-color:#f6f6f6">
-  <form report-submit='true' bindsubmit='fukuan' class='form' style='z-index:10'>
-      <button class='zongji-price' form-type='submit' >总计 ¥ {{allprice}}    确认付款</button>
-  </form>
-  <view style='width:100%;height:100rpx;float:left;background-color:#f6f6f6;position:fixed;left:0;bottom:0;'></view>
-  <view style='height:100rpx;float:left;'></view>  
-  <view class='clear'></view>
-  <view class='zhezhao {{goadddizhi}}' bindtap='zhezhao'>
-    <view class='tishik'>
-      <view class='tishi-zi'>请先填写收货地址</view>
-      <view class='tishi-btn' bindtap='goorder'>去填写</view>
-    </view>
-  </view>
+<view style="background-color:#f6f6f6">
+	<form
+	 report-submit='true'
+	 bindsubmit='fukuan'
+	 class='form'
+	 style='z-index:10'
+	>
+		<button class='zongji-price' form-type='submit'>总计 ¥ {{allprice}} 确认付款</button>
+	</form>
+	<view style='width:100%;height:100rpx;float:left;background-color:#f6f6f6;position:fixed;left:0;bottom:0;' />
+	<view style='height:100rpx;float:left;' />
+	<view class='clear' />
+	<view class='zhezhao {{goadddizhi}}' bindtap='zhezhao'>
+		<view class='tishik'>
+			<view class='tishi-zi'>请先填写收货地址</view>
+			<view class='tishi-btn' bindtap='goorder'>去填写</view>
+		</view>
+	</view>
 </view>
+

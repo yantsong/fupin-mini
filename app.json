@@ -23,7 +23,8 @@
     "pages/adddizhi/adddizhi",
     "pages/bianjidizhi/bianjidizhi",
     "pages/dingweilou/dingweilou",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/catgroy/catgroy"
   ],
   "usingComponents": {
     "title": "./components/title/title"

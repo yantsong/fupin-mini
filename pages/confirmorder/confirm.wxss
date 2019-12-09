@@ -286,7 +286,6 @@
   height: 40rpx;
   border-radius: 10rpx;
   float: left;
-  margin-top:12rpx;
   margin-right: 40rpx;
 }
 .zhifu-text{
@@ -296,12 +295,9 @@
   float: left;
 }
 .zhifu-price{
-  width: auto;
-  float: right;
   font-size: 25rpx;
   color: #278cff;
   font-weight: bold;
-  line-height: 90rpx;
 }
 .zhifu-tishi{
   font-size: 30rpx;
@@ -466,4 +462,14 @@ form{
 }
 .display{
   display: block;
+}
+.song-pay{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.zhifu-price{
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
 }

@@ -33,17 +33,10 @@ Page({
       key: 'openId',
       success: function(res) {
         openId = res.data;
-      },
-    })
-    wx.getStorage({
-      key: 'schoolid',
-      success: function(res) {
-        schoolid = res.data;
         wx.request({
           url: url + 'getOrderListByOrderState.action',
           data:{
             openId:openId,
-            orgId:schoolid,  
             orderState:orderState,   
             pageNum:page
           },

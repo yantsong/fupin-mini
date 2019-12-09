@@ -22,7 +22,8 @@ Page({
     yonghu:'',
     phones:'',
     floornum:'',
-    remarks
+    remarks,
+    info:''
   },
 
   /**
@@ -38,6 +39,7 @@ Page({
     kdPrice = '';
     newPrice = '';
     gouwu_id = options.gouwu;
+    this._getGoodsInfo()
     let openId = wx.getStorageSync('openId')
     getAddressList(openId).then(
       res => {
@@ -46,118 +48,123 @@ Page({
         }
       }
     )
-    wx.request({
-      url: url + 'getGoodsToOrder.action',
-      data: {
-        openId
-      },
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'  
-      },
-      success:function(res){
-        let data = res.data;
-        console.log(res);
-        if(data.errorCode == -1){
-          if(data.body.addressList.length && data.body.addressList[0].addressId==''){
-            that.setData({
-              goadddizhi:'display',
-            })
-          }
-          let gouwuid = [] ; 
-          data.body.shopList.forEach((v) => {
-            let dianprice = 0 , shopcart = '';
-            gouwuid.push(v.shoppingCartId);
-            // allPrice = allPrice*1 + v.price*1*v.num;
-            v.children.forEach((vv)=>{
-              dianprice = dianprice + vv.price * vv.num;
-              if(shopcart){
-                shopcart = shopcart + ',' + vv.shoppingCartId;
-              }
-              else{
-                shopcart = vv.shoppingCartId;
-              }
-            })
-            v.dianprice = dianprice;
-            if(gouwuids){
-              gouwuids = gouwuids + '==' + shopcart;
-            }
-            else{
-              gouwuids = shopcart;
-            }
-            if(orderPrice!=''){
-              orderPrice = orderPrice + '==' + dianprice;
-            }
-            else{
-              orderPrice = dianprice;
-            }
-            if(kdPrice!=''){
-              kdPrice = kdPrice + '==' + v.ifKd;
-            }
-            else{
-              kdPrice = ''+ v.ifKd;
-            }
-            if(newPrice!=''){
-              newPrice = newPrice + '==' + v.ifNew;
-            }
-            else{
-              newPrice = '' + v.ifNew;
-            }
-            allPrice = allPrice + dianprice + Number(v.ifKd) - Number(v.ifNew)
-            // allprice = Number(allprice).toFixed(2)
-          })
-          console.log(gouwuids,orderPrice,kdPrice,newPrice);
-          that.setData({
-            shopin: data.body.shopList,
-            user: data.body.addressList,
-            allprice:Number(allPrice).toFixed(2),
-            yincangnum: data.body.shopList.length-3
-          })
+    // wx.request({
+    //   url: url + 'getGoodsToOrder.action',
+    //   data: {
+    //     openId
+    //   },
+    //   method: 'post',
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded'  
+    //   },
+    //   success:function(res){
+    //     let data = res.data;
+    //     console.log(res);
+    //     if(data.errorCode == -1){
+    //       if(data.body.addressList.length && data.body.addressList[0].addressId==''){
+    //         that.setData({
+    //           goadddizhi:'display',
+    //         })
+    //       }
+    //       let gouwuid = [] ; 
+    //       data.body.shopList.forEach((v) => {
+    //         let dianprice = 0 , shopcart = '';
+    //         gouwuid.push(v.shoppingCartId);
+    //         // allPrice = allPrice*1 + v.price*1*v.num;
+    //         v.children.forEach((vv)=>{
+    //           dianprice = dianprice + vv.price * vv.num;
+    //           if(shopcart){
+    //             shopcart = shopcart + ',' + vv.shoppingCartId;
+    //           }
+    //           else{
+    //             shopcart = vv.shoppingCartId;
+    //           }
+    //         })
+    //         v.dianprice = dianprice;
+    //         if(gouwuids){
+    //           gouwuids = gouwuids + '==' + shopcart;
+    //         }
+    //         else{
+    //           gouwuids = shopcart;
+    //         }
+    //         if(orderPrice!=''){
+    //           orderPrice = orderPrice + '==' + dianprice;
+    //         }
+    //         else{
+    //           orderPrice = dianprice;
+    //         }
+    //         if(kdPrice!=''){
+    //           kdPrice = kdPrice + '==' + v.ifKd;
+    //         }
+    //         else{
+    //           kdPrice = ''+ v.ifKd;
+    //         }
+    //         if(newPrice!=''){
+    //           newPrice = newPrice + '==' + v.ifNew;
+    //         }
+    //         else{
+    //           newPrice = '' + v.ifNew;
+    //         }
+    //         allPrice = allPrice + dianprice + Number(v.ifKd) - Number(v.ifNew)
+    //         // allprice = Number(allprice).toFixed(2)
+    //       })
+    //       console.log(gouwuids,orderPrice,kdPrice,newPrice);
+    //       that.setData({
+    //         shopin: data.body.shopList,
+    //         user: data.body.addressList,
+    //         allprice:Number(allPrice).toFixed(2),
+    //         yincangnum: data.body.shopList.length-3
+    //       })
            
-          // 清空 
+    //       // 清空 
 
-          wx.setStorage({
-            key: 'yonghu',
-            data: '',
-          })
-          wx.setStorage({
-            key: 'phones',
-            data:'',
-          })
-          wx.setStorage({
-            key: 'floornum',
-            data: '',
-          })
-          wx.setStorage({
-            key: 'addressId',
-            data: '',
-          })
-          wx.setStorage({
-            key: 'remarks',
-            data: '',
-          })
-          wx.setStorage({
-            key: 'orgName',
-            data: '',
-          })
+    //       wx.setStorage({
+    //         key: 'yonghu',
+    //         data: '',
+    //       })
+    //       wx.setStorage({
+    //         key: 'phones',
+    //         data:'',
+    //       })
+    //       wx.setStorage({
+    //         key: 'floornum',
+    //         data: '',
+    //       })
+    //       wx.setStorage({
+    //         key: 'addressId',
+    //         data: '',
+    //       })
+    //       wx.setStorage({
+    //         key: 'remarks',
+    //         data: '',
+    //       })
+    //       wx.setStorage({
+    //         key: 'orgName',
+    //         data: '',
+    //       })
           
-          dianpu_id = data.body.shopList[0].shopId;
-          that._getAddId()
-        }
-        else{
-          wx.showToast({
-            title: data.msg,
-            icon:'none',
-          })
-          setTimeout(
-            () =>  wx.navigateBack({
-              delta: 1
-            }),1500
-          )
-        }
-      }
-    })
+    //       dianpu_id = data.body.shopList[0].shopId;
+    //       that._getAddId()
+    //     }
+    //     else{
+    //       wx.showToast({
+    //         title: data.msg,
+    //         icon:'none',
+    //       })
+    //       setTimeout(
+    //         () =>  wx.navigateBack({
+    //           delta: 1
+    //         }),1500
+    //       )
+    //     }
+    //   }
+    // })
     
+  },
+  _getGoodsInfo(){
+    let info = app.globalData.detailInfo
+    this.setData({info})
+    console.log(info,'info');
   },
   _getAddId(){
     if(!schoolid || !openId)  return
@@ -190,7 +197,13 @@ Page({
         this.setData({remarkList})
   },
   fukuan:function(e, type = 1 , fn = () => {}){
-
+    let openId =  wx.getStorageSync('openId');
+    let placeId = app.globalData.detailInfo.activeCatgroyName
+    let s_orderPrice = app.globalData.detailInfo.buyCount * app.globalData.detailInfo.activePrice
+    let num = app.globalData.detailInfo.buyCount
+    let goodsId = app.globalData.detailInfo.goodsDetail.goodsId
+    let goodsCid = app.globalData.detailInfo.activeFoodsName
+    let commId = app.globalData.detailInfo.activeMaster
     wx.showLoading()
     console.log(e);
     if (!dizhi_id) {
@@ -204,7 +217,13 @@ Page({
     formId = e.detail.formId;
     setTimeout(function(){
       wx.request({
-        url: url + 'toAddOrderRecord.action?' + '&openId=' + openId+'&shoppingCartId='+gouwuids+'&addressId='+dizhi_id+'&orgId='+schoolid+'&payType='+type+'&remark='+remark+'&orderPrice='+orderPrice+'&kdPrice='+kdPrice+'&newPrice='+newPrice+'&formId='+formId,
+        url: url + 'toAddOrderRecord.action?' + '&openId=' + openId
+        +'&placeId='+placeId+'&addressId='+dizhi_id
+        +'&orderPrice='+s_orderPrice
+        +'&num='+num
+        +'&goodsId='+goodsId
+        +'&goodsCid='+goodsCid
+        +'&commId='+commId,
         
         success: function (res) {
           wx.hideLoading()
@@ -228,8 +247,8 @@ Page({
           if (data.errorCode == -1) {
             wx.request({
               url: url + 'toPayOrder.action?openId=' + openId +
-                '&orderNumber=' + orderNumber + '&orgId=' + schoolid + '&money=' +
-                money + '&type=' + types +'&appid=' + appid,
+                '&orderNumber=' + orderNumber +  '&money=' +
+                money  +'&appid=' + appid,
               success: function (re) {
                 wx.requestPayment({
                   timeStamp: re.data[0].timeStamp,
@@ -324,11 +343,11 @@ Page({
       },
     })
     wx.getStorage({
-      key: 'floornum',
+      key: 'city',
       success: function(res) {
-        floornum = res.data;
+        city = res.data;
         that.setData({
-          floornum:floornum,
+          city
         })
       },
     })

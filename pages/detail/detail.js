@@ -1,11 +1,11 @@
 // pages/detail/detail.js
 var util = require('../../utils/util.js');
+const IMGURL = util.imgUrl
 var WxParse = require('../wxparse/wxparse');
 var app = getApp()
 import {
   getFoodsDetail
 } from '../../api/api'
-const IMGURL = util.imgUrl
 Page({
 
   /**
@@ -13,9 +13,11 @@ Page({
    */
   data: {
     goodsDetail: {},
+    goodsPic:'',
     activeFoodsName: "",
     activeRealName: '',
     activeCatgroyName: '',
+    activePrice:'',
     activeMaster: '',
     catgroyList: [],
     masterList: [],
@@ -90,6 +92,7 @@ Page({
         console.log(res);
         const goodsDetail = res.body.goodsDetail[0]
         const activeRealName = goodsDetail.goodsName
+        const goodsPic = goodsDetail.goodsOne
         const catgroyList = goodsDetail.goodsComm.filter(
           i => i.commType == 2
         )
@@ -98,6 +101,7 @@ Page({
         )
         console.log(catgroyList, masterList);
         this.setData({
+          goodsPic,
           activeRealName,
           goodsDetail,
           catgroyList,
@@ -109,9 +113,10 @@ Page({
   },
   _tapFoodsName(e) {
     const {
-      cid
+      cid,price
     } = e.target.dataset
     this._toActive('activeFoodsName', cid)
+    this._toActive('activePrice',price)
   },
   _tapCatgroyItem(e) {
     const {
@@ -161,14 +166,20 @@ Page({
       activeFoodsName,
       activeCatgroyName,
       activeMaster,
-      buyCount
+      buyCount,
+      goodsPic,
+      activePrice,
+      goodsDetail
     } = this.data
     app.globalData.detailInfo = {
+      goodsPic,
       activeRealName,
       activeFoodsName,
       activeCatgroyName,
       activeMaster,
-      buyCount
+      buyCount,
+      activePrice,
+      goodsDetail
     }
     wx.navigateTo({
       url: '../confirmorder/confirm',

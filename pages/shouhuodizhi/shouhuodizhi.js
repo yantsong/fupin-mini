@@ -43,38 +43,32 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.getStorage({
-      key: 'schoolid',
-      success: function (res) {
-        schoolid = res.data;
-        wx.request({
-          url: url + 'toAddressList.action',
-          method: 'post',
-          data: {
-            orgId: schoolid,
-            openId: openId,
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success: function (r) {
-            console.log(r);
-            let data = r.data;
-            if (data.errorCode == -1) {
-              that.setData({
-                dizhilist: data.body.addressList,
-              })
-
-            }
-            else {
-              wx.showToast({
-                title: data.msg,
-                icon: 'none',
-              })
-            }
-          }
-        })
+   let openId =  wx.getStorageSync('openId');
+    wx.request({
+      url: url + 'toAddressList.action',
+      method: 'post',
+      data: {
+        openId,
       },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r);
+        let data = r.data;
+        if (data.errorCode == -1) {
+          that.setData({
+            dizhilist: data.body.addressList,
+          })
+
+        }
+        else {
+          wx.showToast({
+            title: data.msg,
+            icon: 'none',
+          })
+        }
+      }
     })
   },
 

@@ -1,0 +1,9 @@
+<!--pages/catgroy/catgroy.wxml-->
+<view class="catgroy">
+	<view class="catgroy-tabs">
+		<view class="catgroy-tabs-item">综合</view>
+		<view class="catgroy-tabs-item">销量</view>
+		<view class="catgroy-tabs-item">地区</view>
+	</view>
+</view>
+

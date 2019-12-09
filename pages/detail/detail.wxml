@@ -75,6 +75,7 @@
 					 class="catgroy-list-item {{item.cid === activeFoodsName ? 'active' : '' }}"
 					 bind:tap="_tapFoodsName"
 					 data-cid="{{item.cid}}"
+					 data-price="{{item.price}}"
 					 wx:for="{{goodsDetail.goodsC}}"
 					>{{item.specifiValue}}
 					</view>

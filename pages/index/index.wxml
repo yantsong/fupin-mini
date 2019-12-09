@@ -202,7 +202,7 @@
 	<view wx:if="{{xihuan.length}}">
 		<view class="fenlei">
 			<view class='fenlei-title'>
-				<view class='fenlei-text'>猜你喜欢</view>
+				<view class='fenlei-text'>推荐商品</view>
 				<view class='fenlei-xiahuaxian' />
 			</view>
 			<view class="fenlei-switch" bindtap="_getYourLove">换一换</view>
