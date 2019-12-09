@@ -1,6 +1,6 @@
 // pages/adddizhi/adddizhi.js 
 var util = require('../../utils/util.js');
-var that = '' , url = util.url , people = '' , phone = '' , school = '' , louhao = '' , remarks = '' , moren = 0 , openId = '' , cityid = '' , louarr = [] , louname = ''
+var that = '' , url = util.url , name = '' , phone = '' , school = '' , louhao = '' , remarks = '' , moren = 0 , openId = '' , cityid = '' , louarr = [] , louname = '',provice=''
 Page({
 
   /**
@@ -104,7 +104,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    people = '' 
+    name = '' 
     phone = '' 
     louhao = '' 
     remarks = ''
@@ -116,11 +116,14 @@ Page({
   onHide: function () {
 
   },
-  people:function(e){
-    people = e.detail.value;
+  name:function(e){
+    name = e.detail.value;
   },
   phone:function(e){
     phone = e.detail.value;
+  },
+  provice(e){
+    provice = e.detail.value
   },
   inputRemarks:function(e){
     remarks = e.detail.value;
@@ -144,7 +147,7 @@ Page({
   },
   baocun:function(e){
     console.log(e,'ip6log1');
-    if(!people.trim()){
+    if(!name.trim()){
       wx.showToast({
         title:'请输入收货人',
         icon:'none'
@@ -177,7 +180,7 @@ Page({
       data:{
         openId,
         orgId: school,
-        name:people,
+        name:name,
         telephone:phone,
         floorId:louhao,
         remarks,
@@ -193,7 +196,7 @@ Page({
           try {
             wx.setStorage({
               key: 'yonghu',
-              data: people,
+              data: name,
             })
             wx.setStorage({
               key: 'phones',

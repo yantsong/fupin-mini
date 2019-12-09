@@ -1,0 +1,5 @@
+<!--components/title/title.wxml-->
+<view class="title-c">
+	<slot name="title" class="slot">1</slot>
+</view>
+

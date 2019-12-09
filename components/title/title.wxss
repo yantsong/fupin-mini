@@ -1,0 +1,1 @@
+.title-c{display:flex;flex-direction:column}.title-c .slot{position:relative}.title-c .slot::after{position:absolute;bottom:0;left:0;height:6rpx;background-color:#ffe018}

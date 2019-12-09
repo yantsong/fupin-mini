@@ -5,10 +5,10 @@ class HTTP {
               url,
               data,
               success(res) {
-                  if (res.data.code === 20000) {
-                      reslove(res.data.data)
+                  if (res.data.errorCode == -1) {
+                      reslove(res.data)
                   } else {
-                      reject(res.data)
+                      reject(res)
                   }
               },
               fail(e) {
@@ -27,8 +27,8 @@ class HTTP {
               data,
               method:'POST',
               success(res) {
-                  if (res.data.code === 20000) {
-                      reslove(res.data.data)
+                  if (res.data.errorCode == -1) {
+                      reslove(res.body)
                   } else {
                       reject(res.data)
                   }

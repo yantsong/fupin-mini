@@ -213,7 +213,7 @@
 			 wx:for='{{xihuan}}'
 			 data-shop='{{item.goodsId}}'
 			 data-school='{{item.orgId}}'
-			 bindtap='joingouwu'
+			 bindtap='clickCard'
 			 data-img='{{item.goodsPic}}'
 			 data-shops='{{item.shopId}}'
 			 data-name='{{item.goodsName}}'

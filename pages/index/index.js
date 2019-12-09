@@ -1,6 +1,7 @@
 //index.js 
 const app = getApp();
 var util = require('../../utils/util.js'); 
+// import { getNotice } from '../../api/api';
 const IMGURL = util.imgurl
 var url = util.url , cityid = 0 , schoolid = 0 ,floorid = 0 , dingwei = 0 , louid = 0 ;
 var imgUrl = util.imgUrl , xihuan = [] , names = '' , kongwei = '' , shop_ids = '' ; 
@@ -48,7 +49,8 @@ Page({
     showNotice:false,
     noticeNoFrist:false,
     classify:[],
-    count:'100%'
+    count:'100%',
+    notice:{}
   },
 
   onLoad: function() { 
@@ -192,6 +194,18 @@ _setSchoolName(){
       }
     })
    
+  },
+  clickCard(e){
+    console.log(e);
+    const goodsId = e.currentTarget.dataset.shop
+    wx.navigateTo({
+      url: `/pages/detail/detail?goodsId=${goodsId}`,
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   clicktab:function(e){
     console.log(e);

@@ -3,6 +3,8 @@ import { appid } from '../../utils/config';
 var util = require('../../utils/util.js'); 
 var that = '' , url = util.url , imgUrl = util.imgUrl , gouwu_id = '' , openId = '' , schoolid = '' ;
 var ordertype = 3 , gouwuids = [] , dizhi_id = '' , remark = '' ,remarks = '', formId = '' , allPrice = '' , ifKd = 0 , kdPrice = '' , ifNew = 0 , newPrice = '' , dianpu_id = '' , types = '' , orderNumber = '' , ifKd = '' , ifNew = '' , jiesuanprice = '' , yonghu = '' , phones = '' , floornum = '' , orgName = '' , orderPrice = '' ;
+var app = getApp()
+import { getAddressList } from '../../api/api';
 Page({
  
   /**
@@ -36,176 +38,124 @@ Page({
     kdPrice = '';
     newPrice = '';
     gouwu_id = options.gouwu;
-    wx.getStorage({
-      key: 'openId',
-      success: function(res) {
-        openId = res.data;
+    let openId = wx.getStorageSync('openId')
+    getAddressList(openId).then(
+      res => {
+        if (!res.body.addressList.length){
+          this.setData({goadddizhi:'display'})
+        }
+      }
+    )
+    wx.request({
+      url: url + 'getGoodsToOrder.action',
+      data: {
+        openId
       },
-    })
-    wx.getStorage({
-      key: 'schoolid',
-      success: function(res) {
-        schoolid = res.data;
-        wx.request({
-          url: url + 'getGoodsToOrder.action',
-          data: {
-            shoppingCartId: gouwu_id,
-            openId: openId,
-            orgId: schoolid,
-          },
-          method: 'post',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'  
-          },
-          success:function(res){
-            let data = res.data;
-            console.log(res);
-            if(data.errorCode == -1){
-              if(data.body.addressList.length && data.body.addressList[0].addressId==''){
-                that.setData({
-                  goadddizhi:'display',
-                })
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'  
+      },
+      success:function(res){
+        let data = res.data;
+        console.log(res);
+        if(data.errorCode == -1){
+          if(data.body.addressList.length && data.body.addressList[0].addressId==''){
+            that.setData({
+              goadddizhi:'display',
+            })
+          }
+          let gouwuid = [] ; 
+          data.body.shopList.forEach((v) => {
+            let dianprice = 0 , shopcart = '';
+            gouwuid.push(v.shoppingCartId);
+            // allPrice = allPrice*1 + v.price*1*v.num;
+            v.children.forEach((vv)=>{
+              dianprice = dianprice + vv.price * vv.num;
+              if(shopcart){
+                shopcart = shopcart + ',' + vv.shoppingCartId;
               }
-              let gouwuid = [] ; 
-              data.body.shopList.forEach((v) => {
-                let dianprice = 0 , shopcart = '';
-                gouwuid.push(v.shoppingCartId);
-                // allPrice = allPrice*1 + v.price*1*v.num;
-                v.children.forEach((vv)=>{
-                  dianprice = dianprice + vv.price * vv.num;
-                  if(shopcart){
-                    shopcart = shopcart + ',' + vv.shoppingCartId;
-                  }
-                  else{
-                    shopcart = vv.shoppingCartId;
-                  }
-                })
-                v.dianprice = dianprice;
-                if(gouwuids){
-                  gouwuids = gouwuids + '==' + shopcart;
-                }
-                else{
-                  gouwuids = shopcart;
-                }
-                if(orderPrice!=''){
-                  orderPrice = orderPrice + '==' + dianprice;
-                }
-                else{
-                  orderPrice = dianprice;
-                }
-                if(kdPrice!=''){
-                  kdPrice = kdPrice + '==' + v.ifKd;
-                }
-                else{
-                  kdPrice = ''+ v.ifKd;
-                }
-                if(newPrice!=''){
-                  newPrice = newPrice + '==' + v.ifNew;
-                }
-                else{
-                  newPrice = '' + v.ifNew;
-                }
-                allPrice = allPrice + dianprice + Number(v.ifKd) - Number(v.ifNew)
-                // allprice = Number(allprice).toFixed(2)
-              })
-              console.log(gouwuids,orderPrice,kdPrice,newPrice);
-              that.setData({
-                shopin: data.body.shopList,
-                user: data.body.addressList,
-                allprice:Number(allPrice).toFixed(2),
-                yincangnum: data.body.shopList.length-3
-              })
-               
-              // 清空 
-
-              wx.setStorage({
-                key: 'yonghu',
-                data: '',
-              })
-              wx.setStorage({
-                key: 'phones',
-                data:'',
-              })
-              wx.setStorage({
-                key: 'floornum',
-                data: '',
-              })
-              wx.setStorage({
-                key: 'addressId',
-                data: '',
-              })
-              wx.setStorage({
-                key: 'remarks',
-                data: '',
-              })
-              wx.setStorage({
-                key: 'orgName',
-                data: '',
-              })
-              // if(data.body.shopList.length <=3){
-              //   if (data.body.shopList.length == 1){
-              //     that.setData({
-              //       diangao:'260rpx',
-              //       dian1gao:'160rpx',
-              //     })
-              //   }
-              //   else if (data.body.shopList.length == 2){
-              //     that.setData({
-              //       diangao: '450rpx',
-              //       dian1gao: '350rpx',
-              //     })
-              //   }
-              //   that.setData({
-              //     dianmore:'none-display',
-              //   })
-              // }
-              // jiesuanprice = allPrice ;
-              // if(data.body.ifKd){
-              //   ifKd = data.body.ifKd ;
-              //   jiesuanprice = allPrice + ifKd ;
-              //   that.setData({
-              //     ifKd: data.body.ifKd
-              //   })
-              // }
-              // else{
-              //   that.setData({
-              //     ifKd:0
-              //   })
-              // }
-              // if(data.body.ifNew){
-              //   ifNew = data.body.ifNew;
-              //   jiesuanprice = jiesuanprice - ifNew ;
-              //   that.setData({
-              //     ifNew:data.body.ifNew,
-              //   })
-              // }
-              // else{
-              //   that.setData({
-              //     ifNew:0,
-              //   })
-              // }
-              // gouwuids = gouwuid.join();
-              // dizhi_id = data.body.addressList[0].addressId;
-              dianpu_id = data.body.shopList[0].shopId;
-              // that.setData({
-              //   jiesuan:jiesuanprice,
-              // })
-              that._getAddId()
+              else{
+                shopcart = vv.shoppingCartId;
+              }
+            })
+            v.dianprice = dianprice;
+            if(gouwuids){
+              gouwuids = gouwuids + '==' + shopcart;
             }
             else{
-              wx.showToast({
-                title: data.msg,
-                icon:'none',
-              })
-              setTimeout(
-                () =>  wx.navigateBack({
-                  delta: 1
-                }),1500
-              )
+              gouwuids = shopcart;
             }
-          }
-        })
-      },
+            if(orderPrice!=''){
+              orderPrice = orderPrice + '==' + dianprice;
+            }
+            else{
+              orderPrice = dianprice;
+            }
+            if(kdPrice!=''){
+              kdPrice = kdPrice + '==' + v.ifKd;
+            }
+            else{
+              kdPrice = ''+ v.ifKd;
+            }
+            if(newPrice!=''){
+              newPrice = newPrice + '==' + v.ifNew;
+            }
+            else{
+              newPrice = '' + v.ifNew;
+            }
+            allPrice = allPrice + dianprice + Number(v.ifKd) - Number(v.ifNew)
+            // allprice = Number(allprice).toFixed(2)
+          })
+          console.log(gouwuids,orderPrice,kdPrice,newPrice);
+          that.setData({
+            shopin: data.body.shopList,
+            user: data.body.addressList,
+            allprice:Number(allPrice).toFixed(2),
+            yincangnum: data.body.shopList.length-3
+          })
+           
+          // 清空 
+
+          wx.setStorage({
+            key: 'yonghu',
+            data: '',
+          })
+          wx.setStorage({
+            key: 'phones',
+            data:'',
+          })
+          wx.setStorage({
+            key: 'floornum',
+            data: '',
+          })
+          wx.setStorage({
+            key: 'addressId',
+            data: '',
+          })
+          wx.setStorage({
+            key: 'remarks',
+            data: '',
+          })
+          wx.setStorage({
+            key: 'orgName',
+            data: '',
+          })
+          
+          dianpu_id = data.body.shopList[0].shopId;
+          that._getAddId()
+        }
+        else{
+          wx.showToast({
+            title: data.msg,
+            icon:'none',
+          })
+          setTimeout(
+            () =>  wx.navigateBack({
+              delta: 1
+            }),1500
+          )
+        }
+      }
     })
     
   },

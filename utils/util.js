@@ -1,6 +1,6 @@
-var url = 'http://abc.suda60.com/';
-var imgUrl = 'http://';
-var imgurl = 'http://abc.suda60.com/';
+var url = 'https://abc.suda60.com/';
+var imgUrl = 'https://';
+var imgurl = 'https://abc.suda60.com/';
 import { appid } from './config';
 const formatTime = date => {
   const year = date.getFullYear()

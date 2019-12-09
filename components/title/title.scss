@@ -1,0 +1,15 @@
+/* components/title/title.wxss */
+.title-c {
+  display: flex;
+  flex-direction: column;
+  .slot{
+    position: relative;
+    &::after{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 6rpx;
+      background-color: #ffe018;
+    }
+  }
+}
