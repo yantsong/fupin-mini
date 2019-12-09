@@ -151,48 +151,60 @@ _setSchoolName(){
     console.log(e);
     let dataset = e.currentTarget.dataset;
     let shopId = dataset.shopid
-    wx.request({
-      url: url + 'getShopIfBusiness.action',
-      method: 'post',
-      data: {
-        shopId,
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        if (!res.data.body.open) {
-          wx.showToast({
-            title: '请到推荐页面查看具体营业时间',
-            icon: 'none',
-          })
-          return
-        }else{
-              if (dataset.type == 0) {}
-              else if (dataset.type == 1 || dataset.type == 2 || dataset.type == 11 || dataset.type == 22) {
-              if (dataset.type == 1 || dataset.type == 2){
-                wx.navigateTo({
-                  url: '../dianpuneiye/dianpuneiye?shopid=' + dataset.url,
-                })
-              }else{
-                console.log(dataset.url,dataset.shopid);
-                wx.navigateTo({
-                  url: '../dianpuneiye/dianpuneiye?fenleiid=' + dataset.url + '&shopid=' + dataset.shopid,
-                })
-              }
-            }else if(dataset.type == 5){
-              wx.switchTab({
-                url: '../tuijian/tuijian',
-              })
-            }
-            else {
-              wx.navigateTo({
-                url: '../baoming/baoming?id=' + dataset.url,
-              })
-            }
-          }
-      }
-    })
+    let {goodsid} = dataset
+    let testid = 'ff8080816edbaac4016eeae94fa50005'
+    if(testid) {
+      wx.navigateTo({
+        url: `/pages/detail/detail?goodsId=${testid}`,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
+    // wx.request({
+    //   url: url + 'getShopIfBusiness.action',
+    //   method: 'post',
+    //   data: {
+    //     shopId,
+    //   },
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded'
+    //   },
+    //   success: function (res) {
+    //     if (!res.data.body.open) {
+    //       wx.showToast({
+    //         title: '请到推荐页面查看具体营业时间',
+    //         icon: 'none',
+    //       })
+    //       return
+    //     }else{
+    //           if (dataset.type == 0) {}
+    //           else if (dataset.type == 1 || dataset.type == 2 || dataset.type == 11 || dataset.type == 22) {
+    //           if (dataset.type == 1 || dataset.type == 2){
+    //             wx.navigateTo({
+    //               url: '../dianpuneiye/dianpuneiye?shopid=' + dataset.url,
+    //             })
+    //           }else{
+    //             console.log(dataset.url,dataset.shopid);
+    //             wx.navigateTo({
+    //               url: '../dianpuneiye/dianpuneiye?fenleiid=' + dataset.url + '&shopid=' + dataset.shopid,
+    //             })
+    //           }
+    //         }else if(dataset.type == 5){
+    //           wx.switchTab({
+    //             url: '../tuijian/tuijian',
+    //           })
+    //         }
+    //         else {
+    //           wx.navigateTo({
+    //             url: '../baoming/baoming?id=' + dataset.url,
+    //           })
+    //         }
+    //       }
+    //   }
+    // })
    
   },
   clickCard(e){
@@ -211,49 +223,15 @@ _setSchoolName(){
     console.log(e);
     let dataset = e.currentTarget.dataset;
     let shopId = dataset.shopid
-    wx.request({
-      url: url + 'getShopIfBusiness.action',
-      method: 'post',
-      data: {
-        shopId,
+    let {classifyid} = dataset
+    wx.navigateTo({
+      url: `/pages/catgroy/catgroy?classifyid=${classifyid}`,
+      success: (result)=>{
+        
       },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        if (!res.data.body.open) {
-          wx.showToast({
-            title: '请到推荐页面查看具体营业时间',
-            icon: 'none',
-          })
-          return
-        }else{
-              if (dataset.type == 0) {}
-              else if (dataset.type == 1 || dataset.type == 2 || dataset.type == 11 || dataset.type == 22) {
-              if (dataset.type == 1 || dataset.type == 2){
-                wx.navigateTo({
-                  url: '../dianpuneiye/dianpuneiye?shopid=' + dataset.url,
-                })
-              }else{
-                console.log(dataset.url,dataset.shopid);
-                wx.navigateTo({
-                  url: '../dianpuneiye/dianpuneiye?fenleiid=' + dataset.url + '&shopid=' + dataset.shopid,
-                })
-              }
-            }else if(dataset.type == 5){
-              wx.switchTab({
-                url: '../tuijian/tuijian',
-              })
-            }
-            else {
-              wx.navigateTo({
-                url: '../baoming/baoming?id=' + dataset.url,
-              })
-            }
-          }
-      }
-    })
-
+      fail: ()=>{},
+      complete: ()=>{}
+    });
 
     // if (dataset.type == 0) {
 

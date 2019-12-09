@@ -35,7 +35,8 @@ Page({
         return "https://"+item.pushPic
       })
       that.setData({
-        recommendedImg:Images
+        recommendedImg:Images,
+        recommend:res.data.body.goodsPushList
       })
     }
   }),
@@ -47,10 +48,23 @@ Page({
           return "https://"+item.goodsPic
         })
         that.setData({
-          homeImg:Images
+          homeImg:Images,
+          homeList:res.data.body.goodsList
         })
       }
 })
+},
+_toDetail(e){
+const goodsId = e.target.dataset.goodsid
+console.log(e,'e');
+wx.navigateTo({
+  url: `/pages/rydetail/rydetail?goodsId=${goodsId}`,
+  success: (result)=>{
+    
+  },
+  fail: ()=>{},
+  complete: ()=>{}
+});
 },
 
   /**

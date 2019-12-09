@@ -1,18 +1,34 @@
 <view>
-  <view class='back' wx:if="{{list.length}}">
-    <view class='order-list' wx:for='{{list}}' data-orderid='{{item.orderRecordPId}}' bindtap='goorderxq'>
-      <image class='list-img' src='{{imgurl}}{{item.shopLogo}}'></image>
-    <view class='dian-name'>
-      <view class='list-name'>{{item.shopName}}
-        <view class='xiahuaxian'></view>
-      </view>
-    </view>
-    <view class='list-time'>下单时间：{{item.orderDate}}</view>
-    <view class='list-price'>总价：￥{{item.orderPrice}}</view>
-    <view class='list-btn' catchtap='goorderxq' data-orderid='{{item.orderRecordPId}}' data-types='{{item.shopType}}' data-price='{{item.orderPrice}}' data-ordernum='{{item.orderRecordPId}}' data-shopid='{{item.shopId}}'>{{map[item.orderState + '']}}</view>
-  </view>
+	<view class='back' wx:if="{{list.length}}">
+		<view
+		 class='order-list'
+		 wx:for='{{list}}'
+		 data-orderid='{{item.orderRecordPId}}'
+		 bindtap='goorderxq'
+		>
+			<image class='list-img' src='../../image/default1.png' />
+			<view class='dian-name'>
+				<view class='list-name'>{{item.shopName}}
+					<view class='xiahuaxian' />
+				</view>
+			</view>
+			<view class='list-time'>下单时间：{{item.orderDate}}</view>
+			<view class='list-price'>总价：￥{{item.orderPrice}}</view>
+			<view
+			 class='list-btn'
+			 catchtap='goorderxq'
+			 data-orderid='{{item.orderRecordPId}}'
+			 data-types='{{item.shopType}}'
+			 data-price='{{item.orderPrice}}'
+			 data-ordernum='{{item.orderRecordPId}}'
+			 data-shopid='{{item.shopId}}'
+			 data-state='{{item.orderState}}'
+			>{{map[item.orderState + '']}}
+			</view>
+		</view>
+	</view>
+	<view wx:else class="no-order">
+		<text>暂无订单</text>
+	</view>
 </view>
-<view wx:else class="no-order">
-  <text>暂无订单</text>
-</view>
-</view>
+

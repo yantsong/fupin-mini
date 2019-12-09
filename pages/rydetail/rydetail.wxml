@@ -1,0 +1,133 @@
+<!--pages/detail/detail.wxml-->
+<import src="../wxparse/wxparse.wxml" />
+
+<view class="fpdetail" hover-class="none" hover-stop-propagation="false">
+	<view style="padding:0 15rpx;boxsizing:border-box;">
+
+		<view class="fpdetail-detail">
+
+			<swiper class="fpdetail-detail-swiper" indicator-dots>
+				<swiper-item class="" item-id="">
+					<video
+					 id="myVideo"
+					 class="fpdetail-detail-video"
+					 object-fit='fill'
+					 src="{{goodsDetail.goodsVideo}}"
+					 controls
+					></video>
+				</swiper-item>
+				<swiper-item item-id="">
+					<image
+					 class="fpdetail-detail-swiper-img"
+					 src="{{IMGURL + goodsDetail.goodsOne}}"
+					 mode="scaleToFill"
+					 lazy-load="false"
+					 binderror=""
+					 bindload=""
+					/>
+				</swiper-item>
+				<swiper-item item-id="">
+					<image
+					 class="fpdetail-detail-swiper-img"
+					 src="{{IMGURL + goodsDetail.goodsPicTwo}}"
+					 mode="scaleToFill"
+					 lazy-load="false"
+					 binderror=""
+					 bindload=""
+					/>
+				</swiper-item>
+				<swiper-item item-id="">
+					<image
+					 class="fpdetail-detail-swiper-img"
+					 src="{{IMGURL + goodsDetail.goodsPicThree}}"
+					 mode="scaleToFill"
+					 lazy-load="false"
+					 binderror=""
+					 bindload=""
+					/>
+				</swiper-item>
+			</swiper>
+			<view class="fpdetail-detail-info">
+				<view class="fpdetail-detail-info-name">
+					{{goodsDetail.goodsName}}
+					<image class="info-share" src="../../image/share.png" />
+				</view>
+				<view class="fpdetail-detail-info-des">
+					<view class="info-price">¥199</view>
+					<view class="info-sale">
+						<image class="info-sale-icon" src="../../image/sale-icon.png" />
+						<view>月销量{{goodsDetail.saleNum}}</view>
+					</view>
+					<view>产地:吕梁</view>
+				</view>
+			</view>
+		</view>
+		<!-- 规格区 -->
+		<view class="fpdetail-specifications">
+			<view class="underline-title">
+				<view class="underline-title-text">规格</view>
+				<view class="underline-title-yellow" />
+			</view>
+			<view class="catgroy">
+				<view class="" wx:if="{{catgroyList.length}}">
+					<view class="catgroy-name ">产地</view>
+					<view class="catgroy-list">
+						<view
+						 class="catgroy-list-item  {{item.commId === activeCatgroyName ? 'active' : '' }}"
+						 bind:tap="_tapCatgroyItem"
+						 data-commid="{{item.commId}}"
+						 wx:for="{{catgroyList}}"
+						>{{item.commName}}
+						</view>
+					</view>
+				</view>
+
+				<view class="buy-area">
+					<view class="buy-area-text">
+						购买数量
+					</view>
+					<view class="buy-area-count">
+						<image class="buy-area-count-image" bind:tap="_add" src="../../image/jia.png" />
+						<view>{{buyCount}}</view>
+						<image class="buy-area-count-image" bind:tap="_cut" src="../../image/jian.png" />
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 详情区 -->
+	<view class="fpdetail-foodsdetail">
+		<template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+	</view>
+	<!-- 悬浮购买 -->
+	<view class="fpdetail-fixedbuy">
+		<view class="fpdetail-fixedbuy-button" bind:tap="_toBuy">
+			立即购买
+		</view>
+	</view>
+	<!-- 推荐人弹框 -->
+	<view class="fpdetail-master-mask {{maskShow?'show-mask':''}}">
+		<view class="fpdetail-master">
+			<view class="fpdetail-master-header">
+				<view class="underline-title">
+					<view class="underline-title-text">推荐人</view>
+					<view class="underline-title-yellow" />
+				</view>
+				<image class="fpdetail-master-header-close" bind:tap="_close" src="../../image/close-icon.png" />
+			</view>
+			<view class="split-line" />
+			<view class="fpdetail-master-list" wx:for="{{masterList}}">
+				<view class="fpdetail-master-list-item" bind:tap="_tapMaster" data-commid="{{item.commId}}">
+					<view class="master-name">{{item.commName}}</view>
+					<view class="master-check {{activeMaster === item.commId ? 'active': ''}}" />
+				</view>
+			</view>
+			<view class="fpdetail-master-confirm">
+				<view class="confirm-button" bindtap="_confirm">确认选择</view>
+			</view>
+		</view>
+	</view>
+	<!-- 认养的弹框 -->
+</view>
+

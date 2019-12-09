@@ -5,5 +5,52 @@
 		<view class="catgroy-tabs-item">销量</view>
 		<view class="catgroy-tabs-item">地区</view>
 	</view>
+	<view class="catgroy-list">
+		<view class="catgroy-list-item" bind:tap="_toDetail">
+			<image class="catgroy-list-item-img" src="../../image/default1.png" />
+			<view class="catgroy-list-item-info">
+				<view class="info-title">红枣</view>
+				<view class="info-sale">
+					<image class="info-sale-icon" src="../../image/sale-icon.png" />
+					<view>月销量3000</view>
+				</view>
+				<view class="info-price">
+					<view style="display:inline-block">¥</view>
+					<view class="num">123</view>
+				</view>
+			</view>
+
+		</view>
+		<view class="catgroy-list-item" bind:tap="_toDetail">
+			<image class="catgroy-list-item-img" src="../../image/default1.png" />
+			<view class="catgroy-list-item-info">
+				<view class="info-title">红枣</view>
+				<view class="info-sale">
+					<image class="info-sale-icon" src="../../image/sale-icon.png" />
+					<view>月销量3000</view>
+				</view>
+				<view class="info-price">
+					<view style="display:inline-block">¥</view>
+					<view class="num">123</view>
+				</view>
+			</view>
+
+		</view>
+		<view class="catgroy-list-item" bind:tap="_toDetail">
+			<image class="catgroy-list-item-img" src="../../image/default1.png" />
+			<view class="catgroy-list-item-info">
+				<view class="info-title">红枣</view>
+				<view class="info-sale">
+					<image class="info-sale-icon" src="../../image/sale-icon.png" />
+					<view>月销量3000</view>
+				</view>
+				<view class="info-price">
+					<view style="display:inline-block">¥</view>
+					<view class="num">123</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
 </view>
 

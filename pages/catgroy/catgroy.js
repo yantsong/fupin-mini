@@ -1,4 +1,5 @@
 // pages/catgroy/catgroy.js
+import {getKindsFoods}  from '../../api/api'
 Page({
 
   /**
@@ -7,12 +8,31 @@ Page({
   data: {
 
   },
-
+  _getClassify(classifyId){
+    getKindsFoods(classifyId).then(
+      res => {
+        console.log(res,'res');
+      }
+    )
+  },
+  _toDetail(){
+    let testid = 'ff8080816edbaac4016eeae94fa50005'
+    if(testid) {
+      wx.navigateTo({
+        url: `/pages/detail/detail?goodsId=${testid}`,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });}
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const classifyId = options.classifyid
+    this._getClassify(classifyId)
   },
 
   /**

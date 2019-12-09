@@ -9,7 +9,8 @@ Page({
    */
   data: {
     imgUrl:imgUrl,
-    orderState:0
+    orderState:0,
+    people:null
   },
 
   /**
@@ -53,7 +54,7 @@ Page({
       wx.request({
         url: url + 'toOrderRecordDetail.action',
         data: {
-          orderRecordPId: order_id,
+          orderId: order_id,
         },
         method: 'post',
         header: {
@@ -64,7 +65,7 @@ Page({
           let data = res.data;
           if (data.errorCode == -1) {
             that.setData({
-              people: data.body.list,
+              people: data.body.orderMap,
             })
           }
         }
@@ -74,7 +75,7 @@ Page({
       wx.request({
         url: url + 'toOrderRecordDetail.action',
         data: {
-          orderRecordPId: order_id,
+          orderId: order_id,
         },
         method: 'post',
         header: {
@@ -85,7 +86,7 @@ Page({
           let data = res.data;
           if (data.errorCode == -1) {
             that.setData({
-              people: data.body.list,
+              people: data.body.orderMap,
             })
           }
         }
@@ -160,11 +161,15 @@ Page({
   },
   zhifu:function(){
     let openId = wx.getStorageSync('openId')
+    let num = this.data.people[0].csList[0].proNum
+    let orderPrice = this.data.people[0].csList[0].price
     wx.request({
       url: url + 'toRequestPayAgin.action',
       data: {
        openId,
-       orderId:order_id
+       orderId:order_id,
+       num,
+       orderPrice
       },
       method: 'post',
       header: {
@@ -172,11 +177,11 @@ Page({
       },
       success: function (res) {
         let data = res.data;
-        let {money,orderNumber,orgId} = data.body.shopList
+        let {money,orderNumber} = data.body.reList
         // let types = data.body.shopList
         if (data.errorCode == -1) {
           wx.request({
-            url: url + 'toPayOrder.action?money=' + money + '&openId=' + openId + '&orderNumber=' + orderNumber + '&orgId=' + orgId +'&appid=' + appid+ '&type=' + '',
+            url: url + 'toPayOrder.action?money=' + money + '&openId=' + openId + '&orderNumber=' + orderNumber +'&appid=' + appid,
             success: function (res) {
               console.log(res,'paydata');
               paydata = res.data;

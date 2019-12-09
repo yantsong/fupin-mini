@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/renyang/renyang",
     "pages/index/index",
+    "pages/catgroy/catgroy",
+    "pages/renyang/renyang",
     "pages/dingweischool/dingweischool",
     "pages/userfankui/userfankui",
     "pages/gerencenter/gerencenter",
@@ -25,7 +26,7 @@
     "pages/bianjidizhi/bianjidizhi",
     "pages/dingweilou/dingweilou",
     "pages/detail/detail",
-    "pages/catgroy/catgroy"
+    "pages/rydetail/rydetail"
   ],
   "usingComponents": {
     "title": "./components/title/title"
@@ -49,20 +50,20 @@
       {
         "pagePath": "pages/renyang/renyang",
         "text": "认养",
-        "iconPath": "img/tuijian-logo.png",
-        "selectedIconPath": "img/tuijian-logo1.png"
+        "iconPath": "image/renyang.png",
+        "selectedIconPath": "image/renyang-y.png"
       },
       {
         "pagePath": "pages/tuijian/tuijian",
-        "text": "推荐",
-        "iconPath": "img/tuijian-logo.png",
-        "selectedIconPath": "img/tuijian-logo1.png"
+        "text": "帮扶",
+        "iconPath": "image/aixin.png",
+        "selectedIconPath": "image/aixin-y.png"
       },
       {
         "pagePath": "pages/gouwuche/gouwuche",
-        "text": "购物车",
-        "iconPath": "img/gouwuche-logos.png",
-        "selectedIconPath": "img/gouwuche-logos1.png"
+        "text": "榜单",
+        "iconPath": "image/paihang.png",
+        "selectedIconPath": "image/paihang-y.png"
       },
       {
         "pagePath": "pages/gerencenter/gerencenter",

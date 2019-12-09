@@ -83,10 +83,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
   goorderxq:function(e){
     console.log(e);
+    const orderState = e.target.dataset.state
     wx.navigateTo({
       url: '../orderxq/orderxq?orderid='+e.currentTarget.dataset.orderid+'&orderState='+orderState,
     })

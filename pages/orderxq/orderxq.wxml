@@ -5,35 +5,33 @@
 	module.exports.fixed1 = fixed1;
 </wxs>
 <view class='back'>
+	<view class="success" wx:if="{{orderState == 5}}">
+		<image class="success-img" src="../../image/list-su.png" />
+		<view class="dt"> 交易成功</view>
+		<view class="dd">感谢您的支持期待下次使用</view>
+	</view>
+	<view class="success" wx:if="{{orderState == 1}}">
+		<image class="success-img" src="../../image/list-wa.png" />
+		<view class="dt"> 待付款</view>
+		<view class="dd">等待买家付款</view>
+	</view>
 	<view style='height:20rpx;' />
-	<view class='user-xinxi' wx:for='{{people}}'>
+	<!-- <view class='user-xinxi'>
 		<view class='users-xinxi'>
-			<image class='user-logo' src='../../img/user-icon.png' />
-			<view class='user-name'>收件人：{{item.addressName}}</view>
-			<view class='user-phone'>{{item.addressTel}}</view>
+			<image class='user-logo' />
+			<view class='user-name'>收件人：{{people[0].addressName}}</view>
+			<view class='user-phone'>{{people[0].addressTel}}</view>
 		</view>
 		<view class='user-dizhi'>
 			<image class='user-dizhi-logo' src='../../img/dingwei-icon1.png' />
-			<view class='user-dizhi-text'>{{item.addressDetail}}</view>
+			<view class='user-dizhi-text'>{{people[0].addressDetail}}</view>
 		</view>
 		<view class='shezhi'>
 			<image class='shezhi-logo' src='../../img/gouwushezhi.png' />
 		</view>
-	</view>
-
+	</view> -->
 	<view class='dianqu' wx:for='{{people}}'>
-		<image class='dian-logo' src='{{imgUrl}}{{item.shopLogo}}' />
 		<!-- <view style='height:30rpx;'> -->
-		<view class='dian-namequ'>
-			<view class='dian-name'>
-				{{item.shopName}}
-				<view class='xiahuaxianqu'>
-					<view class='xiahuaxian' />
-				</view>
-
-			</view>
-		</view>
-
 		<!-- </view> -->
 		<view class='every-order' wx:for='{{item.csList}}' wx:for-item='i'>
 			<image class='order-img' src='{{imgUrl}}{{i.picUrl}}' />
@@ -54,49 +52,44 @@
 			/>
 		</view>
 	</view>
-	<view class='fukuan-text'>
-		付款详情
-		<view class='xianhuaxian' />
+	<view/>
+	<view class="underline-title">
+		<view class="underline-title-text">配送信息</view>
+		<view class="underline-title-yellow" />
 	</view>
-	<view class='fukuan-qu'>
-		<view class='zhifu-qu'>
-			<image class='zhifu-btn' src='../../img/duigou.png' />
-			<view class='zhifu-text'>微信支付</view>
-			<view class='zhifu-price'>
-				<text style='font-size:20rpx'>-￥</text>
-				{{cpt.fixed1(people[0].orderPrice)}}
-				<text style='font-size:20rpx'/>
-
-</view>
-			<view class='zhifu-tishi'>商品将额外优惠哦</view>
+	<view class="adr-info">
+		<view class="address">送货地址: {{people[0].addressDetail}}</view>
+		<view class="tel">{{people[0].addressTel}}</view>
+		<view class="name">{{people[0].addressName}}</view>
+	</view>
+	<view class="underline-title">
+		<view class="underline-title-text">订单信息</view>
+		<view class="underline-title-yellow" />
+	</view>
+	<view class="pay-info">
+		<view class="pay-info-text">
+			<view class="pay-info-text-word">订单金额</view>
+			<view style="display:inline-block">{{people[0].orderPrice}}元</view>
 		</view>
-		<view class='zongji-price' bindtap='zhifu' wx:if="{{people[0].orderState == 1}}">总计 ¥ {{cpt.fixed1(people[0].orderPrice)}} 确认付款</view>
-		<view class='shop-qu'>
-			<view class='shop-name'>{{people[0].csList[0].proName}}*{{people[0].csList[0].proNum}}</view>
-			<view class='shop-price'>￥{{cpt.fixed1(people[0].csList[0].price)}}
-				<text style='font-size:20rpx'/>
-</view>
+		<view class="pay-info-text">
+			<view class="pay-info-text-word">订单编号</view>
+			<view style="display:inline-block">{{people[0].orderNumber}}</view>
 		</view>
-		<!-- <view class='shop-qu'>
-      <view class='shop-name'>到店自取</view>
-      <view class='shop-price'>-￥10.<text style='font-size:20rpx'>0
-</text>
-			</view>
+		<view class="pay-info-text">
+			<view class="pay-info-text-word">物流编号</view>
+			<view style="display:inline-block">UJ1233131321</view>
 		</view>
-		-->
-		<view class='shop-qu' style='color:#000;'>
-			<view class='shop-name'>商品总计</view>
-			<view class='shop-price'>￥{{cpt.fixed1(people[0].orderPrice)}}
-				<text style='font-size:20rpx'/>
-
-</view>
+		<view class="pay-info-text">
+			<view class="pay-info-text-word">支付方式</view>
+			<view style="display:inline-block">在线支付</view>
+		</view>
+		<view class="pay-info-text">
+			<view class="pay-info-text-word">下单时间</view>
+			<view style="display:inline-block">{{people[0].payDate}}</view>
 		</view>
 	</view>
-	<view class="code">
-		<view class="code-text">
-			取货码:{{people[0].idenCode}}
-		</view>
+	<view class="topay" wx:if="{{orderState == 1}}">
+		<view class="button" bind:tap="zhifu">立即支付</view>
 	</view>
-	<view class='clear' />
 </view>
 

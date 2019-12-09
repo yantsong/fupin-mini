@@ -1,25 +1,26 @@
 <!--pages/aijia/aijia.wxml-->
 <view class="pageWrap">
-    <image src="{{ImgList[0]}}" style="width:100vw;height:669rpx;"/>
-    <!-- <image src="" style="width:100vw;height:156rpx;"/> 
+	<image src="{{ImgList[0]}}" style="width:100vw;height:669rpx;" />
+	<!-- <image src="" style="width:100vw;height:156rpx;"/> 
     <image src="" style="width:100vw;height:604rpx;"/>
     <image src="" style="width:100vw;height:103rpx;"/>
     <view class="ProductMsg">
       <image src="" style="width:100vw;height:524rpx;"/>
       <view class="normalBtn ProductBtn">立即领养</view>
    </view>    -->
-    <view class="picContent">
-      <view class="smallImg" style="margin-right:19rpx;">
-        <image src="{{recommendedImg[0]}}" style="height:209rpx;width:100%;"/>
-        <view class="normalBtn smallBtn">立即领养</view>
-      </view>
-      <!-- <view class="smallImg">
-        <image src="" style="height:209rpx;width:100%;"/>
-        <view class="normalBtn smallBtn">立即领养</view>
-      </view> -->
-      <view class="BigImg" wx:for="{{homeImg}}">
-          <image src="{{item}}" style="height:589rpx;width:100%"/>
-          <view class="normalBtn bigBtn">立即领养</view>
-      </view>
-    </view>
-</view>    
+	<view class="picContent">
+		<view class="smallImg" style="margin-right:19rpx;">
+			<image src="{{recommendedImg[0]}}" style="height:209rpx;width:100%;" />
+			<view class="normalBtn smallBtn" data-goodsId='{{recommend[0].goodsId}}' bind:tap="_toDetail">立即领养</view>
+		</view>
+		<view class="smallImg">
+			<image src="{{recommendedImg[1]}}" style="height:209rpx;width:100%;" />
+			<view class="normalBtn smallBtn" data-goodsId='{{recommend[1].goodsId}}' bind:tap="_toDetail">立即领养</view>
+		</view>
+		<view class="BigImg" wx:for="{{homeImg}}">
+			<image src="{{item}}" style="height:589rpx;width:100%" />
+			<view class="normalBtn bigBtn" data-goodsId='{{item.goodsId}}' bind:tap="_toDetail">立即领养</view>
+		</view>
+	</view>
+</view>
+

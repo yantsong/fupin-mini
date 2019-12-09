@@ -61,6 +61,7 @@
 				 class='banner-img'
 				 src='{{imgUrl}}{{item.bannerUrl}}'
 				 data-url='{{item.baseUrl}}'
+				 data-goodsid="{{item.bannerId}}"
 				 bindtap='clickbanner'
 				 data-shopid='{{item.shopId}}'
 				 data-type='{{item.urlType}}'
@@ -101,6 +102,7 @@
 			 data-url='{{item.baseUrl}}'
 			 data-shopid='{{item.shopId}}'
 			 data-type='{{item.urlType}}'
+			 data-classifyid='{{item.classifyId}}'
 			>
 				<image class='every-img' src='{{imgUrl}}{{item.icon}}' />
 				<view class='every-text'>{{item.name}}</view>
@@ -133,7 +135,7 @@
 		 data-specifiname='{{item.children[0].specifiName}}'
 		 data-specifivalue='{{item.children[0].specifiValue}}'
 		>
-			<image class='tuijian-back' src='{{url}}{{item.pushPic}}' />
+			<image class='tuijian-back' src='{{imgUrl}}{{item.pushPic}}' />
 			<!-- <image class='tuijian-img' src='{{url}}{{item.pushPic}}'></image> -->
 
 			<!-- <view class='tuijian-title1'>{{item.goodsName}}</view> -->
