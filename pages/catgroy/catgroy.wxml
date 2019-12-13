@@ -1,55 +1,31 @@
 <!--pages/catgroy/catgroy.wxml-->
 <view class="catgroy">
 	<view class="catgroy-tabs">
-		<view class="catgroy-tabs-item">综合</view>
-		<view class="catgroy-tabs-item">销量</view>
-		<view class="catgroy-tabs-item">地区</view>
+		<view
+		 class="catgroy-tabs-item {{active_tabs_id === item.classifyId?'active':''}}"
+		 bind:tap="_tabHandler"
+		 data-id='{{item.classifyId}}'
+		 wx:for="{{tabs}}"
+		>{{item.classifyName}}
+		</view>
 	</view>
 	<view class="catgroy-list">
-		<view class="catgroy-list-item" bind:tap="_toDetail">
-			<image class="catgroy-list-item-img" src="../../image/default1.png" />
+		<view class="catgroy-list-item" bind:tap="_toDetail" wx:for="{{foods}}">
+			<image class="catgroy-list-item-img" src="{{picUrl}}{{item.goodsPic}}" />
 			<view class="catgroy-list-item-info">
-				<view class="info-title">红枣</view>
+				<view class="info-title">{{item.goodsName}}</view>
 				<view class="info-sale">
 					<image class="info-sale-icon" src="../../image/sale-icon.png" />
-					<view>月销量3000</view>
+					<view>月销量{{item.saleNum}}</view>
 				</view>
 				<view class="info-price">
 					<view style="display:inline-block">¥</view>
-					<view class="num">123</view>
+					<view class="num">{{item.goodsPrice}}</view>
 				</view>
 			</view>
-
 		</view>
-		<view class="catgroy-list-item" bind:tap="_toDetail">
-			<image class="catgroy-list-item-img" src="../../image/default1.png" />
-			<view class="catgroy-list-item-info">
-				<view class="info-title">红枣</view>
-				<view class="info-sale">
-					<image class="info-sale-icon" src="../../image/sale-icon.png" />
-					<view>月销量3000</view>
-				</view>
-				<view class="info-price">
-					<view style="display:inline-block">¥</view>
-					<view class="num">123</view>
-				</view>
-			</view>
-
-		</view>
-		<view class="catgroy-list-item" bind:tap="_toDetail">
-			<image class="catgroy-list-item-img" src="../../image/default1.png" />
-			<view class="catgroy-list-item-info">
-				<view class="info-title">红枣</view>
-				<view class="info-sale">
-					<image class="info-sale-icon" src="../../image/sale-icon.png" />
-					<view>月销量3000</view>
-				</view>
-				<view class="info-price">
-					<view style="display:inline-block">¥</view>
-					<view class="num">123</view>
-				</view>
-			</view>
-
+		<view class="nofoods" wx:if="{{!foods.length}}">
+			抱歉,暂无商品
 		</view>
 	</view>
 </view>

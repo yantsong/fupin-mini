@@ -102,7 +102,7 @@
 			 data-url='{{item.baseUrl}}'
 			 data-shopid='{{item.shopId}}'
 			 data-type='{{item.urlType}}'
-			 data-classifyid='{{item.classifyId}}'
+			 data-classifyid='{{item.baseUrl}}'
 			>
 				<image class='every-img' src='{{imgUrl}}{{item.icon}}' />
 				<view class='every-text'>{{item.name}}</view>
@@ -150,33 +150,37 @@
 			</view>
 			<view class='clear' />
 		</view>
-		<view class="notice-content">
-			<image
-			 class="notice-content-img"
-			 src="../../image/notice-logo.png"
-			 mode="aspectFit|aspectFill|widthFix"
-			 lazy-load="false"
-			 binderror=""
-			 bindload=""
-			/>
-			<view class="notice-content-text">
-				<view class="notice-content-text-title">公告列表</view>
-				<view class="notice-content-text-detail">
-					<image
-					 class="notice-content-text-detail-icon"
-					 src="../../image/notice-i.png"
-					 mode="aspectFit|aspectFill|widthFix"
-					 lazy-load="false"
-					 binderror=""
-					 bindload=""
-					/>
-					<view class="notice-content-text-detail-text">
-						点击查看公告详情
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
 					</view>
 				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
 			</view>
-			<image class="notice-content-arrow" src="../../image/more.png" />
+			<view class="notice-realcontent-list" />
 		</view>
+
 	</view>
 	<!-- 优惠专区  -->
 	<view wx:if="{{youhuili.length}}">

@@ -15,6 +15,16 @@
 		<view class="dt"> 待付款</view>
 		<view class="dd">等待买家付款</view>
 	</view>
+	<view class="success" wx:if="{{orderState == 4}}">
+		<image class="success-img" src="../../image/list-send.png" />
+		<view class="dt"> 待收货</view>
+		<view class="dd">订单正在配送,感谢您的耐心等待!</view>
+	</view>
+	<view class="success" wx:if="{{orderState == 3}}">
+		<image class="success-img" src="../../image/list-fahuo.png" />
+		<view class="dt"> 待发货</view>
+		<view class="dd">您的物品正在准备中</view>
+	</view>
 	<view style='height:20rpx;' />
 	<!-- <view class='user-xinxi'>
 		<view class='users-xinxi'>

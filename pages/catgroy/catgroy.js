@@ -1,31 +1,66 @@
 // pages/catgroy/catgroy.js
-import {getKindsFoods}  from '../../api/api'
+import {
+  getKindsFoods,
+  getCatgroys
+} from '../../api/api'
+import {
+  picUrl
+} from '../../utils/config';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    foods: [],
+    tabs: [],
+    picUrl,
+    active_tabs_id: ''
   },
-  _getClassify(classifyId){
+  _tabHandler(e) {
+    const classifyId = e.target.dataset.id
+    this.setData({
+      active_tabs_id: classifyId
+    })
+    this._getClassify(classifyId)
+  },
+  _getClassify(classifyId) {
+    wx.showLoading();
     getKindsFoods(classifyId).then(
       res => {
-        console.log(res,'res');
+        console.log(res, 'ressss');
+        const foods = res.body.classifyGoodsList
+        this.setData({
+          foods
+        })
+        wx.hideLoading()
+      }
+    )
+
+  },
+  _getCatgroys() {
+    getCatgroys.then(
+      res => {
+        console.log(res, 'res');
+        const tabs = res.body.classifyList
+        this.setData({
+          tabs
+        })
       }
     )
   },
-  _toDetail(){
+  _toDetail() {
     let testid = 'ff8080816edbaac4016eeae94fa50005'
-    if(testid) {
+    if (testid) {
       wx.navigateTo({
         url: `/pages/detail/detail?goodsId=${testid}`,
-        success: (result)=>{
-          
+        success: (result) => {
+
         },
-        fail: ()=>{},
-        complete: ()=>{}
-      });}
+        fail: () => {},
+        complete: () => {}
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -33,6 +68,7 @@ Page({
   onLoad: function (options) {
     const classifyId = options.classifyid
     this._getClassify(classifyId)
+    this._getCatgroys()
   },
 
   /**

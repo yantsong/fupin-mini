@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/helpdetail/helpdetail",
+    "pages/helppage/helppage",
     "pages/index/index",
     "pages/catgroy/catgroy",
     "pages/renyang/renyang",
@@ -54,7 +56,7 @@
         "selectedIconPath": "image/renyang-y.png"
       },
       {
-        "pagePath": "pages/tuijian/tuijian",
+        "pagePath": "pages/helppage/helppage",
         "text": "帮扶",
         "iconPath": "image/aixin.png",
         "selectedIconPath": "image/aixin-y.png"

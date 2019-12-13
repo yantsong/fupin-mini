@@ -13,13 +13,17 @@ export const getNoticeList = http.get(
 export const getNoticeDetail = http.get(
   fpUrl+'/getBoundDetail.action'
 )
+//商品列表页顶部tab
+export const getCatgroys = http.get(
+  fpUrl+'/getGoodsClassifyList.action'
+)
 //6.9、获取商品详情
 export const getFoodsDetail = goodsId => http.get(
   fpUrl+'/getDetailByGoodsId.action', {goodsId}
 )
 //11、获取商品分类
 export const getFoodsList = () => http.get(
-  fpUrl+'/getGoodsClassifyList.action'
+  fpUrl+'/getClassifyList.action'
 )
 //12、获取商品分类下的商品
 export const getKindsFoods= classifyId => http.get(

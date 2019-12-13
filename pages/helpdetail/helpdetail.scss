@@ -1,0 +1,236 @@
+.helpdetail {
+  padding-top: 10rpx;
+  min-height: 100vh;
+  background-color: #efefef;
+
+  &-user {
+    box-sizing: border-box;
+    padding: 0 36rpx;
+    height: 64rpx;
+    text-align: left;
+
+    .user-avater {
+      display: inline-block;
+      vertical-align: middle;
+      width: 56rpx;
+      height: 56rpx;
+      margin-right: 22rpx;
+      border-radius: 50%;
+    }
+
+    .user-name {
+      display: inline-block;
+      line-height: 64rpx;
+      font-family: SourceHanSansCN-Light;
+      font-size: 30rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      letter-spacing: 0rpx;
+      color: #333333;
+    }
+
+    .user-time {
+      float: right;
+      height: 64rpx;
+      line-height: 64rpx;
+      font-size: 24rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      letter-spacing: 0px;
+      color: #333333;
+    }
+  }
+
+  &-title {
+    padding: 42rpx;
+    line-height: 32rpx;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 32rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 3rpx;
+    color: #333333;
+  }
+
+  &-info {
+    width: 720rpx;
+    height: 156rpx;
+    margin: 0 auto;
+    background-color: #f8fff7;
+    box-shadow: 0rpx 4rpx 10rpx 3rpx rgba(171, 168, 168, 0.11);
+    border-radius: 20rpx 10rpx 10rpx 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &-item {
+      height: 100%;
+      padding: 30rpx 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .info-icon {
+        width: 43rpx;
+        height: 43rpx;
+        border-radius: 50%;
+      }
+
+      .info-desc {
+        font-size: 28rpx;
+        font-weight: normal;
+        font-stretch: normal;
+        letter-spacing: 0rpx;
+        color: #333333;
+      }
+    }
+  }
+
+  &-detailcontent {
+    padding: 0 44rpx;
+    font-family: SourceHanSansCN-Normal;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0rpx;
+    color: #666666;
+  }
+
+  &-padcontent {
+    padding: 28rpx 0;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0rpx;
+    color: #3db654;
+
+    &-text {
+      display: inline-block;
+      margin-right: 15rpx;
+    }
+
+    .pad_arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-piclist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 36rpx 30rpx;
+
+    &-item {
+      width: 155rpx;
+      height: 156rpx;
+    }
+  }
+
+  &-prove {
+    margin: 0 auto 25rpx;
+    padding: 18rpx 43rpx 0 40rpx;
+    box-sizing: border-box;
+    width: 731rpx;
+    background-color: #f8fff7;
+    border-radius: 10rpx;
+
+    &-title {
+      font-family: SourceHanSansCN-Normal;
+      font-size: 30rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      letter-spacing: 0rpx;
+      color: #666666;
+    }
+
+    &-pass {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 36rpx 0;
+
+      .pass-icon {
+        width: 23rpx;
+        height: 23rpx;
+        margin-right: 10rpx;
+      }
+
+      .pass-text {
+        font-size: 26rpx;
+        font-weight: normal;
+        font-stretch: normal;
+        color: #3db654;
+      }
+    }
+
+    .content-title {
+      padding-bottom: 34rpx;
+      text-align: left;
+      font-size: 30rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      color: #666666;
+    }
+
+    .content-detail {
+      padding-bottom: 34rpx;
+      font-size: 26rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 40rpx;
+      letter-spacing: 0px;
+      color: #666666;
+    }
+  }
+
+  &-bottom {
+    height: 94rpx;
+    display: flex;
+
+    .bottom-icons {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      &-share {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .share-icon {
+        width: 30rpx;
+        height: 30rpx;
+      }
+
+      .share-text {
+        font-size: 26rpx;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 40rpx;
+        letter-spacing: 0rpx;
+        color: #333333;
+      }
+    }
+
+    .bottom-helphim {
+      width: 50%;
+      text-align: center;
+      font-size: 30rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 94rpx;
+      letter-spacing: 6rpx;
+      color: #ffffff;
+      background-color: #3db654;
+    }
+  }
+}

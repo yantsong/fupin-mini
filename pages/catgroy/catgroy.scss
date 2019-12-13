@@ -8,9 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    flex-wrap: wrap;
     &-item {
       width: 30%;
+      margin-bottom: 20rpx;
       height: 52rpx;
       line-height: 52rpx;
       font-size: 26rpx;
@@ -95,5 +96,11 @@
       height: 20rpx;
       margin-right: 5rpx;
     }
+  }
+  .nofoods{
+    text-align: center;
+    margin-top: 30rpx;
+    font-size: 26rpx;
+    color: #666;
   }
 }
