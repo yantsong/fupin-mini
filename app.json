@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/myrydetail/myrydetail",
+    "pages/myrenyang/myrenyang",
+    "pages/toplist-detail/toplist-detail",
+    "pages/toplist/toplist",
     "pages/helpdetail/helpdetail",
     "pages/helppage/helppage",
     "pages/index/index",

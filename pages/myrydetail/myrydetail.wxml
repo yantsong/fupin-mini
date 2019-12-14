@@ -1,0 +1,38 @@
+<!--pages/myrydetail/myrydetail.wxml 我的认养详情-->
+<view class="myrydetail">
+	<swiper class="myrydetail-swiper" indicator-dots>
+		<swiper-item class="myrydetail-swiper-item" item-id="">
+			<video
+			 id="myVideo"
+			 class="myrydetail-swiper-item-video"
+			 object-fit='fill'
+			 src=""
+			 controls
+			></video>
+		</swiper-item>
+		<swiper-item class="myrydetail-swiper-item" item-id="">
+			<video
+			 id="myVideo"
+			 class="myrydetail-swiper-item-video"
+			 object-fit='fill'
+			 src=""
+			 controls
+			></video>
+		</swiper-item>
+	</swiper>
+	<view class="myrydetail-info">
+		<view class="myrydetail-info-item">
+			<image class="info-pic" src="../../image/myry-icon1.png" />
+			<view class="info-text">状态:心情不错</view>
+		</view>
+		<view class="myrydetail-info-item">
+			<image class="info-pic" src="../../image/myry-icon2.png" />
+			<view class="info-text">认养开始时间:2020.3.3</view>
+		</view>
+		<view class="myrydetail-info-item">
+			<image class="info-pic" src="../../image/myry-icon3.png" />
+			<view class="info-text">下次展示时间:2012.2.22</view>
+		</view>
+	</view>
+</view>
+

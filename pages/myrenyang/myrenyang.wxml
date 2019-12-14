@@ -1,0 +1,18 @@
+<!--pages/myrenyang/myrenyang.wxml-->
+<view class="myrenyang">
+	<view class="myrenyang-list">
+		<view class="myrenyang-list-item" wx:for="{{list}}">
+			<view class="myrenyang-list-item-imgs">
+				<image class="myrenyang-list-item-img" wx:for="{{imgs}}" src="../../image/default1.png" />
+			</view>
+			<view class="split-line" />
+			<view class="myrenyang-list-item-title">
+				状态良好
+			</view>
+			<view class="myrenyang-list-item-desc">
+				2020.20.20 20.20
+			</view>
+		</view>
+	</view>
+</view>
+

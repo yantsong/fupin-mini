@@ -1,0 +1,40 @@
+<!--pages/toplist/toplist.wxml-->
+<view class="toplist">
+	<view class="toplist-tabs">
+		<view class="toplist-tabs-item">
+			<view class="underline-title">
+				<view class="underline-title-text">榜单</view>
+				<view class="{{tabsActive === 0? 'underline-title-yellow':''}}" />
+			</view>
+		</view>
+		<view class="toplist-tabs-item">
+			<view class="underline-title">
+				<view class="underline-title-text">爱心榜</view>
+				<view class="{{tabsActive === 0?'':'underline-title-yellow'}}" />
+			</view>
+		</view>
+	</view>
+	<view class="toplist-list" wx:if="{{tabsActive === 0}}">
+		<view class="toplist-list-item" wx:for="{{toplist}}">
+			<image class="toplist-list-item-img" src="../../image/default.png" />
+			<view class="toplist-list-item-text">
+				<view class="chinese">水果棒</view>
+				<view class="english">Fruit list</view>
+			</view>
+		</view>
+	</view>
+	<view class="toplist-love" wx:else>
+		<view class="toplist-love-item" wx:for="{{lovelist}}">
+			<image class="toplist-love-item-avater" src="../../image/default.png" />
+			<view class="toplist-love-item-info">
+				<view class="info-name">王书记</view>
+				<view class="info-desc">第一书记</view>
+			</view>
+			<view class="toplist-love-item-like">
+				<image class="like-icon" src="../../image/default.png" />
+				<view class="like-count">2222</view>
+			</view>
+		</view>
+	</view>
+</view>
+

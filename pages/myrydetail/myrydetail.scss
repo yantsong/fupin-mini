@@ -1,0 +1,66 @@
+/* pages/myrydetail/myrydetail.wxss */
+.myrydetail {
+  min-height: 100vh;
+  background: #efefef;
+
+  &-swiper {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    height: 806rpx;
+
+    // overflow: hidden;
+    &-item {
+      border-radius: 10rpx;
+
+      &-video {
+        width: 100%;
+        height: 100%;
+        height: 756rpx;
+      }
+    }
+  }
+
+  &-info {
+    width: 714rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 6rpx 5rpx 11rpx 2rpx rgba(102, 102, 102, 0.07);
+    border-radius: 10rpx;
+    background-color: #fff;
+    padding: 40rpx 40rpx 0rpx 14rpx;
+    overflow: hidden;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 40rpx;
+
+      .info-pic {
+        width: 72rpx;
+        height: 72rpx;
+        position: relative;
+        z-index: 1;
+      }
+
+      .info-text {
+        position: relative;
+        z-index: 0;
+        padding-left: 40rpx;
+        flex-grow: 1;
+        height: 59rpx;
+        line-height: 59rpx;
+        background-color: #f3fff0;
+        box-shadow: 6rpx 5rpx 11rpx 2rpx rgba(102, 102, 102, 0.07);
+        border-radius: 10rpx;
+        transform: translateX(-20rpx);
+        font-family: SourceHanSansCN-Light;
+        font-size: 30rpx;
+        font-weight: normal;
+        font-stretch: normal;
+        color: #333333;
+      }
+    }
+  }
+}

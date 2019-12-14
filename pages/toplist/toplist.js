@@ -1,30 +1,15 @@
-// pages/helpdetail/helpdetail.js
+// pages/toplist/toplist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [1, 2, 3, 4],
-    showHelpMaskFlag: false,
-    showHelpBtnFlag: true,
-    inputPhoneFlag: false,
-    phone: ''
+    tabsActive:1,
+    toplist:[1,2,3,4,5,6],
+    lovelist:[1,2,3,3,3,3]
   },
-  // method
-  _helpMaskHandler() {
-   let showHelpMaskFlag = !this.data.showHelpMaskFlag
-    this.setData({
-      showHelpMaskFlag
-    })
-  },
-  _toInputPhone() {
 
-    this.setData({
-      showHelpBtnFlag: false,
-      inputPhoneFlag: true
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

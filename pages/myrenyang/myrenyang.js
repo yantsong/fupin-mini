@@ -1,30 +1,14 @@
-// pages/helpdetail/helpdetail.js
+// pages/myrenyang/myrenyang.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [1, 2, 3, 4],
-    showHelpMaskFlag: false,
-    showHelpBtnFlag: true,
-    inputPhoneFlag: false,
-    phone: ''
+    imgs:[1,2,2],
+    list:[1,1,1,1,1]
   },
-  // method
-  _helpMaskHandler() {
-   let showHelpMaskFlag = !this.data.showHelpMaskFlag
-    this.setData({
-      showHelpMaskFlag
-    })
-  },
-  _toInputPhone() {
 
-    this.setData({
-      showHelpBtnFlag: false,
-      inputPhoneFlag: true
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

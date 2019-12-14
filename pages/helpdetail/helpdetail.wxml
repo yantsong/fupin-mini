@@ -70,8 +70,23 @@
 				<view class="share-text">加油</view>
 			</view>
 		</view>
-		<view class="bottom-helphim">
+		<view class="bottom-helphim" bind:tap="_helpMaskHandler">
 			我要帮助他
+		</view>
+	</view>
+	<view class="helpdetail-mask" wx:if="{{showHelpMaskFlag}}">
+		<view wx:if="{{showHelpBtnFlag}}">
+			<view class="online-help help-button" bind:tap="_toInputPhone">在线帮扶</view>
+			<view class="real-help help-button">实物帮扶</view>
+		</view>
+		<view class="help-modal" wx:if="{{inputPhoneFlag}}">
+			<view class="help-modal-text">请输入手机号 工作人员将在24小时内联系您</view>
+			<input class="help-input" auto-focus bindinput="{{phone}}" />
+			<view class="split-line" />
+			<view class="help-confirm" bind:tap="_helpMaskHandler">
+				<view class="help-cancel text">取消</view>
+				<view class="confirm text">确定</view>
+			</view>
 		</view>
 	</view>
 </view>

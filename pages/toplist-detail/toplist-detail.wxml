@@ -1,0 +1,19 @@
+<view class="toplist-detail-wrap">
+
+	<image class="detail-bg" src="../../image/bangdan-bg.png" />
+
+	<view class="toplist-detail">
+		<view class="toplist-detail-item" wx:for="{{listdetail}}">
+			<image class="toplist-detail-item-avater" src="../../image/default.png" />
+			<view class="toplist-detail-item-info">
+				<view class="info-name">土豆</view>
+				<view class="info-desc">土豆村</view>
+			</view>
+			<view class="toplist-detail-item-like">
+				<view class="like-count">销量:2222</view>
+				<image class="like-icon" src="../../image/bangdan-jb.png" />
+			</view>
+		</view>
+	</view>
+</view>
+
