@@ -1,0 +1,82 @@
+.myrylist {
+  min-height: 100vh;
+  background-color: #efefef;
+  &-item {
+    box-sizing: border-box;
+    padding: 28rpx 20rpx 12rpx 0;
+    width: 698rpx;
+    height: 248rpx;
+    margin: 0 auto 8rpx;
+    background-color: #f8faff;
+    box-shadow: 1rpx 18rpx 29rpx 0rpx rgba(12, 3, 6, 0.03);
+    border-radius: 8rpx;
+
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      &-img {
+        margin: 0 32rpx;
+        width: 170rpx;
+        height: 116rpx;
+        background-color: #dedede;
+        border-radius: 4rpx;
+      }
+
+      &-goods {
+        min-width: 280rpx;
+        margin-right: 40rpx;
+
+        .goods-name {
+          margin-bottom: 10rpx;
+          font-family: MicrosoftYaHei;
+          font-size: 28rpx;
+          font-weight: normal;
+          font-stretch: normal;
+          letter-spacing: 0rpx;
+          color: #333333;
+        }
+
+        .goods-desc {
+          font-family: MicrosoftYaHeiLight;
+          font-size: 22rpx;
+          font-weight: normal;
+          font-stretch: normal;
+          letter-spacing: 0rpx;
+          color: #666666;
+        }
+      }
+
+      &-count {
+        font-family: MicrosoftYaHei;
+        font-size: 24rpx;
+        font-weight: normal;
+        font-stretch: normal;
+        letter-spacing: 0rpx;
+        color: #999999;
+      }
+    }
+
+    &-btn {
+      float: right;
+      text-align: center;
+      width: 171rpx;
+      height: 56rpx;
+      line-height: 56rpx;
+      background-color: #ffde1c;
+      background: linear-gradient(to bottom,#fff8a1,#ffe026);
+      border-radius: 28rpx;
+      font-family: MicrosoftYaHei;
+      font-size: 26rpx;
+      font-weight: normal;
+      font-stretch: normal;
+      letter-spacing: 0rpx;
+      color: #333333;
+    }
+  }
+
+  .split-line {
+    margin: 10rpx 0 20rpx;
+  }
+}

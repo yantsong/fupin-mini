@@ -8,15 +8,15 @@
 	<view class="helpdetail-title">这里是标题</view>
 	<view class="helpdetail-info">
 		<view class="helpdetail-info-item">
-			<image class="info-icon" src="../../image/default.png" />
+			<image class="info-icon" src="../../image/help-detail-count.png" />
 			<view class="info-desc">1234</view>
 		</view>
 		<view class="helpdetail-info-item">
-			<image class="info-icon" src="../../image/default.png" />
+			<image class="info-icon" src="../../image/help-detail-area.png" />
 			<view class="info-desc">1234</view>
 		</view>
 		<view class="helpdetail-info-item">
-			<image class="info-icon" src="../../image/default.png" />
+			<image class="info-icon" src="../../image/help-detail-people.png" />
 			<view class="info-desc">1234</view>
 		</view>
 	</view>
@@ -58,15 +58,15 @@
 			本求助资薪部署均公开募捐，属个人求助行为，真实性由信息发起者负责，平台提醒您了解情况后在帮助TA。
 		</view>
 	</view>
-	<view class="helpdetail-bottom">
+	<view class="helpdetail-bottom" wx:if="{{!isMine}}">
 		<view class="bottom-icons">
 			<view class="bottom-icons-share">
-				<image class="share-icon" src="../../image/default.png" />
+				<image class="share-icon" src="../../image/help-detail-jiayou.png" />
 				<view class="share-text">分享</view>
 			</view>
 			<view class="spilt-line-colm" />
 			<view class="bottom-icons-share">
-				<image class="share-icon" src="../../image/default.png" />
+				<image class="share-icon" src="../../image/help-detail-share.png" />
 				<view class="share-text">加油</view>
 			</view>
 		</view>

@@ -69,6 +69,173 @@
 			</view>
 		</swiper-item>
 	</swiper>
+	<!-- 公告 -->
+	<view class="fp-notice">
+		<view>
+			<view class='fenlei-title'>
+				<view class='fenlei-text'>公告</view>
+				<view class='fenlei-xiahuaxian' />
+			</view>
+			<view class='clear' />
+		</view>
+		<!-- notice-content -->
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
+					</view>
+				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
+			</view>
+			<view class="notice-realcontent-list" />
+		</view>
+		<!-- notice-content -->
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
+					</view>
+				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
+			</view>
+			<view class="notice-realcontent-list" />
+		</view>
+		<!-- notice-content -->
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
+					</view>
+				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
+			</view>
+			<view class="notice-realcontent-list" />
+		</view>
+		<!-- notice-content -->
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
+					</view>
+				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
+			</view>
+			<view class="notice-realcontent-list" />
+		</view>
+		<!-- notice-content -->
+		<view class="s-notice">
+			<view class="notice-content">
+				<image
+				 class="notice-content-img"
+				 src="../../image/notice-logo.png"
+				 mode="aspectFit|aspectFill|widthFix"
+				 lazy-load="false"
+				 binderror=""
+				 bindload=""
+				/>
+				<view class="notice-content-text">
+					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-detail">
+						<image
+						 class="notice-content-text-detail-icon"
+						 src="../../image/notice-i.png"
+						 mode="aspectFit|aspectFill|widthFix"
+						 lazy-load="false"
+						 binderror=""
+						 bindload=""
+						/>
+						<view class="notice-content-text-detail-text">
+							点击查看公告详情
+						</view>
+					</view>
+				</view>
+				<image class="notice-content-arrow" src="../../image/more.png" />
+			</view>
+			<view class="notice-realcontent-list" />
+		</view>
+
+	</view>
+
 	<view>
 		<!-- <view class='fenlei-title {{fenleixz}}'> -->
 		<view class='fenlei-title'>
@@ -109,6 +276,7 @@
 			</view>
 		</view>
 	</scroll-view>
+
 	<view class='progress {{progress}}'>
 		<view class='pro-left' />
 		<view class='progress1' style='width:{{width}};margin-left:{{marginleft}}' />
@@ -141,47 +309,7 @@
 			<!-- <view class='tuijian-title1'>{{item.goodsName}}</view> -->
 		</view>
 	</view>
-	<!-- 公告 -->
-	<view class="fp-notice">
-		<view>
-			<view class='fenlei-title'>
-				<view class='fenlei-text'>公告</view>
-				<view class='fenlei-xiahuaxian' />
-			</view>
-			<view class='clear' />
-		</view>
-		<view class="s-notice">
-			<view class="notice-content">
-				<image
-				 class="notice-content-img"
-				 src="../../image/notice-logo.png"
-				 mode="aspectFit|aspectFill|widthFix"
-				 lazy-load="false"
-				 binderror=""
-				 bindload=""
-				/>
-				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
-					<view class="notice-content-text-detail">
-						<image
-						 class="notice-content-text-detail-icon"
-						 src="../../image/notice-i.png"
-						 mode="aspectFit|aspectFill|widthFix"
-						 lazy-load="false"
-						 binderror=""
-						 bindload=""
-						/>
-						<view class="notice-content-text-detail-text">
-							点击查看公告详情
-						</view>
-					</view>
-				</view>
-				<image class="notice-content-arrow" src="../../image/more.png" />
-			</view>
-			<view class="notice-realcontent-list" />
-		</view>
 
-	</view>
 	<!-- 优惠专区  -->
 	<view wx:if="{{youhuili.length}}">
 		<view class='{{youhuilist}}' style='{{none}}'>

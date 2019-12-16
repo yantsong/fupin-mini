@@ -1,17 +1,19 @@
 {
   "pages": [
-    "pages/myrydetail/myrydetail",
+    "pages/index/index",
+    "pages/gerencenter/gerencenter",
     "pages/myrenyang/myrenyang",
-    "pages/toplist-detail/toplist-detail",
+    "pages/myrylist/myrylist",
+    "pages/myrydetail/myrydetail",
     "pages/toplist/toplist",
+    "pages/rydetail/rydetail",
+    "pages/toplist-detail/toplist-detail",
     "pages/helpdetail/helpdetail",
     "pages/helppage/helppage",
-    "pages/index/index",
     "pages/catgroy/catgroy",
     "pages/renyang/renyang",
     "pages/dingweischool/dingweischool",
     "pages/userfankui/userfankui",
-    "pages/gerencenter/gerencenter",
     "pages/orderlist/order",
     "pages/share/share",
     "pages/frdPay/frdPay",
@@ -31,8 +33,7 @@
     "pages/adddizhi/adddizhi",
     "pages/bianjidizhi/bianjidizhi",
     "pages/dingweilou/dingweilou",
-    "pages/detail/detail",
-    "pages/rydetail/rydetail"
+    "pages/detail/detail"
   ],
   "usingComponents": {
     "title": "./components/title/title"
@@ -66,7 +67,7 @@
         "selectedIconPath": "image/aixin-y.png"
       },
       {
-        "pagePath": "pages/gouwuche/gouwuche",
+        "pagePath": "pages/toplist/toplist",
         "text": "榜单",
         "iconPath": "image/paihang.png",
         "selectedIconPath": "image/paihang-y.png"

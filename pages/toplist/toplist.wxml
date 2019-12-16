@@ -1,24 +1,23 @@
 <!--pages/toplist/toplist.wxml-->
 <view class="toplist">
 	<view class="toplist-tabs">
-		<view class="toplist-tabs-item">
+		<view
+		 class="toplist-tabs-item"
+		 wx:for="{{tabs}}"
+		 data-index="{{index}}"
+		 bind:tap="_tabsHandler"
+		>
 			<view class="underline-title">
-				<view class="underline-title-text">榜单</view>
-				<view class="{{tabsActive === 0? 'underline-title-yellow':''}}" />
-			</view>
-		</view>
-		<view class="toplist-tabs-item">
-			<view class="underline-title">
-				<view class="underline-title-text">爱心榜</view>
-				<view class="{{tabsActive === 0?'':'underline-title-yellow'}}" />
+				<view class="underline-title-text">{{item}}</view>
+				<view class="{{tabsActive === index? 'underline-title-yellow':''}}" />
 			</view>
 		</view>
 	</view>
 	<view class="toplist-list" wx:if="{{tabsActive === 0}}">
-		<view class="toplist-list-item" wx:for="{{toplist}}">
-			<image class="toplist-list-item-img" src="../../image/default.png" />
+		<view class="toplist-list-item" wx:for="{{toplist}}" bind:tap="_toDetail">
+			<image class="toplist-list-item-img" src="../../image/default1.png" />
 			<view class="toplist-list-item-text">
-				<view class="chinese">水果棒</view>
+				<view class="chinese">水果榜</view>
 				<view class="english">Fruit list</view>
 			</view>
 		</view>
@@ -31,10 +30,11 @@
 				<view class="info-desc">第一书记</view>
 			</view>
 			<view class="toplist-love-item-like">
-				<image class="like-icon" src="../../image/default.png" />
+				<image class="like-icon" src="../../image/love-fill.png" />
 				<view class="like-count">2222</view>
 			</view>
 		</view>
 	</view>
+	<inputpassword wx:if="{{showPswdInputFlag}}" bind:close='_handlerInputClose' bind:submit='_handlerInputSubmit' />
 </view>
 

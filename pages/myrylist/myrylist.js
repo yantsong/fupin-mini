@@ -1,41 +1,26 @@
-// pages/helpdetail/helpdetail.js
+// pages/myrylist/myrylist.js
 Page({
-
+  _toDetail(){
+    wx.navigateTo({
+      url: '/pages/myrydetail/myrydetail',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [1, 2, 3, 4],
-    showHelpMaskFlag: false,
-    showHelpBtnFlag: true,
-    inputPhoneFlag: false,
-    phone: '',
-    isMine:false
+    myrylist:[1,2,34,4]
   },
-  // method
-  _helpMaskHandler() {
-   let showHelpMaskFlag = !this.data.showHelpMaskFlag
-    this.setData({
-      showHelpMaskFlag
-    })
-  },
-  _toInputPhone() {
 
-    this.setData({
-      showHelpBtnFlag: false,
-      inputPhoneFlag: true
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    try {
-      const {mine} = options
-      this.setData({isMine:mine})      
-    } catch (error) {
-      
-    }
 
   },
 

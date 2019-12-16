@@ -48,6 +48,16 @@
 		<view class='clear' />
 	</view>
 	<view class='fuwu-qu'>
+		<view class='every-fuwu' bindtap='_goMyTopList'>
+			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
+			<view class='fuwu-name'>我的榜单</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
+		<view class='every-fuwu' bindtap='_goMyMyRyList'>
+			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
+			<view class='fuwu-name'>我的认养</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
 		<view class='every-fuwu' bindtap='godizhi'>
 			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
 			<view class='fuwu-name'>收货地址</view>
@@ -55,7 +65,12 @@
 		</view>
 		<view class='every-fuwu' bindtap='zhuanqian'>
 			<image class='fuwu-logo' src='../../img/qianbao-logo.png' />
-			<view class='fuwu-name'>我要赚钱</view>
+			<view class='fuwu-name'>申请帮扶</view>
+			<image class='fuwu-more' src='../../img/fuwu-more.png' />
+		</view>
+		<view class='every-fuwu' bindtap='_goMyHelpList'>
+			<image class='fuwu-logo' src='../../img/qianbao-logo.png' />
+			<view class='fuwu-name'>我的帮扶</view>
 			<image class='fuwu-more' src='../../img/fuwu-more.png' />
 		</view>
 		<view class='every-fuwu' bindtap='gofankui'>
@@ -63,17 +78,17 @@
 			<view class='fuwu-name'>用户反馈</view>
 			<image class='fuwu-more' src='../../img/fuwu-more.png' />
 		</view>
-		<button open-type='share'>
+		<!-- <button open-type='share'>
 			<view class='every-fuwu'>
 				<image class='fuwu-logo' src='../../img/fenxiang-logo.png' />
-				<view class='fuwu-name'>我要分享</view>
+				<view class='fuwu-name'>分享</view>
 				<image class='fuwu-more' src='../../img/fuwu-more.png' />
 			</view>
-		</button>
+		</button> -->
 		<button bindtap='getphone'>
 			<view class='every-fuwu'>
 				<image class='fuwu-logo' src='../../img/kefu-logo.png' />
-				<view class='fuwu-name'>投诉电话</view>
+				<view class='fuwu-name'>联系客服</view>
 				<image class='fuwu-more' src='../../img/fuwu-more.png' />
 			</view>
 		</button>

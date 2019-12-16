@@ -1,6 +1,15 @@
 // components/helppage/helppage.js
 Page({
-
+  _tohelpDetail(){
+    wx.navigateTo({
+      url: '/pages/helpdetail/helpdetail',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
   /**
    * 页面的初始数据
    */

@@ -1,6 +1,8 @@
 // pages/gerencenter/gerencenter.js 
 var util = require('../../utils/util.js');
 var that = '' , url = util.url , imgUrl = url.imgUrl , schoolid = '' , phones = '' ;
+var app = getApp();
+
 Page({
 
   /**
@@ -71,6 +73,38 @@ Page({
     wx.navigateTo({
       url: '../wanshanxinxi/wanshanxinxi',
     })
+  },
+  _goMyTopList(){
+    console.log('aaaaa');
+    app.listmine = true
+    wx.switchTab({
+      url: '../toplist/toplist?mine=true',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
+  _goMyHelpList(){
+    wx.navigateTo({
+      url: '/pages/helpdetail/helpdetail?mine=true',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
+  _goMyMyRyList(){
+    wx.navigateTo({
+      url: '/pages/myrylist/myrylist',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   goallorder:function(){
     wx.navigateTo({

@@ -130,7 +130,6 @@
 }
 .fuwu-qu{
   width: 670rpx;
-  height: 450rpx;
   border-radius: 30rpx;
   margin: 0 auto;
   margin-top: 35rpx;

@@ -51,7 +51,8 @@
         flex-direction: column;
         justify-content: center;
         background: rgba(0, 0, 0, 0.7);
-
+        position: relative;
+        z-index: 3;
         .chinese {
           font-size: 34rpx;
           font-weight: normal;
@@ -111,7 +112,7 @@
         margin-right: 30rpx;
         .like-icon {
           width: 42rpx;
-          height: 42rpx;
+          height: 36rpx;
         }
 
         .like-count {
