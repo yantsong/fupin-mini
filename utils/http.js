@@ -1,5 +1,9 @@
 class HTTP {
+    constructor(baseurl){
+        this.baseurl = baseurl
+    }
   get(url, data = '', fn) {
+      url = this.baseurl + url
       return new Promise((reslove, reject) => {
           wx.request({
               url,
@@ -21,6 +25,7 @@ class HTTP {
       })
   }
   post(url, data = '', fn) {
+    url = this.baseurl + url
       return new Promise((reslove, reject) => {
           wx.request({
               url,

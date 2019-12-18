@@ -2,29 +2,29 @@
 <view class="helpdetail">
 	<view class="helpdetail-user">
 		<image class="user-avater" src="../../image/default.png" />
-		<view class="user-name">周杰伦</view>
-		<view class="user-time">2020.2.22</view>
+		<view class="user-name">{{info.name}}</view>
+		<view class="user-time">{{info.date}}</view>
 	</view>
-	<view class="helpdetail-title">这里是标题</view>
+	<view class="helpdetail-title">{{info.title}}</view>
 	<view class="helpdetail-info">
 		<view class="helpdetail-info-item">
 			<image class="info-icon" src="../../image/help-detail-count.png" />
-			<view class="info-desc">1234</view>
+			<view class="info-desc">{{info.num}}次</view>
 		</view>
 		<view class="helpdetail-info-item">
 			<image class="info-icon" src="../../image/help-detail-area.png" />
-			<view class="info-desc">1234</view>
+			<view class="info-desc">{{info.place}}</view>
 		</view>
 		<view class="helpdetail-info-item">
 			<image class="info-icon" src="../../image/help-detail-people.png" />
-			<view class="info-desc">1234</view>
+			<view class="info-desc">{{info.name}}</view>
 		</view>
 	</view>
 	<view class="helpdetail-title">求助详情</view>
-	<view class="helpdetail-detailcontent">
-		这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情这里是很多的详情
+	<view class="helpdetail-detailcontent {{padFlag ? '': 'ellipse4'}}">
+		{{info.introdu}}
 	</view>
-	<view class="helpdetail-padcontent">
+	<view class="helpdetail-padcontent" bind:tap="_padContent" wx:if="{{info.introdu.length > ellipse_length && !padFlag}}">
 		<view class="helpdetail-padcontent-text">
 			展开全文
 		</view>
@@ -32,8 +32,17 @@
 			>
 		</view>
 	</view>
+	<view class="helpdetail-padcontent" bind:tap="_padContent" wx:elif="{{info.introdu.length > ellipse_length && padFlag}}">
+		<view class="helpdetail-padcontent-text">
+			收起全文
+		</view>
+		<view class="helpdetail-padcontent-text up_arrow">
+			>
+		</view>
+	</view>
+	<view class="paded" wx:else></view>
 	<view class="helpdetail-piclist">
-		<image class="helpdetail-piclist-item" src="../../image/default.png" wx:for="{{imgList}}" />
+		<image class="helpdetail-piclist-item" src="{{item}}" wx:for="{{info.imgs}}" />
 	</view>
 	<view class="helpdetail-prove">
 		<view class="helpdetail-prove-title">
@@ -49,13 +58,13 @@
 			发起人承诺
 		</view>
 		<view class="content-detail">
-			所提交文字、图片等资料完全真实，无任何虚假内容及隐瞒真相的情况，如有不实，发起人愿意承担全部法律责任
+			{{info.commit}}
 		</view>
 		<view class="content-title">
 			平台声明
 		</view>
 		<view class="content-detail">
-			本求助资薪部署均公开募捐，属个人求助行为，真实性由信息发起者负责，平台提醒您了解情况后在帮助TA。
+			{{info.platform}}
 		</view>
 	</view>
 	<view class="helpdetail-bottom" wx:if="{{!isMine}}">
@@ -81,11 +90,11 @@
 		</view>
 		<view class="help-modal" wx:if="{{inputPhoneFlag}}">
 			<view class="help-modal-text">请输入手机号 工作人员将在24小时内联系您</view>
-			<input class="help-input" auto-focus bindinput="{{phone}}" />
+			<input class="help-input" auto-focus bindinput="_enterPhone" />
 			<view class="split-line" />
-			<view class="help-confirm" bind:tap="_helpMaskHandler">
-				<view class="help-cancel text">取消</view>
-				<view class="confirm text">确定</view>
+			<view class="help-confirm">
+				<view class="help-cancel text" bind:tap="_helpMaskHandler">取消</view>
+				<view class="confirm text" bind:tap="_toDonate">确定</view>
 			</view>
 		</view>
 	</view>

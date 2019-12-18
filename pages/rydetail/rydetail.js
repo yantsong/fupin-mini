@@ -4,7 +4,9 @@ const IMGURL = util.imgUrl
 var WxParse = require('../wxparse/wxparse');
 var app = getApp()
 import {
-  getFoodsDetail
+  getFoodsDetail,
+  postMyAdopt,
+  getAddressList
 } from '../../api/api'
 Page({
 
@@ -38,53 +40,24 @@ Page({
     this._getDetail(goodsId)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  _getAddressId(){
+    getAddressList().then(
+      res => {
+        try {
+          const {addressList} = res.body
+          
+        } catch (error) {
+          
+        }
+      }
+    )
   },
   _getDetail(id) {
     getFoodsDetail(id).then(
@@ -162,6 +135,7 @@ Page({
       })
       return
     }
+    // const placeId = 
     wx.showModal({
       title: '您的申请已提交',
       content: '请等待工作人员联系您',
@@ -169,13 +143,6 @@ Page({
       cancelColor: '#000000',
       confirmText: '我知道了',
       confirmColor: '#ffdd00',
-      success: (result) => {
-        if (result.confirm) {
-
-        }
-      },
-      fail: () => {},
-      complete: () => {}
     });
   },
   _close() {

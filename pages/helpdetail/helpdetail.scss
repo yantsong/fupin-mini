@@ -116,6 +116,9 @@
     .pad_arrow {
       transform: rotate(90deg);
     }
+    .up_arrow {
+      transform: rotate(-90deg);
+    }
   }
 
   &-piclist {
@@ -324,5 +327,17 @@
         }
       }
     }
+  }
+
+  .ellipse4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  .paded{
+    width: 20rpx;
+    height: 20rpx;
   }
 }

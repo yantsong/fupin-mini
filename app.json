@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/gerencenter/gerencenter",
-    "pages/myrenyang/myrenyang",
     "pages/myrylist/myrylist",
-    "pages/myrydetail/myrydetail",
     "pages/toplist/toplist",
+    "pages/index/index",
+    "pages/myrenyang/myrenyang",
+    "pages/myrydetail/myrydetail",
     "pages/rydetail/rydetail",
     "pages/toplist-detail/toplist-detail",
     "pages/helpdetail/helpdetail",

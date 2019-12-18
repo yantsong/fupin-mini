@@ -1,41 +1,109 @@
 import {HTTP} from '../utils/http'
 import {fpUrl} from '../utils/config'
-const http = new HTTP()
+const http = new HTTP(fpUrl)
+const openId = wx.getStorageSync('openId')
 //首页公告
 export const getNotice = http.get(
-  fpUrl+'/getBounced.action'
+  '/getBounced.action'
 )
+// 26 帮助列表
+export const getHelpList = () => http.get(
+  '/toHelpList.action'
+)
+// 27 帮助详情
+export const getHelpDetail = id => http.get(
+  '/toHelpDetail.action',{id}
+)
+//28 帮助点赞
+export const helpLike = id => http.get(
+  '/toSendHelp.action',{id}
+)
+//29 实物帮助
+export const donate = (id,tel,openId) => http.get(
+  '/toDonationAdd.action',{id,tel,openId}
+)
+//30实物帮助
+export const payDonate = (Id,Money,openId) => http.get(
+  '/toSendHelpSalay.action',{Id,Money,openId}
+)
+//31我的捐赠
+export const myDonate = (openId) => http.get(
+  '/toMyHelp.action',{openId}
+)
+//32榜单列表
+/**
+ * @description: 榜单列表
+ * @param {type}  type = 1 综合榜单 type = 2 爱心榜单
+ * @return: 
+ */
+export const getRankList = (openId,type) => http.get(
+  '/toRankingList.action',{openId,type}
+)
+/**
+ * @description: 榜单点赞
+ * @param {id}  id = 榜单id
+ * @return: 
+ */
+export const postlikeAction = (id) => http.get(
+  '/toRankAdd.action',{openId,id}
+)
+/**
+ * @description: 提交认养订单
+ * @param 
+ * @return: 
+ */
+export const postMyAdopt = (placeId,addressId,orderPrice,numgoodsId) => http.get(
+  '/toAddAdoptOrderRecord.action',{placeId,addressId,orderPrice,numgoodsId}
+)
+/**
+ * @description: 获取我的认养
+ * @param 
+ * @return: 
+ */
+export const getMyAdoptList = () => http.get(
+  '/toMyAdoptList.action',{openId}
+)
+/**
+ * @description: 认养详情
+ * @param orderRecordPId 认养id
+ * @return: 
+ */
+export const getMyAdoptDetail = (orderRecordPId) => http.get(
+  '/toMyAdoptDetail.action',{orderRecordPId}
+)
+
+
 //5、公告列表
 export const getNoticeList = http.get(
-  fpUrl+'/getBouncedAllList.action'
+  '/getBouncedAllList.action'
 )
 //6.6、公告详情
 export const getNoticeDetail = http.get(
-  fpUrl+'/getBoundDetail.action'
+  '/getBoundDetail.action'
 )
 //商品列表页顶部tab
 export const getCatgroys = http.get(
-  fpUrl+'/getGoodsClassifyList.action'
+  '/getGoodsClassifyList.action'
 )
 //6.9、获取商品详情
 export const getFoodsDetail = goodsId => http.get(
-  fpUrl+'/getDetailByGoodsId.action', {goodsId}
+  '/getDetailByGoodsId.action', {goodsId}
 )
 //11、获取商品分类
 export const getFoodsList = () => http.get(
-  fpUrl+'/getClassifyList.action'
+  '/getClassifyList.action'
 )
 //12、获取商品分类下的商品
 export const getKindsFoods= classifyId => http.get(
-  fpUrl+'/getGoodsByClassifyId.action', {classifyId}
+  '/getGoodsByClassifyId.action', {classifyId}
 )
 // 获取
-export const getAddressList= openId => http.get(
-  fpUrl+'/toAddressList.action', {openId}
+export const getAddressList= (openId = openId) => http.get(
+  '/toAddressList.action', {openId}
 )
 
 //认养今日推荐商品
 // https://abc.suda60.com/getAdoptMainGoodsList.action
 export const getrenyanList = () => http.get(
-  fpUrl + '/getAdoptMainGoodsList.action'
+  '/getAdoptMainGoodsList.action'
 )

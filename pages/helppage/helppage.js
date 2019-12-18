@@ -1,8 +1,12 @@
 // components/helppage/helppage.js
+import { getHelpList,getHelpDetail } from '../../api/api';
+import { picUrl } from '../../utils/config';
 Page({
-  _tohelpDetail(){
+  _tohelpDetail(e){
+    const {id} = e.currentTarget.dataset
+    console.log(e);
     wx.navigateTo({
-      url: '/pages/helpdetail/helpdetail',
+      url: `/pages/helpdetail/helpdetail?id=${id}`,
       success: (result)=>{
         
       },
@@ -10,18 +14,35 @@ Page({
       complete: ()=>{}
     });
   },
+  _getHelpList(){
+    getHelpList().then(
+      res => {
+        const helplist = res.body.helpList.map(
+          i => {
+            i.imgs = i.goodsPicurl.split(',').filter(item => item && item !== 'null')
+            i.imgs = i.imgs.map(it => picUrl + it)
+            return i 
+          }
+        )
+        this.setData({
+          helplist
+        })
+      }
+    )
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    helplist:[1,2,3,4]
+    helplist:[1,2,3,4],
+    picUrl
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getHelpList()
   },
 
   /**

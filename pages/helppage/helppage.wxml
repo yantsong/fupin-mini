@@ -1,41 +1,25 @@
 <!--components/helppage/helppage.wxml-->
 <view class="helppage">
-	<view class="helppage-list" wx:for="{{helplist}}" bind:tap="_tohelpDetail">
-		<view class="list-title">这是一条爱心帮扶</view>
-		<view class="list-desc">这是这是这快来快来快来快来帮我吧</view>
+	<view
+	 class="helppage-list"
+	 wx:for="{{helplist}}"
+	 data-id='{{item.id}}'
+	 bind:tap="_tohelpDetail"
+	>
+		<view class="list-title">{{item.title}}</view>
+		<view class="list-desc">{{item.introdu}}</view>
 		<view class="list-imgs">
 			<image
 			 class="list-imgs-item"
-			 src="../../image/default.png"
+			 src="{{img}}"
 			 mode="aspectFit|aspectFill|widthFix"
 			 lazy-load="false"
 			 binderror=""
 			 bindload=""
+			 wx:for="{{item.imgs}}"
+			 wx:for-item="img"
 			/>
-			<image
-			 class="list-imgs-item"
-			 src="../../image/default.png"
-			 mode="aspectFit|aspectFill|widthFix"
-			 lazy-load="false"
-			 binderror=""
-			 bindload=""
-			/>
-			<image
-			 class="list-imgs-item"
-			 src="../../image/default.png"
-			 mode="aspectFit|aspectFill|widthFix"
-			 lazy-load="false"
-			 binderror=""
-			 bindload=""
-			/>
-			<image
-			 class="list-imgs-item"
-			 src="../../image/default.png"
-			 mode="aspectFit|aspectFill|widthFix"
-			 lazy-load="false"
-			 binderror=""
-			 bindload=""
-			/>
+
 		</view>
 		<view class="list-time">发布日期:2011年1.1日</view>
 	</view>

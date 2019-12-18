@@ -1,4 +1,6 @@
-<view class="toplist-detail-wrap">
+<import src="../wxparse/wxparse.wxml" />
+
+<!-- <view class="toplist-detail-wrap">
 
 	<image class="detail-bg" src="../../image/bangdan-bg.png" />
 
@@ -15,5 +17,7 @@
 			</view>
 		</view>
 	</view>
-</view>
+</view> -->
+<!-- 修改为富文本 -->
+<template is="wxParse" data="{{wxParseData:detail.nodes}}" />
 

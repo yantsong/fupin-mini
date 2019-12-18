@@ -1,7 +1,7 @@
 var url = 'https://abc.suda60.com/';
 var imgUrl = 'https://';
 var imgurl = 'https://abc.suda60.com/';
-import { appid } from './config';
+import { appid,picUrl } from './config';
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -64,6 +64,10 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+const imgsMap = imgstring => {
+ let imgs =  imgstring.split(',').filter(item => item && item !== 'null')
+ return imgs.map(it => picUrl + it)
+}
 
 module.exports = {
   formatTime: formatTime,
@@ -71,5 +75,6 @@ module.exports = {
   imgUrl:imgUrl,
   imgurl:imgurl,
   doLogin,
-  ifOpenId
+  ifOpenId,
+  imgsMap
 }

@@ -1,4 +1,7 @@
 // pages/helpdetail/helpdetail.js
+import { picUrl } from '../../utils/config';
+import {imgsMap} from '../../utils/util.js';
+import { getHelpDetail,donate } from '../../api/api';
 Page({
 
   /**
@@ -7,32 +10,92 @@ Page({
   data: {
     imgList: [1, 2, 3, 4],
     showHelpMaskFlag: false,
-    showHelpBtnFlag: true,
+    showHelpBtnFlag: false,
     inputPhoneFlag: false,
     phone: '',
-    isMine:false
+    isMine:false,
+    info:{},
+    ellipse_length: 20 * 4,
+    padFlag:false,
+    id:null
   },
   // method
+  _enterPhone(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  _toDonate(){
+    let phone = this.data.phone
+    let reg = new RegExp(/^(0|86|17951)?(13[0-9]|15[012356789]|166|17[0-9]|18[0-9]|14[57])[0-9]{8}$/)
+    if (!reg.test(phone)) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none'
+      })}
+      else {
+        let openId = wx.getStorageSync('openId')
+        let {id} = this.data
+        donate(id,phone,openId).then(
+          res => {
+            if(res.errorCode === '-1'){
+              this.setData({
+                inputPhoneFlag:false,
+                showHelpMaskFlag:false
+              })
+              wx.showToast({
+                title: '捐赠成功',
+                icon: 'none',
+                image: '',
+                duration: 1500,
+                mask: false
+              });
+            }
+          }
+        )
+      }
+  },
+  _padContent(){
+    const padFlag = !this.data.padFlag
+    this.setData({
+      padFlag
+    })
+  },
   _helpMaskHandler() {
    let showHelpMaskFlag = !this.data.showHelpMaskFlag
+   let showHelpBtnFlag = !this.data.showHelpBtnFlag
     this.setData({
-      showHelpMaskFlag
+      showHelpMaskFlag,
+      showHelpBtnFlag
     })
   },
   _toInputPhone() {
-
     this.setData({
       showHelpBtnFlag: false,
       inputPhoneFlag: true
     })
   },
+  _getDetail(id){
+    getHelpDetail(id).then(
+      res => {
+        const info = res.body.helpDetail
+        info.imgs = imgsMap(info.goodsPicurl)
+        this.setData({info})
+
+      }
+    )
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const {id} = options
+    this.setData({id})
+    this._getDetail(id)
     try {
       const {mine} = options
-      this.setData({isMine:mine})      
+
+      mine && this.setData({isMine:mine})      
     } catch (error) {
       
     }

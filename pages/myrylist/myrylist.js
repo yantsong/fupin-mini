@@ -1,27 +1,39 @@
 // pages/myrylist/myrylist.js
+import {
+  picUrl
+} from '../../utils/config';
+import {
+  getMyAdoptList
+} from '../../api/api';
 Page({
-  _toDetail(){
+  _toDetail() {
     wx.navigateTo({
       url: '/pages/myrydetail/myrydetail',
-      success: (result)=>{
-        
+      success: (result) => {
+
       },
-      fail: ()=>{},
-      complete: ()=>{}
+      fail: () => {},
+      complete: () => {}
     });
   },
   /**
    * 页面的初始数据
    */
   data: {
-    myrylist:[1,2,34,4]
+    myrylist: [1, 2, 34, 4]
   },
-
+  _getMyAdoptList() {
+    getMyAdoptList().then(
+      res => {
+        const myryList = res.body.map
+      }
+    )
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getMyAdoptList()
   },
 
   /**
