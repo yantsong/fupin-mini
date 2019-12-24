@@ -1,0 +1,20 @@
+/* pages/notice-detail/notice-detail.wxss */
+.notice-detail {
+  padding: 20rpx 25rpx;
+  &-title {
+    padding: 26rpx 0 32rpx;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &-time {
+    text-align: center;
+    font-size: 22rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50rpx;
+    letter-spacing: 2rpx;
+    color: #666666;
+  }
+}

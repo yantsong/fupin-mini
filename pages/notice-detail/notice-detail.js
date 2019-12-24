@@ -1,6 +1,7 @@
-// pages/myrydetail/myrydetail.js
-import {getMyAdoptDetail} from '../../api/api'
-import {imgsMap} from '../../utils/util'
+// pages/notice-detail/notice-detail.js
+import { getNoticeDetail } from '../../api/api';
+var WxParse = require('../wxparse/wxparse');
+
 Page({
 
   /**
@@ -9,24 +10,24 @@ Page({
   data: {
     detail:''
   },
-  _getDetail(id){
-    getMyAdoptDetail(id).then(
-      res => {
-        console.log(res,'rr');
-        const detail = res.body.map[0]
-        detail.imgs = imgsMap(detail.pic)
-        this.setData({detail})
-      }
-    )
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {id} = options 
-    this._getDetail(id)
+    const {id} = options
+    this._getNoticeDetail(id)
   },
+  _getNoticeDetail(id){
+    getNoticeDetail(id).then(
+      res => {
+        console.log(res);
+        const detail = res.body.noticeMap
+        WxParse.wxParse('article', 'html', detail.noticeContent, this, 10);
 
+      }
+    )
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

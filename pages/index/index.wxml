@@ -79,7 +79,12 @@
 			<view class='clear' />
 		</view>
 		<!-- notice-content -->
-		<view class="s-notice">
+		<view
+		 class="s-notice"
+		 bind:tap="_toNoticeDetail"
+		 wx:for="{{noticeList}}"
+		 data-id='{{item.noticeId}}'
+		>
 			<view class="notice-content">
 				<image
 				 class="notice-content-img"
@@ -90,7 +95,7 @@
 				 bindload=""
 				/>
 				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
+					<view class="notice-content-text-title">{{item.noticeTitle}}</view>
 					<view class="notice-content-text-detail">
 						<image
 						 class="notice-content-text-detail-icon"
@@ -110,129 +115,9 @@
 			<view class="notice-realcontent-list" />
 		</view>
 		<!-- notice-content -->
-		<view class="s-notice">
-			<view class="notice-content">
-				<image
-				 class="notice-content-img"
-				 src="../../image/notice-logo.png"
-				 mode="aspectFit|aspectFill|widthFix"
-				 lazy-load="false"
-				 binderror=""
-				 bindload=""
-				/>
-				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
-					<view class="notice-content-text-detail">
-						<image
-						 class="notice-content-text-detail-icon"
-						 src="../../image/notice-i.png"
-						 mode="aspectFit|aspectFill|widthFix"
-						 lazy-load="false"
-						 binderror=""
-						 bindload=""
-						/>
-						<view class="notice-content-text-detail-text">
-							点击查看公告详情
-						</view>
-					</view>
-				</view>
-				<image class="notice-content-arrow" src="../../image/more.png" />
-			</view>
-			<view class="notice-realcontent-list" />
-		</view>
 		<!-- notice-content -->
-		<view class="s-notice">
-			<view class="notice-content">
-				<image
-				 class="notice-content-img"
-				 src="../../image/notice-logo.png"
-				 mode="aspectFit|aspectFill|widthFix"
-				 lazy-load="false"
-				 binderror=""
-				 bindload=""
-				/>
-				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
-					<view class="notice-content-text-detail">
-						<image
-						 class="notice-content-text-detail-icon"
-						 src="../../image/notice-i.png"
-						 mode="aspectFit|aspectFill|widthFix"
-						 lazy-load="false"
-						 binderror=""
-						 bindload=""
-						/>
-						<view class="notice-content-text-detail-text">
-							点击查看公告详情
-						</view>
-					</view>
-				</view>
-				<image class="notice-content-arrow" src="../../image/more.png" />
-			</view>
-			<view class="notice-realcontent-list" />
-		</view>
 		<!-- notice-content -->
-		<view class="s-notice">
-			<view class="notice-content">
-				<image
-				 class="notice-content-img"
-				 src="../../image/notice-logo.png"
-				 mode="aspectFit|aspectFill|widthFix"
-				 lazy-load="false"
-				 binderror=""
-				 bindload=""
-				/>
-				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
-					<view class="notice-content-text-detail">
-						<image
-						 class="notice-content-text-detail-icon"
-						 src="../../image/notice-i.png"
-						 mode="aspectFit|aspectFill|widthFix"
-						 lazy-load="false"
-						 binderror=""
-						 bindload=""
-						/>
-						<view class="notice-content-text-detail-text">
-							点击查看公告详情
-						</view>
-					</view>
-				</view>
-				<image class="notice-content-arrow" src="../../image/more.png" />
-			</view>
-			<view class="notice-realcontent-list" />
-		</view>
 		<!-- notice-content -->
-		<view class="s-notice">
-			<view class="notice-content">
-				<image
-				 class="notice-content-img"
-				 src="../../image/notice-logo.png"
-				 mode="aspectFit|aspectFill|widthFix"
-				 lazy-load="false"
-				 binderror=""
-				 bindload=""
-				/>
-				<view class="notice-content-text">
-					<view class="notice-content-text-title">公告列表</view>
-					<view class="notice-content-text-detail">
-						<image
-						 class="notice-content-text-detail-icon"
-						 src="../../image/notice-i.png"
-						 mode="aspectFit|aspectFill|widthFix"
-						 lazy-load="false"
-						 binderror=""
-						 bindload=""
-						/>
-						<view class="notice-content-text-detail-text">
-							点击查看公告详情
-						</view>
-					</view>
-				</view>
-				<image class="notice-content-arrow" src="../../image/more.png" />
-			</view>
-			<view class="notice-realcontent-list" />
-		</view>
 
 	</view>
 
@@ -295,7 +180,8 @@
 		 wx:for="{{recommendList}}"
 		 data-shop='{{item.goodsId}}'
 		 data-school='{{item.orgId}}'
-		 bindtap='joingouwu'
+		 data-goodsid='{{item.goodsId}}'
+		 bindtap='clickbanner'
 		 data-img='{{item.goodsPic}}'
 		 data-shops='{{item.shopId}}'
 		 data-name='{{item.goodsName}}'

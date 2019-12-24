@@ -1,16 +1,24 @@
 <!--pages/myrylist/myrylist.wxml-->
 <view class="myrylist">
-	<view class="myrylist-item" wx:for="{{myrylist}}" bind:tap="_toDetail">
+	<view
+	 class="myrylist-item"
+	 wx:for="{{myryList}}"
+	 data-id='{{item.orderRecordPId}}'
+	 bind:tap="_toDetail"
+	>
 		<view class="myrylist-item-info">
 			<image class="myrylist-item-info-img" src="../../image/default1.png" />
 			<view class="myrylist-item-info-goods">
-				<view class="goods-name">小老鼠</view>
-				<view class="goods-desc">认养时间: 2020.20.20 23:23:23</view>
+				<view class="goods-name">{{item.name}}</view>
+				<view class="goods-desc">认养时间: {{item.orderDate}}</view>
 			</view>
-			<view class="myrylist-item-info-count"> X 1</view>
+			<view class="myrylist-item-info-count"> X {{item.num}}</view>
 		</view>
 		<view class="split-line" />
-		<view class="myrylist-item-btn">认养详情</view>
+		<view class="myrylist-item-btn" wx:if="{{item.orderState == 0 }}">失败</view>
+		<view class="myrylist-item-btn" wx:if="{{item.orderState == 2}}">待确认</view>
+		<view class="myrylist-item-btn" wx:if="{{item.orderState == 3}}">认养中</view>
+		<view class="myrylist-item-btn" wx:if="{{item.orderState == 5}}">完成</view>
 	</view>
 </view>
 

@@ -1,11 +1,12 @@
 <!--pages/helpdetail/helpdetail.wxml-->
 <view class="helpdetail">
-	<view class="helpdetail-user">
+	<!-- <view class="helpdetail-user">
 		<image class="user-avater" src="../../image/default.png" />
 		<view class="user-name">{{info.name}}</view>
 		<view class="user-time">{{info.date}}</view>
-	</view>
+	</view> -->
 	<view class="helpdetail-title">{{info.title}}</view>
+	<view class="helpdetail-date">{{info.date}}</view>
 	<view class="helpdetail-info">
 		<view class="helpdetail-info-item">
 			<image class="info-icon" src="../../image/help-detail-count.png" />
@@ -69,17 +70,20 @@
 	</view>
 	<view class="helpdetail-bottom" wx:if="{{!isMine}}">
 		<view class="bottom-icons">
-			<view class="bottom-icons-share">
+			<button class="bottom-icons-share" open-type="share">
 				<image class="share-icon" src="../../image/help-detail-jiayou.png" />
 				<view class="share-text">分享</view>
-			</view>
+			</button>
 			<view class="spilt-line-colm" />
-			<view class="bottom-icons-share">
+			<view class="bottom-icons-share" bind:tap="comeon">
 				<image class="share-icon" src="../../image/help-detail-share.png" />
-				<view class="share-text">加油</view>
+				<view class="share-text">
+					<view class="num">{{info.num}}</view>
+					加油
+				</view>
 			</view>
 		</view>
-		<view class="bottom-helphim" bind:tap="_helpMaskHandler">
+		<view class="bottom-helphim" bind:tap="_toInputPhone">
 			我要帮助他
 		</view>
 	</view>

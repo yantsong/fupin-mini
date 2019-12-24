@@ -6,9 +6,10 @@ import {
   getMyAdoptList
 } from '../../api/api';
 Page({
-  _toDetail() {
+  _toDetail(e) {
+    const {id} = e.currentTarget.dataset
     wx.navigateTo({
-      url: '/pages/myrydetail/myrydetail',
+      url: '/pages/myrydetail/myrydetail?id=' + id,
       success: (result) => {
 
       },
@@ -20,12 +21,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    myrylist: [1, 2, 34, 4]
+    myryList: [1, 2, 34, 4],
+    picUrl
   },
   _getMyAdoptList() {
     getMyAdoptList().then(
       res => {
         const myryList = res.body.map
+        this.setData({
+          myryList
+        })
       }
     )
   },

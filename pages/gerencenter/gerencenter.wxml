@@ -48,11 +48,6 @@
 		<view class='clear' />
 	</view>
 	<view class='fuwu-qu'>
-		<view class='every-fuwu' bindtap='_goMyTopList'>
-			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
-			<view class='fuwu-name'>我的榜单</view>
-			<image class='fuwu-more' src='../../img/fuwu-more.png' />
-		</view>
 		<view class='every-fuwu' bindtap='_goMyMyRyList'>
 			<image class='fuwu-logo' src='../../img/dizhi-logo.png' />
 			<view class='fuwu-name'>我的认养</view>
@@ -63,7 +58,7 @@
 			<view class='fuwu-name'>收货地址</view>
 			<image class='fuwu-more' src='../../img/fuwu-more.png' />
 		</view>
-		<view class='every-fuwu' bindtap='zhuanqian'>
+		<view class='every-fuwu' bindtap='goApplyHelp'>
 			<image class='fuwu-logo' src='../../img/qianbao-logo.png' />
 			<view class='fuwu-name'>申请帮扶</view>
 			<image class='fuwu-more' src='../../img/fuwu-more.png' />

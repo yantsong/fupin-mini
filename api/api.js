@@ -22,12 +22,16 @@ export const helpLike = id => http.get(
 export const donate = (id,tel,openId) => http.get(
   '/toDonationAdd.action',{id,tel,openId}
 )
+//29 实物帮助
+export const postHelp = (id) => http.get(
+  '/toSendHelp.action',{id}
+)
 //30实物帮助
 export const payDonate = (Id,Money,openId) => http.get(
   '/toSendHelpSalay.action',{Id,Money,openId}
 )
 //31我的捐赠
-export const myDonate = (openId) => http.get(
+export const myDonateList = () => http.get(
   '/toMyHelp.action',{openId}
 )
 //32榜单列表
@@ -52,8 +56,8 @@ export const postlikeAction = (id) => http.get(
  * @param 
  * @return: 
  */
-export const postMyAdopt = (placeId,addressId,orderPrice,numgoodsId) => http.get(
-  '/toAddAdoptOrderRecord.action',{placeId,addressId,orderPrice,numgoodsId}
+export const postMyAdopt = (placeId,addressId,orderPrice,num,goodsId) => http.get(
+  '/toAddAdoptOrderRecord.action',{openId,placeId,addressId,orderPrice,num,goodsId}
 )
 /**
  * @description: 获取我的认养
@@ -71,15 +75,32 @@ export const getMyAdoptList = () => http.get(
 export const getMyAdoptDetail = (orderRecordPId) => http.get(
   '/toMyAdoptDetail.action',{orderRecordPId}
 )
+/**
+ * @description: 电话
+ * @param 
+ * @return: 
+ */
+export const getPhone = () => http.get(
+  '/getComplaintsTel.action'
+)
+/**
+ * @description: 申请帮扶
+ * @param 
+ * @return: 
+ */
+export const toAppLyHelp = (content,name,tel) => http.get(
+  '/toAppLyHelp.action',{openId,content,name,tel}
+)
+
 
 
 //5、公告列表
-export const getNoticeList = http.get(
+export const getNoticeList = () => http.get(
   '/getBouncedAllList.action'
 )
 //6.6、公告详情
-export const getNoticeDetail = http.get(
-  '/getBoundDetail.action'
+export const getNoticeDetail =(noticeId) => http.get(
+  '/getBoundDetail.action',{noticeId}
 )
 //商品列表页顶部tab
 export const getCatgroys = http.get(
@@ -97,8 +118,9 @@ export const getFoodsList = () => http.get(
 export const getKindsFoods= classifyId => http.get(
   '/getGoodsByClassifyId.action', {classifyId}
 )
+console.log(openId,'openId');
 // 获取
-export const getAddressList= (openId = openId) => http.get(
+export const getAddressList= () => http.get(
   '/toAddressList.action', {openId}
 )
 

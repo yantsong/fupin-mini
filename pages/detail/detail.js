@@ -6,6 +6,11 @@ var app = getApp()
 import {
   getFoodsDetail
 } from '../../api/api'
+const map = {
+  activeCatgroyName: '产地',
+  activeFoodsName: '规格',
+  buyCount:'购买数量'
+}
 Page({
 
   /**
@@ -21,7 +26,7 @@ Page({
     activeMaster: '',
     catgroyList: [],
     masterList: [],
-    buyCount: 0,
+    buyCount: 1,
     masterType: 2,
     maskShow: false,
     IMGURL
@@ -85,6 +90,23 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  validate(){
+    for (const key in map) {
+      if (object.hasOwnProperty(key)) {
+        const element = object[key];
+        if(!this.data[key]) {
+        return  wx.showToast({
+            title: '请选择'+ element,
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+          });
+        }
+      }
+      return true
+    }
   },
   _getDetail(id) {
     getFoodsDetail(id).then(
@@ -151,6 +173,7 @@ Page({
     })
   },
   _toBuy() {
+    if (!this.validate) return 
     this.setData({
       maskShow: true
     })

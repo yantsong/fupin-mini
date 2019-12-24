@@ -1,0 +1,36 @@
+.myhelplist{
+
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20rpx 0 ;
+  }
+.content-list{
+  padding: 0  30rpx;
+  .split-line{
+    height: 2rpx;
+  }
+  &-item{
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    color: #666;
+    .detail{
+      flex-basis: 100%;
+      font-size: 32rpx;
+    }
+    .time{
+      font-size: 28rpx;
+      margin-right: 50rpx;
+    }
+    .text{
+      color: #ffe018;
+      font-size: 30rpx;
+      text-decoration: underline;
+    }
+  }
+}
+
+}

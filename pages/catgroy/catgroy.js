@@ -69,6 +69,7 @@ Page({
     const classifyId = options.classifyid
     this._getClassify(classifyId)
     this._getCatgroys()
+    this.setData({active_tabs_id:classifyId})
   },
 
   /**

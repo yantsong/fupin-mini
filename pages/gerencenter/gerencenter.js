@@ -88,7 +88,7 @@ Page({
   },
   _goMyHelpList(){
     wx.navigateTo({
-      url: '/pages/helpdetail/helpdetail?mine=true',
+      url: '/pages/myhelplist/myhelplist',
       success: (result)=>{
         
       },
@@ -136,6 +136,12 @@ Page({
       url: '../userfankui/userfankui',
     })
   },
+  goApplyHelp(){
+    wx.navigateTo({
+      url: '../applyhelp/applyhelp',
+    })
+  },
+  
   _testIfAndriod(){
     let result
     wx.getSystemInfo({

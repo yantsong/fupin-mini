@@ -1,30 +1,38 @@
-// pages/myrydetail/myrydetail.js
-import {getMyAdoptDetail} from '../../api/api'
-import {imgsMap} from '../../utils/util'
+// pages/myhelplist/myhelplist.js
+import { myDonateList } from '../../api/api';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail:''
+    returnMap:[]
   },
-  _getDetail(id){
-    getMyAdoptDetail(id).then(
+  _myDonateList(){
+    myDonateList().then(
       res => {
-        console.log(res,'rr');
-        const detail = res.body.map[0]
-        detail.imgs = imgsMap(detail.pic)
-        this.setData({detail})
+        console.log(res);
+        const {returnMap} = res.body
+        this.setData({returnMap})
       }
     )
+  },
+  _toDonateDetail(e){
+    const {id} = e.target.dataset
+    wx.navigateTo({
+      url: '/pages/helpdetail/helpdetail?mine=true&id='+id,
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {id} = options 
-    this._getDetail(id)
+    this._myDonateList()
   },
 
   /**

@@ -3,6 +3,7 @@ const app = getApp();
 var util = require('../../utils/util.js'); 
 // import { getNotice } from '../../api/api';
 const IMGURL = util.imgurl
+import { getNoticeList } from '../../api/api';
 var url = util.url , cityid = 0 , schoolid = 0 ,floorid = 0 , dingwei = 0 , louid = 0 ;
 var imgUrl = util.imgUrl , xihuan = [] , names = '' , kongwei = '' , shop_ids = '' ; 
 var that = '' , openId = '' , shop_id = '' , guigename = '' , guigeval = '' , gouwunum = '' , gouwuprice = '' ;
@@ -50,7 +51,8 @@ Page({
     noticeNoFrist:false,
     classify:[],
     count:'100%',
-    notice:{}
+    notice:{},
+    noticeList:[]
   },
 
   onLoad: function() { 
@@ -102,7 +104,6 @@ Page({
                 dingwei = 1;
                 louid = 1;
                 that.setData({openId,schoolid,floorid,cityid})
-                this._getbanner(schoolid)
 
                 this._getRecommend(schoolid)
 
@@ -117,6 +118,8 @@ Page({
                 this._getForYou(schoolid,floorid)
                 
                 this._setSchoolName()
+
+                this._getNoticeList()
               }
 
           } catch (error) {
@@ -138,6 +141,27 @@ _setSchoolName(){
   let schoolname = wx.getStorageSync('schoolname')
   this.setData({schoolname})
 },
+_getNoticeList(){
+  getNoticeList().then(
+    res => {
+      const {noticeList} = res.body 
+      this.setData({
+        noticeList
+      })
+    }
+  )
+},
+_toNoticeDetail(e){
+  const {id} = e.currentTarget.dataset
+  wx.navigateTo({
+    url: '/pages/notice-detail/notice-detail?id='+id,
+    success: (result)=>{
+      
+    },
+    fail: ()=>{},
+    complete: ()=>{}
+  });
+},
   onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({
@@ -153,9 +177,9 @@ _setSchoolName(){
     let shopId = dataset.shopid
     let {goodsid} = dataset
     let testid = 'ff8080816edbaac4016eeae94fa50005'
-    if(testid) {
+    if(goodsid) {
       wx.navigateTo({
-        url: `/pages/detail/detail?goodsId=${testid}`,
+        url: `/pages/detail/detail?goodsId=${goodsid}`,
         success: (result)=>{
           
         },

@@ -4,7 +4,7 @@
 .fpdetail {
   background: #e9e9e9;
   min-height: 100vh;
-
+  box-sizing: border-box;
   &-detail {
     width: 100%;
     border-radius: 10rpx;

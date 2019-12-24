@@ -1,0 +1,13 @@
+<!--pages/applyhelp/applyhelp.wxml-->
+<view class='back'>
+	<textarea class='textarea' placeholder='请输入您的帮扶内容' bindinput='content' />
+	<input class='input-name' placeholder='输入您的姓名(必填)' bindinput='name' />
+	<input class='input-name' placeholder='输入您的电话(必填)' bindinput='telephone' />
+	<view class='btn' bindtap='submit'>提交反馈</view>
+  <view class="phone-wrap">
+  <view class="phone" >联系电话:{{phone}}</view>
+  <image class="phone-img" bind:tap="_call" src="../../image/phone-logo.png" >
+  </image>
+  </view>
+</view>
+

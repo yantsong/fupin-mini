@@ -42,7 +42,8 @@
   }
 
   &-title {
-    padding: 42rpx;
+    text-align: center;
+    padding: 20rpx 42rpx 0;
     line-height: 32rpx;
     font-family: SourceHanSansCN-Regular;
     font-size: 32rpx;
@@ -88,6 +89,18 @@
     }
   }
 
+  &-date {
+    text-align: right;
+    margin-right: 20rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #333333;
+  }
+
   &-detailcontent {
     padding: 0 44rpx;
     font-family: SourceHanSansCN-Normal;
@@ -116,6 +129,7 @@
     .pad_arrow {
       transform: rotate(90deg);
     }
+
     .up_arrow {
       transform: rotate(-90deg);
     }
@@ -194,10 +208,19 @@
   &-bottom {
     height: 94rpx;
     display: flex;
-    box-shadow: 0 -1rpx 2rpx 1rpx rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1rpx 1rpx 1rpx rgba(0, 0, 0, 0.2);
     ;
 
     .bottom-icons {
+      button{
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+        line-height: inherit;
+        background-color: transparent;
+        border:none ;
+      }
+      button::after{ border: none; }
       width: 50%;
       height: 100%;
       display: flex;
@@ -217,12 +240,30 @@
       }
 
       .share-text {
+        position: relative;
         font-size: 26rpx;
         font-weight: normal;
         font-stretch: normal;
         line-height: 40rpx;
         letter-spacing: 0rpx;
         color: #333333;
+        .num {
+          text-align: center;
+          min-width: 40rpx;
+          height: 20rpx;
+          position: absolute;
+          top: -38rpx;
+          right: -12rpx;
+          background-color: #d2d2d2;
+          border-radius: 8rpx;
+          font-family: SourceHanSansCN-Normal;
+          font-size: 15rpx;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 20rpx;
+          letter-spacing: 0rpx;
+          color: #3db654;
+        }
       }
     }
 
@@ -287,12 +328,14 @@
       background-color: #f5f4f4;
 
       &-text {
+        position: relative;
         margin-bottom: 26rpx;
         font-family: SourceHanSansCN-Regular;
         font-size: 26rpx;
         font-weight: normal;
         font-stretch: normal;
         color: #333333;
+        
       }
 
       .help-input {
@@ -336,7 +379,8 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
-  .paded{
+
+  .paded {
     width: 20rpx;
     height: 20rpx;
   }

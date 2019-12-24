@@ -7,7 +7,7 @@
 		<view class="fpdetail-detail">
 
 			<swiper class="fpdetail-detail-swiper" indicator-dots>
-				<swiper-item class="" item-id="">
+				<swiper-item wx:if="{{goodsDetail.goodsVideo}}" class="" item-id="">
 					<video
 					 id="myVideo"
 					 class="fpdetail-detail-video"
@@ -50,10 +50,11 @@
 			<view class="fpdetail-detail-info">
 				<view class="fpdetail-detail-info-name">
 					{{goodsDetail.goodsName}}
+					<button/>
 					<image class="info-share" src="../../image/share.png" />
 				</view>
 				<view class="fpdetail-detail-info-des">
-					<view class="info-price">¥199</view>
+					<view class="info-price">¥{{price}}</view>
 					<view class="info-sale">
 						<image class="info-sale-icon" src="../../image/sale-icon.png" />
 						<view>月销量{{goodsDetail.saleNum}}</view>

@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "助农榜单",
   "usingComponents": {
     "inputpassword": "../../components/inputpassword/inputpassword"
   }

@@ -1,0 +1,20 @@
+<!--pages/myhelplist/myhelplist.wxml-->
+<view class="myhelplist">
+	<view class="title">
+		<view class="underline-title">
+			<view class="underline-title-text">我的帮扶列表</view>
+			<view class="underline-title-yellow" />
+		</view>
+	</view>
+	<view class="content-list">
+		<view wx:for="{{returnMap}}" style="padding:10rpx 0 ;box-sizing:box-sizing:border-box">
+			<view class="content-list-item">
+				<view class="detail">{{item.title}}</view>
+				<view class="time">{{item.date}}</view>
+				<view class="text" data-id="{{item.id}}" bind:tap="_toDonateDetail">查看</view>
+			</view>
+			<view class="split-line" />
+		</view>
+	</view>
+</view>
+

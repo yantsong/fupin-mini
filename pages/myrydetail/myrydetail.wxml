@@ -23,11 +23,11 @@
 	<view class="myrydetail-info">
 		<view class="myrydetail-info-item">
 			<image class="info-pic" src="../../image/myry-icon1.png" />
-			<view class="info-text">状态:心情不错</view>
+			<view class="info-text">状态:{{detail.state}}</view>
 		</view>
 		<view class="myrydetail-info-item">
 			<image class="info-pic" src="../../image/myry-icon2.png" />
-			<view class="info-text">认养开始时间:2020.3.3</view>
+			<view class="info-text">认养开始时间:{{detail.date}}</view>
 		</view>
 		<view class="myrydetail-info-item">
 			<image class="info-pic" src="../../image/myry-icon3.png" />

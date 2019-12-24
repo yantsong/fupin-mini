@@ -7,7 +7,7 @@
 		<view class="fpdetail-detail">
 
 			<swiper class="fpdetail-detail-swiper" indicator-dots>
-				<swiper-item class="" item-id="">
+				<swiper-item wx:if="{{goodsDetail.goodsVideo}}" class="" item-id="">
 					<video
 					 id="myVideo"
 					 class="fpdetail-detail-video"

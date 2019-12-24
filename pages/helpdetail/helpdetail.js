@@ -1,7 +1,7 @@
 // pages/helpdetail/helpdetail.js
 import { picUrl } from '../../utils/config';
 import {imgsMap} from '../../utils/util.js';
-import { getHelpDetail,donate } from '../../api/api';
+import { getHelpDetail,donate,postHelp } from '../../api/api';
 Page({
 
   /**
@@ -18,6 +18,15 @@ Page({
     ellipse_length: 20 * 4,
     padFlag:false,
     id:null
+  },
+  comeon(){
+    postHelp(this.data.id).then(
+      res => {
+        if(res.errorCode == -1) {
+          this._getDetail(this.data.id)
+        }
+      }
+    )
   },
   // method
   _enterPhone(e){
@@ -44,7 +53,7 @@ Page({
                 showHelpMaskFlag:false
               })
               wx.showToast({
-                title: '捐赠成功',
+                title: '手机号已提交',
                 icon: 'none',
                 image: '',
                 duration: 1500,
@@ -71,6 +80,7 @@ Page({
   },
   _toInputPhone() {
     this.setData({
+      showHelpMaskFlag:true,
       showHelpBtnFlag: false,
       inputPhoneFlag: true
     })

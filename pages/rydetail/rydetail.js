@@ -23,10 +23,11 @@ Page({
     activeMaster: '',
     catgroyList: [],
     masterList: [],
-    buyCount: 0,
+    buyCount: 1,
     masterType: 2,
     maskShow: false,
-    IMGURL
+    IMGURL,
+    price: ''
   },
 
   /**
@@ -43,18 +44,49 @@ Page({
   onReady: function () {
 
   },
+  onShareAppMessage(){
 
+  },
   onShow: function () {
 
   },
-  _getAddressId(){
-    getAddressList().then(
+  _getAddressId() {
+    return getAddressList().then(
       res => {
         try {
-          const {addressList} = res.body
-          
+          const {
+            addressList
+          } = res.body;
+          const {
+            addressId
+          } = addressList.find(i => i.ifMr);
+          console.log(addressId, addressList);
+          return addressId;
         } catch (error) {
-          
+          err => {
+            console.log(err);
+            wx.showModal({
+              title: '',
+              content: '请先填写默认收货地址',
+              showCancel: true,
+              confirmText: '去填写',
+              confirmColor: '#3CC51F',
+              success: (result) => {
+                if (result.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/shouhuodizhi/shouhuodizhi',
+                    success: (result) => {
+
+                    },
+                    fail: () => {},
+                    complete: () => {}
+                  });
+                }
+              },
+              fail: () => {},
+              complete: () => {}
+            });
+          }
         }
       }
     )
@@ -64,6 +96,7 @@ Page({
       res => {
         console.log(res);
         const goodsDetail = res.body.goodsDetail[0]
+        const price = goodsDetail.price
         const activeRealName = goodsDetail.goodsName
         const goodsPic = goodsDetail.goodsOne
         const catgroyList = goodsDetail.goodsComm.filter(
@@ -72,13 +105,13 @@ Page({
         const masterList = goodsDetail.goodsComm.filter(
           i => i.commType == 1
         )
-        console.log(catgroyList, masterList);
         this.setData({
           goodsPic,
           activeRealName,
           goodsDetail,
           catgroyList,
-          masterList
+          masterList,
+          price
         })
         WxParse.wxParse('detail', 'html', goodsDetail.goodsDetail, this, 0)
       }
@@ -125,7 +158,7 @@ Page({
     })
   },
   _toBuy() {
-    if (this.data.buyCount < 1 ) {
+    if (this.data.buyCount < 1) {
       wx.showModal({
         title: '提示',
         content: '数量必须大于1',
@@ -135,15 +168,54 @@ Page({
       })
       return
     }
+    if (this.data.catgroyList.length && !this.data.activeCatgroyName) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择产地',
+        showCancel: false,
+        cancelColor: '#000000',
+        confirmText: '好的',
+      })
+      return
+    }
+
+    let {
+      buyCount,
+      price,
+      activeCatgroyName
+    } = this.data
+    let {
+      goodsId
+    } = this.data.goodsDetail
+    this._getAddressId().then(
+      addressid => {
+        return postMyAdopt(activeCatgroyName, addressid, price, buyCount, goodsId)
+      }
+    ).then(
+      res => {
+        console.log(res);
+        if (res.errorCode == "-1") {
+          wx.showToast({
+            title: '认养成功',
+          })
+        }else {
+          wx.showToast({
+            title: '认养失败',
+            content:res.msg
+          })
+        }
+      }
+
+    )
     // const placeId = 
-    wx.showModal({
-      title: '您的申请已提交',
-      content: '请等待工作人员联系您',
-      showCancel: false,
-      cancelColor: '#000000',
-      confirmText: '我知道了',
-      confirmColor: '#ffdd00',
-    });
+    // wx.showModal({
+    //   title: '您的申请已提交',
+    //   content: '请等待工作人员联系您',
+    //   showCancel: false,
+    //   cancelColor: '#000000',
+    //   confirmText: '我知道了',
+    //   confirmColor: '#ffdd00',
+    // });
   },
   _close() {
     this.setData({

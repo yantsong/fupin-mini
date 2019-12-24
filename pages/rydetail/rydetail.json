@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "认养详情",
   "usingComponents": {
     "title":"../../components/title/title"
   }

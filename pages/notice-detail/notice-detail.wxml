@@ -1,0 +1,16 @@
+<!--pages/notice-detail/notice-detail.wxml-->
+<import src="../wxparse/wxparse.wxml" />
+
+<view class="notice-detail">
+	<view class="notice-detail-title">
+		<view class="underline-title">
+			<view class="underline-title-text">公告</view>
+			<view class="underline-title-yellow" />
+		</view>
+	</view>
+	<view class="notice-detail-time">{{detail.noticeDate}}</view>
+	<view class="notice-detail-content">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+</view>
+

@@ -179,6 +179,8 @@ view{
     display: none;
 }
 .WxEmojiView{
+    max-width: 100%;
+    word-wrap: break-word;
     align-items: center;
 }
 .wxEmoji{

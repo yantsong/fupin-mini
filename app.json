@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/myhelplist/myhelplist",
     "pages/gerencenter/gerencenter",
     "pages/myrylist/myrylist",
     "pages/toplist/toplist",
-    "pages/index/index",
     "pages/myrenyang/myrenyang",
     "pages/myrydetail/myrydetail",
     "pages/rydetail/rydetail",
@@ -33,7 +34,8 @@
     "pages/adddizhi/adddizhi",
     "pages/bianjidizhi/bianjidizhi",
     "pages/dingweilou/dingweilou",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/notice-detail/notice-detail"
   ],
   "usingComponents": {
     "title": "./components/title/title"
@@ -50,25 +52,25 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "助农代售",
         "iconPath": "img/index-home.png",
         "selectedIconPath": "img/index-home-a.png"
       },
       {
         "pagePath": "pages/renyang/renyang",
-        "text": "认养",
+        "text": "助农认养",
         "iconPath": "image/renyang.png",
         "selectedIconPath": "image/renyang-y.png"
       },
       {
         "pagePath": "pages/helppage/helppage",
-        "text": "帮扶",
+        "text": "助农帮扶",
         "iconPath": "image/aixin.png",
         "selectedIconPath": "image/aixin-y.png"
       },
       {
         "pagePath": "pages/toplist/toplist",
-        "text": "榜单",
+        "text": "助农榜单",
         "iconPath": "image/paihang.png",
         "selectedIconPath": "image/paihang-y.png"
       },
