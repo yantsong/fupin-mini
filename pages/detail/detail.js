@@ -91,10 +91,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  validate(){
+  validate(map = map){
     for (const key in map) {
-      if (object.hasOwnProperty(key)) {
-        const element = object[key];
+      if (map.hasOwnProperty(key)) {
+        const element = map[key];
+        console.log(element,'element');
         if(!this.data[key]) {
         return  wx.showToast({
             title: '请选择'+ element,
@@ -105,8 +106,8 @@ Page({
           });
         }
       }
-      return true
     }
+    return true
   },
   _getDetail(id) {
     getFoodsDetail(id).then(
@@ -121,7 +122,6 @@ Page({
         const masterList = goodsDetail.goodsComm.filter(
           i => i.commType == 1
         )
-        console.log(catgroyList, masterList);
         this.setData({
           goodsPic,
           activeRealName,
@@ -129,7 +129,15 @@ Page({
           catgroyList,
           masterList
         })
-        WxParse.wxParse('detail', 'html', goodsDetail.goodsDetail, this, 0)
+        goodsDetail.goodsDetail && WxParse.wxParse('detail', 'html', goodsDetail.goodsDetail, this, 0)
+        //初始化
+        if(goodsDetail.goodsC && goodsDetail.goodsC[0].cid){
+          this._toActive('activeFoodsName', goodsDetail.goodsC[0].cid)
+          this._toActive('activePrice',goodsDetail.goodsC[0].price)
+        }
+        if(catgroyList.length && catgroyList[0].commId){
+          this._toActive('activeCatgroyName', catgroyList[0].commId)
+        }
       }
     )
   },
@@ -173,7 +181,7 @@ Page({
     })
   },
   _toBuy() {
-    if (!this.validate) return 
+    if (!this.validate()) return 
     this.setData({
       maskShow: true
     })
@@ -204,6 +212,7 @@ Page({
       activePrice,
       goodsDetail
     }
+    if(!this.validate({activeMaster:'书记'})) return 
     wx.navigateTo({
       url: '../confirmorder/confirm',
     })

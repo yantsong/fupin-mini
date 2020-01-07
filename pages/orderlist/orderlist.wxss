@@ -18,11 +18,15 @@
 .list-img{
   width: 110rpx;
   height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
   border-radius: 50%;
   display: block;
   float: left;
   box-shadow: 0 20rpx 30rpx 5rpx #eee;
   margin-right: 25rpx;
+  color: #fff;
+  background-color: #999;
 }
 .dian-name{
   width: 50%;

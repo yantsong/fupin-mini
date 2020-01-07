@@ -176,6 +176,7 @@ _toNoticeDetail(e){
     let dataset = e.currentTarget.dataset;
     let shopId = dataset.shopid
     let {goodsid} = dataset
+    console.log(goodsid,'goodis');
     let testid = 'ff8080816edbaac4016eeae94fa50005'
     if(goodsid) {
       wx.navigateTo({

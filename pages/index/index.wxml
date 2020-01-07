@@ -26,25 +26,27 @@
 			<view class="fenlei-x" bindtap="resetSearch">x</view>
 		</view>
 		<view class='search-qu'>
-			<view
-			 class='search-every'
-			 wx:for='{{searchResult}}'
-			 data-shop='{{item.goodsId}}'
-			 data-school='{{item.orgId}}'
-			 bindtap='joingouwu'
-			 data-img='{{item.goodsPic}}'
-			 data-shops='{{item.shopId}}'
-			 data-name='{{item.goodsName}}'
-			 data-children='{{item.children}}'
-			 data-specifiname='{{item.children[0].specifiName}}'
-			 data-specifivalue='{{item.children[0].specifiValue}}'
-			>
-				<image class='caini-img' src='{{IMGURL}}{{item.goodsPic}}' />
-				<view class='caini-name ellipse'>{{item.goodsName}}</view>
-				<view class="caini-realmoney">${{}}</view>
-				<image class='caini-gouwuche' src='../../img/gouwuche-logo.png' />
+			<view class='search-qu'>
+				<view
+				 class='search-every'
+				 wx:for='{{searchResult}}'
+				 data-shop='{{item.goodsId}}'
+				 data-school='{{item.orgId}}'
+				 bindtap='clickCard'
+				 data-img='{{item.goodsPic}}'
+				 data-shops='{{item.shopId}}'
+				 data-name='{{item.goodsName}}'
+				 data-children='{{item.children}}'
+				 data-specifiname='{{item.children[0].specifiName}}'
+				 data-specifivalue='{{item.children[0].specifiValue}}'
+				>
+					<image class='caini-img' src='{{imgUrl}}{{item.goodsPic}}' />
+					<view class='caini-name ellipse'>{{item.goodsName}}</view>
+					<view class='caini-money'>￥{{item.goodsPrice}}</view>
+					<image class='caini-gouwuche' src='../../img/gouwuche-logo.png' />
+				</view>
+				<!-- <view class='caini-every caini-every1' wx:for='{{kongnum}}'></view> -->
 			</view>
-			<!-- <view class='caini-every caini-every1' wx:for='{{kongnum}}'></view> -->
 		</view>
 	</view>
 	<swiper
@@ -60,11 +62,8 @@
 				<image
 				 class='banner-img'
 				 src='{{imgUrl}}{{item.bannerUrl}}'
-				 data-url='{{item.baseUrl}}'
-				 data-goodsid="{{item.bannerId}}"
+				 data-goodsid="{{item.baseUrl}}"
 				 bindtap='clickbanner'
-				 data-shopid='{{item.shopId}}'
-				 data-type='{{item.urlType}}'
 				/>
 			</view>
 		</swiper-item>
@@ -178,7 +177,6 @@
 		<view
 		 class='tuijian-qu'
 		 wx:for="{{recommendList}}"
-		 data-shop='{{item.goodsId}}'
 		 data-school='{{item.orgId}}'
 		 data-goodsid='{{item.goodsId}}'
 		 bindtap='clickbanner'

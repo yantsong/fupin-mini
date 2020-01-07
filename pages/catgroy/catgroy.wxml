@@ -10,7 +10,12 @@
 		</view>
 	</view>
 	<view class="catgroy-list">
-		<view class="catgroy-list-item" bind:tap="_toDetail" wx:for="{{foods}}">
+		<view
+		 class="catgroy-list-item"
+		 bind:tap="_toDetail"
+		 wx:for="{{foods}}"
+		 data-id="{{item.goodsId}}"
+		>
 			<image class="catgroy-list-item-img" src="{{picUrl}}{{item.goodsPic}}" />
 			<view class="catgroy-list-item-info">
 				<view class="info-title">{{item.goodsName}}</view>

@@ -23,7 +23,8 @@ Page({
     phones:'',
     floornum:'',
     remarks,
-    info:''
+    info:'',
+    allPrice:''
   },
 
   /**
@@ -163,7 +164,9 @@ Page({
   },
   _getGoodsInfo(){
     let info = app.globalData.detailInfo
-    this.setData({info})
+    let s_orderPrice = app.globalData.detailInfo.buyCount * app.globalData.detailInfo.activePrice
+    console.log(s_orderPrice,'s_orderPrice');
+    this.setData({info,allPrice:s_orderPrice})
     console.log(info,'info');
   },
   _getAddId(){

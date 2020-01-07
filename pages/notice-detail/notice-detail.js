@@ -24,7 +24,7 @@ Page({
         console.log(res);
         const detail = res.body.noticeMap
         WxParse.wxParse('article', 'html', detail.noticeContent, this, 10);
-
+        this.setData({detail})
       }
     )
   },

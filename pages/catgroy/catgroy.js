@@ -49,11 +49,12 @@ Page({
       }
     )
   },
-  _toDetail() {
-    let testid = 'ff8080816edbaac4016eeae94fa50005'
-    if (testid) {
+  _toDetail(e) {
+    const {id} = e.currentTarget.dataset
+    console.log(id,'id');
+    if (id) {
       wx.navigateTo({
-        url: `/pages/detail/detail?goodsId=${testid}`,
+        url: `/pages/detail/detail?goodsId=${id}`,
         success: (result) => {
 
         },

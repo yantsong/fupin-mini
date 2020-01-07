@@ -6,9 +6,10 @@
 		 data-orderid='{{item.orderRecordPId}}'
 		 bindtap='goorderxq'
 		>
-			<image class='list-img' src='../../image/default1.png' />
+			<!-- <image class='list-img' src='../../image/default1.png' /> -->
+			<view class='list-img'> 订单 </view>
 			<view class='dian-name'>
-				<view class='list-name'>{{item.shopName}}
+				<view class='list-name'>{{item.name}}
 					<view class='xiahuaxian' />
 				</view>
 			</view>

@@ -53,7 +53,7 @@
 					<image class="info-share" src="../../image/share.png" />
 				</view>
 				<view class="fpdetail-detail-info-des">
-					<view class="info-price">¥199</view>
+					<view class="info-price">{{ activePrice || goodsDetail.goodsC[0].price}}</view>
 					<view class="info-sale">
 						<image class="info-sale-icon" src="../../image/sale-icon.png" />
 						<view>月销量{{goodsDetail.saleNum}}</view>
@@ -99,9 +99,9 @@
 						购买数量
 					</view>
 					<view class="buy-area-count">
-						<image class="buy-area-count-image" bind:tap="_add" src="../../image/jia.png" />
-						<view>{{buyCount}}</view>
 						<image class="buy-area-count-image" bind:tap="_cut" src="../../image/jian.png" />
+						<view>{{buyCount}}</view>
+						<image class="buy-area-count-image" bind:tap="_add" src="../../image/jia.png" />
 					</view>
 				</view>
 			</view>
