@@ -9,17 +9,17 @@
       <view class="normalBtn ProductBtn">立即领养</view>
    </view>    -->
 	<view class="picContent">
-		<view class="smallImg" style="margin-right:19rpx;">
+		<view class="smallImg" style="margin-right:10rpx;"  data-goodsId='{{recommend[0].goodsId}}'  bind:tap="_toDetail">
 			<image src="{{recommendedImg[0]}}" style="height:209rpx;width:100%;" />
-			<view class="normalBtn smallBtn" data-goodsId='{{recommend[0].goodsId}}' bind:tap="_toDetail">立即领养</view>
+			<view class="normalBtn smallBtn"  >立即领养</view>
 		</view>
-		<view class="smallImg">
+		<view class="smallImg"  data-goodsId='{{recommend[1].goodsId}}'  bind:tap="_toDetail">
 			<image src="{{recommendedImg[1]}}" style="height:209rpx;width:100%;" />
-			<view class="normalBtn smallBtn" data-goodsId='{{recommend[1].goodsId}}' bind:tap="_toDetail">立即领养</view>
+			<view class="normalBtn smallBtn" >立即领养</view>
 		</view>
-		<view class="BigImg" wx:for="{{homeImg}}">
-			<image src="{{item}}" style="height:589rpx;width:100%" />
-			<view class="normalBtn bigBtn" data-goodsId='{{item.goodsId}}' bind:tap="_toDetail">立即领养</view>
+		<view class="smallImg" wx:for="{{homeImg}}"  data-goodsId='{{item.goodsId}}'  bind:tap="_toDetail">
+			<image src="{{item}}" style="height:209rpx;width:100%" />
+			<view class="normalBtn bigBtn"  >立即领养</view>
 		</view>
 	</view>
 </view>

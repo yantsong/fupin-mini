@@ -55,7 +55,7 @@ Page({
 })
 },
 _toDetail(e){
-const goodsId = e.target.dataset.goodsid
+const goodsId = e.currentTarget.dataset.goodsid;
 console.log(e,'e');
 wx.navigateTo({
   url: `/pages/rydetail/rydetail?goodsId=${goodsId}`,
